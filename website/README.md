@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Crescent website
 
-## Getting Started
+Next.js 16 App Router app for the Crescent storefront + CRM. See the repo-root `README.md` for the full feature map and `AGENTS.md` for coding conventions.
 
-First, run the development server:
+## Quick start
+
+From the repo root, source the group `.env` (PEXELS_API, MONGODB_URI), then:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run init-db          # indexes + settings + first CRM admin
+npm run seed             # catalog + Pexels imagery + hero videos
+npm run seed-offer-page  # draft "Offer Deals" page
+npm run dev              # http://localhost:3000 (set PORT to pin a port)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The database defaults to `crescent` in code; set `MONGODB_DB` to override. CRM defaults: `owner@crescent.local` / `crescent-admin` (set `CRM_ADMIN_EMAIL` / `CRM_ADMIN_PASSWORD` before `init-db` to change).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script | Purpose |
+|---|---|
+| `dev` / `build` / `start` | Dev server / production build / serve |
+| `typecheck` | `tsc --noEmit` |
+| `lint` | ESLint |
+| `init-db` | Indexes, settings doc, admin user (idempotent) |
+| `seed` | Catalog from `data/`, Pexels image resolution, hero videos (idempotent) |
+| `seed-offer-page` | Upsert the unpublished Offer Deals draft page |
 
-## Learn More
+## Layout
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/(storefront)/` — public site; `src/app/admin/` — CRM; `src/app/(auth)/admin/login` — CRM login
+- `src/app/api/` — storefront APIs; `src/app/api/admin/` — session-guarded CRM APIs
+- `src/app/uploads/[...path]/route.ts` — serves runtime-uploaded media from disk
+- `src/components/`, `src/components/admin/` — UI
+- `src/lib/` — mongo, session/auth, settings, catalog queries, pexels, format, domain types
+- `data/` — seed catalog, Pexels query map + cache
