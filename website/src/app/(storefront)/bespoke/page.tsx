@@ -41,9 +41,9 @@ export default async function BespokePage() {
   return (
     <div className="container-c py-12">
       <header className="mx-auto max-w-2xl text-center">
-        <p className="overline-c text-coral-dark">Bespoke Commissions</p>
+        <p className="overline-c text-terra">Bespoke Commissions</p>
         <h1 className="display-c mt-3 text-[34px]">Your vision. Our craft.</h1>
-        <p className="mt-5 text-[18px] leading-relaxed text-ink/90">
+        <p className="mt-5 text-[18px] leading-relaxed text-sand/90">
           Every Crescent piece begins with a conversation. We listen to how you live, what you
           value, and what your space could become — then we build it, by hand, to last a lifetime.
         </p>
@@ -65,9 +65,9 @@ export default async function BespokePage() {
       <ol className="mt-16 grid gap-6 md:grid-cols-2">
         {STEPS.map((s) => (
           <li key={s.n} className="panel-c p-8">
-            <p className="font-display text-[13px] font-semibold tracking-[0.3em] text-coral">{s.n}</p>
-            <h2 className="mt-3 font-display text-[18px] font-semibold text-maroon">{s.title}</h2>
-            <p className="mt-3 text-[16px] leading-relaxed text-ink/85">{s.body}</p>
+            <p className="font-display text-[13px] font-semibold tracking-[0.3em] text-terra">{s.n}</p>
+            <h2 className="mt-3 font-display text-[18px] font-semibold text-cream">{s.title}</h2>
+            <p className="mt-3 text-[16px] leading-relaxed text-sand/85">{s.body}</p>
           </li>
         ))}
       </ol>

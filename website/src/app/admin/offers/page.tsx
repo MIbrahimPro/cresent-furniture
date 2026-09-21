@@ -8,7 +8,7 @@ export default async function AdminOffers() {
   return (
     <div>
       <h1 className="display-c text-[26px]">Offers</h1>
-      <p className="mt-1.5 text-[16px] text-muted">
+      <p className="mt-1.5 text-[16px] text-sand">
         One sitewide offer banner at a time — write it, link it, and switch it on. For richer
         campaign pages (deal grids, galleries), use Pages and add one to the navigation.
       </p>

@@ -34,7 +34,7 @@ export function HeroVideo({ media }: { media: HeroMediaItem[] }) {
 
   return (
     <section
-      className="relative h-[92vh] min-h-[560px] w-full overflow-hidden bg-maroon"
+      className="relative h-[92vh] min-h-[560px] w-full overflow-hidden bg-ink"
       aria-label="Crescent workshop film"
     >
       {/* Background layer */}
@@ -65,7 +65,7 @@ export function HeroVideo({ media }: { media: HeroMediaItem[] }) {
       ) : null}
 
       {/* Dark maroon overlay for legibility (brand spec: 35–55% scrim) */}
-      <div className="absolute inset-0 bg-maroon/55" aria-hidden />
+      <div className="absolute inset-0 bg-ink/55" aria-hidden />
       <div
         className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-deep/70 to-transparent"
         aria-hidden
@@ -73,7 +73,7 @@ export function HeroVideo({ media }: { media: HeroMediaItem[] }) {
 
       {/* Heading and actions sit above the overlay */}
       <div className="container-c relative z-10 flex h-full flex-col items-center justify-center pb-16 text-center">
-        <p className="overline-c text-coral">Rawalpindi · Bespoke Furniture House</p>
+        <p className="overline-c text-terra">Rawalpindi · Bespoke Furniture House</p>
         <h1 className="display-c mt-5 max-w-3xl text-[40px] text-cream sm:text-[56px] lg:text-[64px]">
           Furniture that defines a room.
         </h1>

@@ -117,7 +117,7 @@ export function ShopFilters({ data }: { data: FilterData }) {
         <button
           type="button"
           onClick={() => router.push("/shop", { scroll: false })}
-          className="text-[14px] text-coral-dark underline underline-offset-4 hover:text-coral"
+          className="text-[14px] text-terra underline underline-offset-4 hover:text-terra"
         >
           Clear all filters
         </button>
@@ -132,7 +132,7 @@ export function SortSelect() {
   const sort = params.get("sort") ?? "featured";
 
   return (
-    <label className="flex items-center gap-2 text-[14px] text-muted">
+    <label className="flex items-center gap-2 text-[14px] text-sand">
       <span className="whitespace-nowrap font-display text-[11px] uppercase tracking-[0.16em]">
         Sort
       </span>
@@ -160,7 +160,7 @@ export function SortSelect() {
 function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-maroon">
+      <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-cream">
         {title}
       </h3>
       <div className="mt-3">{children}</div>
@@ -183,7 +183,7 @@ function FilterLink({
         type="button"
         onClick={onClick}
         className={`text-left text-[16px] transition-colors ${
-          active ? "font-medium text-coral-dark underline underline-offset-4" : "text-ink/80 hover:text-coral-dark"
+          active ? "font-medium text-terra underline underline-offset-4" : "text-sand/80 hover:text-terra"
         }`}
       >
         {children}

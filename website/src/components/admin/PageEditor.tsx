@@ -94,11 +94,11 @@ export function PageEditor({ page }: { page?: CustomPage }) {
       {sections.map((section, i) => (
         <section key={i} className="panel-c space-y-4 p-6">
           <div className="flex items-center justify-between">
-            <p className="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-coral-dark">
+            <p className="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-terra">
               {section.type.replace("-", " ")}
             </p>
             <div className="flex items-center gap-2">
-              <button type="button" onClick={() => setSections((ss) => ss.filter((_, x) => x !== i))} className="text-[14px] text-muted hover:text-coral-dark">
+              <button type="button" onClick={() => setSections((ss) => ss.filter((_, x) => x !== i))} className="text-[14px] text-sand hover:text-terra">
                 Remove section
               </button>
             </div>
@@ -260,7 +260,7 @@ export function PageEditor({ page }: { page?: CustomPage }) {
                     <button
                       type="button"
                       onClick={() => updateSection(i, { offers: section.offers.filter((_, x) => x !== oi) })}
-                      className="mt-2 text-[13.5px] text-muted hover:text-coral-dark"
+                      className="mt-2 text-[13.5px] text-sand hover:text-terra"
                     >
                       Remove deal
                     </button>
@@ -290,7 +290,7 @@ export function PageEditor({ page }: { page?: CustomPage }) {
         <button type="button" onClick={() => addSection("banner")} className="btn btn-secondary btn-sm">Banner</button>
       </section>
 
-      {error ? <p className="rounded-btn bg-coral-tint px-3 py-2 text-[14px] text-coral-dark">{error}</p> : null}
+      {error ? <p className="rounded-btn bg-terra-veil px-3 py-2 text-[14px] text-terra">{error}</p> : null}
 
       <div className="flex items-center gap-4">
         <button type="button" onClick={() => save()} disabled={saving} className="btn btn-primary">

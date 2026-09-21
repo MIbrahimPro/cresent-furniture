@@ -14,7 +14,7 @@ export default async function AdminPages() {
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="display-c text-[26px]">Pages</h1>
-          <p className="mt-1.5 max-w-xl text-[16px] text-muted">
+          <p className="mt-1.5 max-w-xl text-[16px] text-sand">
             Campaign and content pages — offer deals, lookbooks, announcements. Sections are
             composed from ready-made components; pages can be added to the storefront navigation.
           </p>

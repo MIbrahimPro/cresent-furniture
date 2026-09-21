@@ -40,10 +40,10 @@ export default async function ProductPage({
 
   return (
     <div className="container-c py-12">
-      <nav aria-label="Breadcrumb" className="text-[14px] text-muted">
-        <Link href="/" className="hover:text-coral-dark">Home</Link>
+      <nav aria-label="Breadcrumb" className="text-[14px] text-sand">
+        <Link href="/" className="hover:text-terra">Home</Link>
         <span className="mx-2">/</span>
-        <Link href={`/shop?category=${product.categorySlug}`} className="hover:text-coral-dark">
+        <Link href={`/shop?category=${product.categorySlug}`} className="hover:text-terra">
           {product.categorySlug}
         </Link>
         <span className="mx-2">/</span>

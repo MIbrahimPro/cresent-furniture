@@ -55,7 +55,7 @@ export default async function HomePage() {
       <section className="container-c py-20">
         <Reveal>
           <div className="text-center">
-            <p className="overline-c text-coral-dark">The Collection</p>
+            <p className="overline-c text-terra">The Collection</p>
             <h2 className="display-c mt-4 text-[30px] sm:text-[34px]">Made for how you live</h2>
             <hr className="hr-coral mx-auto mt-6" />
           </div>
@@ -75,12 +75,12 @@ export default async function HomePage() {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                 ) : null}
-                <div className="absolute inset-0 bg-maroon/45 transition-colors group-hover:bg-maroon/30" />
+                <div className="absolute inset-0 bg-ink/45 transition-colors group-hover:bg-ink/30" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
                   <h3 className="font-display text-[20px] font-semibold uppercase tracking-[0.08em] text-cream">
                     {c.name}
                   </h3>
-                  <p className="mt-1 font-display text-[11px] uppercase tracking-[0.22em] text-coral">
+                  <p className="mt-1 font-display text-[11px] uppercase tracking-[0.22em] text-terra">
                     Explore →
                   </p>
                 </div>
@@ -88,13 +88,13 @@ export default async function HomePage() {
             </Reveal>
           ))}
           <Reveal delay={categories.length * 60}>
-            <Link href="/bespoke" className="card-c group relative block h-56 bg-maroon">
+            <Link href="/bespoke" className="card-c group relative block h-56 bg-ink">
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-5 text-center">
-                <p className="overline-c text-coral">Made to order</p>
+                <p className="overline-c text-terra">Made to order</p>
                 <h3 className="font-display text-[20px] font-semibold uppercase tracking-[0.08em] text-cream">
                   Your vision. Our craft.
                 </h3>
-                <p className="font-display text-[11px] uppercase tracking-[0.22em] text-coral">
+                <p className="font-display text-[11px] uppercase tracking-[0.22em] text-terra">
                   Start a commission →
                 </p>
               </div>
@@ -104,12 +104,12 @@ export default async function HomePage() {
       </section>
 
       {/* Featured products */}
-      <section className="bg-parchment py-20">
+      <section className="bg-walnut-2 py-20">
         <div className="container-c">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="overline-c text-coral-dark">Featured</p>
+                <p className="overline-c text-terra">Featured</p>
                 <h2 className="display-c mt-4 text-[30px] sm:text-[34px]">The workshop's best</h2>
               </div>
               <Link href="/shop" className="btn btn-secondary">
@@ -132,16 +132,16 @@ export default async function HomePage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div>
-              <p className="overline-c text-coral-dark">Our Promise</p>
+              <p className="overline-c text-terra">Our Promise</p>
               <h2 className="display-c mt-4 text-[30px] sm:text-[34px]">
                 Pakistani craft. Global standard.
               </h2>
-              <p className="mt-6 text-[18px] leading-relaxed text-ink/90">
+              <p className="mt-6 text-[18px] leading-relaxed text-sand/90">
                 We are proud of where we are from. For over four decades, Crescent has proved that
                 the finest handcrafted furniture in the world does not have to come from Europe. It
                 can come from Rawalpindi.
               </p>
-              <p className="mt-4 text-[18px] leading-relaxed text-ink/90">
+              <p className="mt-4 text-[18px] leading-relaxed text-sand/90">
                 Every joint is cut by hand. Every board is seasoned before it is shaped. Nothing
                 leaves the workshop until it deserves the name on the door.
               </p>
@@ -157,7 +157,7 @@ export default async function HomePage() {
           </Reveal>
           <Reveal delay={120}>
             <div className="relative">
-              <div className="card-c aspect-[4/5] overflow-hidden bg-parchment">
+              <div className="card-c aspect-[4/5] overflow-hidden bg-walnut-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={settings.heroMedia.find((m) => m.type === "image")?.url ?? "/crescent-logo-light-2000.png"}
@@ -165,18 +165,18 @@ export default async function HomePage() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-5 -left-5 hidden h-40 w-40 rounded-card border border-coral bg-transparent lg:block" aria-hidden />
+              <div className="absolute -bottom-5 -left-5 hidden h-40 w-40 rounded-card border border-terra bg-transparent lg:block" aria-hidden />
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-maroon py-20">
+      <section className="bg-ink py-20">
         <div className="container-c">
           <Reveal>
             <div className="text-center">
-              <p className="overline-c text-coral">Kind Words</p>
+              <p className="overline-c text-terra">Kind Words</p>
               <h2 className="display-c mt-4 text-[30px] text-cream sm:text-[34px]">
                 From our clients' homes
               </h2>
@@ -190,7 +190,7 @@ export default async function HomePage() {
                     “{t.quote}”
                   </blockquote>
                   <figcaption className="mt-5">
-                    <p className="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-coral">
+                    <p className="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-terra">
                       {t.name} · {t.city}
                     </p>
                     <p className="mt-1 text-[14px] italic text-cream/60">{t.piece}</p>
@@ -206,9 +206,9 @@ export default async function HomePage() {
       <section className="container-c py-20">
         <Reveal>
           <div className="mx-auto max-w-xl text-center">
-            <p className="overline-c text-coral-dark">The Workshop Letter</p>
+            <p className="overline-c text-terra">The Workshop Letter</p>
             <h2 className="display-c mt-4 text-[26px]">News from the bench</h2>
-            <p className="mt-4 text-[17px] text-muted">
+            <p className="mt-4 text-[17px] text-sand">
               Occasional letters about new pieces, timber arrivals, and what the workshop is building.
             </p>
             <div className="flex justify-center">
@@ -224,8 +224,8 @@ export default async function HomePage() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <p className="font-display text-[28px] font-semibold text-coral-dark">{value}</p>
-      <p className="mt-1 text-[14px] leading-snug text-muted">{label}</p>
+      <p className="font-display text-[28px] font-semibold text-terra">{value}</p>
+      <p className="mt-1 text-[14px] leading-snug text-sand">{label}</p>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default async function AdminReviews() {
   return (
     <div>
       <h1 className="display-c text-[26px]">Reviews</h1>
-      <p className="mt-1.5 text-[16px] text-muted">
+      <p className="mt-1.5 text-[16px] text-sand">
         Owner notes submitted from product pages. Approve to publish on the storefront.
       </p>
       <ReviewsModeration reviews={reviews} />

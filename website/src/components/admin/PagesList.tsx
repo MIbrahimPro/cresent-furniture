@@ -24,20 +24,20 @@ export function PagesList({ pages }: { pages: CustomPage[] }) {
 
   return (
     <div className="panel-c mt-8 max-w-4xl divide-y divide-line">
-      <p className="border-b border-line bg-parchment px-5 py-3 text-[13.5px] text-muted">
+      <p className="border-b border-line bg-walnut-2 px-5 py-3 text-[13.5px] text-sand">
         Draft pages are not shown on the storefront. To preview a draft, tick “Published” and save —
         the page then renders at /p/your-slug; untick it again when you are done.
       </p>
       {pages.length === 0 ? (
-        <p className="p-6 text-[15px] text-muted">
+        <p className="p-6 text-[15px] text-sand">
           No pages yet. Create one — for example an “Eid Deals” page you can publish when ready.
         </p>
       ) : (
         pages.map((p) => (
           <div key={String(p._id)} className="flex items-center justify-between gap-4 px-5 py-4">
             <div className="min-w-0">
-              <p className="font-medium text-maroon">{p.title}</p>
-              <p className="truncate text-[13.5px] text-muted">
+              <p className="font-medium text-cream">{p.title}</p>
+              <p className="truncate text-[13.5px] text-sand">
                 /p/{p.slug} · {p.sections.length} section{p.sections.length === 1 ? "" : "s"} ·{" "}
                 {p.published ? "published" : "draft"}
                 {p.showInNav ? " · in navigation" : ""}
@@ -45,24 +45,24 @@ export function PagesList({ pages }: { pages: CustomPage[] }) {
             </div>
             <div className="flex shrink-0 items-center gap-3">
               {p.published ? (
-                <Link href={`/p/${p.slug}`} className="text-[14px] text-coral-dark hover:underline">
+                <Link href={`/p/${p.slug}`} className="text-[14px] text-terra hover:underline">
                   View
                 </Link>
               ) : null}
-              <Link href={`/admin/pages/${p._id}`} className="text-[14px] font-medium text-coral-dark hover:underline">
+              <Link href={`/admin/pages/${p._id}`} className="text-[14px] font-medium text-terra hover:underline">
                 Edit
               </Link>
               <button
                 type="button"
                 onClick={() => togglePublished(p)}
-                className="rounded-btn border border-line px-3 py-1.5 text-[13px] font-medium text-maroon hover:border-coral"
+                className="rounded-btn border border-line px-3 py-1.5 text-[13px] font-medium text-cream hover:border-terra"
               >
                 {p.published ? "Unpublish" : "Publish"}
               </button>
               <button
                 type="button"
                 onClick={() => remove(p)}
-                className="text-[14px] text-muted hover:text-coral-dark hover:underline"
+                className="text-[14px] text-sand hover:text-terra hover:underline"
               >
                 Delete
               </button>

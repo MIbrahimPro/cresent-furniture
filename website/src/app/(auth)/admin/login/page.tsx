@@ -38,10 +38,10 @@ function LoginForm() {
   return (
     <form onSubmit={submit} className="w-full max-w-sm">
       <div className="panel-c p-8">
-        <h1 className="font-display text-[18px] font-semibold uppercase tracking-[0.14em] text-maroon">
+        <h1 className="font-display text-[18px] font-semibold uppercase tracking-[0.14em] text-cream">
           Crescent CRM
         </h1>
-        <p className="mt-1.5 text-[15px] text-muted">Sign in to manage the workshop.</p>
+        <p className="mt-1.5 text-[15px] text-sand">Sign in to manage the workshop.</p>
 
         <div className="mt-7 space-y-4">
           <div>
@@ -55,7 +55,7 @@ function LoginForm() {
         </div>
 
         {error ? (
-          <p role="alert" className="mt-4 rounded-btn bg-coral-tint px-3 py-2 text-[14px] text-coral-dark">
+          <p role="alert" className="mt-4 rounded-btn bg-terra-veil px-3 py-2 text-[14px] text-terra">
             {error}
           </p>
         ) : null}
@@ -70,7 +70,7 @@ function LoginForm() {
 
 export default function AdminLoginPage() {
   return (
-    <div className="grid min-h-screen place-items-center bg-parchment px-4">
+    <div className="grid min-h-screen place-items-center bg-walnut-2 px-4">
       <Suspense fallback={null}>
         <LoginForm />
       </Suspense>

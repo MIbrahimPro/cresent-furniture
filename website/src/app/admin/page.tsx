@@ -34,11 +34,11 @@ export default async function AdminDashboard() {
     <div>
       <header>
         <h1 className="display-c text-[26px]">Dashboard</h1>
-        <p className="mt-1.5 text-[16px] text-muted">The workshop at a glance.</p>
+        <p className="mt-1.5 text-[16px] text-sand">The workshop at a glance.</p>
       </header>
 
       {dbError ? (
-        <p className="panel-c mt-8 p-6 text-muted">
+        <p className="panel-c mt-8 p-6 text-sand">
           Database unreachable. Start MongoDB and refresh.
         </p>
       ) : (
@@ -51,15 +51,15 @@ export default async function AdminDashboard() {
 
           <div className="panel-c mt-8">
             <div className="flex items-center justify-between border-b border-line px-5 py-4">
-              <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+              <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
                 Recent orders
               </h2>
-              <Link href="/admin/orders" className="text-[14px] text-coral-dark hover:underline">
+              <Link href="/admin/orders" className="text-[14px] text-terra hover:underline">
                 View all
               </Link>
             </div>
             {recent.length === 0 ? (
-              <p className="px-5 py-8 text-[15px] text-muted">
+              <p className="px-5 py-8 text-[15px] text-sand">
                 No orders yet. They appear here when a customer begins a commission on WhatsApp.
               </p>
             ) : (
@@ -67,17 +67,17 @@ export default async function AdminDashboard() {
                 {recent.map((o) => (
                   <li key={String(o._id)} className="flex items-center justify-between gap-4 px-5 py-4">
                     <div className="min-w-0">
-                      <p className="font-display text-[14px] font-semibold text-maroon">
+                      <p className="font-display text-[14px] font-semibold text-cream">
                         {o.number} · {o.customer.name}
                       </p>
-                      <p className="truncate text-[14px] text-muted">
+                      <p className="truncate text-[14px] text-sand">
                         {o.items.length} piece{o.items.length === 1 ? "" : "s"} ·{" "}
                         {new Date(o.createdAt).toLocaleDateString()}
                       </p>
                     </div>
                     <div className="flex items-center gap-4">
                       <span className="font-display text-[14px] font-semibold">{formatPKR(o.total)}</span>
-                      <span className="rounded-full bg-parchment px-3 py-1 text-[12px] font-medium text-maroon">
+                      <span className="rounded-full bg-walnut-2 px-3 py-1 text-[12px] font-medium text-cream">
                         {STATUS_LABELS[o.status]}
                       </span>
                     </div>
@@ -104,11 +104,11 @@ function StatCard({
   accent?: boolean;
 }) {
   return (
-    <Link href={href} className={`card-c block p-6 ${accent ? "border-coral" : ""}`}>
-      <p className="font-display text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
+    <Link href={href} className={`card-c block p-6 ${accent ? "border-terra" : ""}`}>
+      <p className="font-display text-[11px] font-semibold uppercase tracking-[0.18em] text-sand">
         {label}
       </p>
-      <p className={`mt-2 font-display text-[26px] font-semibold ${accent ? "text-coral-dark" : "text-maroon"}`}>
+      <p className={`mt-2 font-display text-[26px] font-semibold ${accent ? "text-terra" : "text-cream"}`}>
         {value}
       </p>
     </Link>

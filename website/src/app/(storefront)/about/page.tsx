@@ -15,14 +15,14 @@ export default async function AboutPage() {
   return (
     <div className="container-c py-12">
       <header className="mx-auto max-w-2xl text-center">
-        <p className="overline-c text-coral-dark">Our Story</p>
+        <p className="overline-c text-terra">Our Story</p>
         <h1 className="display-c mt-3 text-[34px]">
           We do not manufacture furniture. We engineer heirlooms.
         </h1>
         <hr className="hr-coral mx-auto mt-6" />
       </header>
 
-      <div className="mx-auto mt-12 max-w-2xl space-y-6 text-[18px] leading-relaxed text-ink/90">
+      <div className="mx-auto mt-12 max-w-2xl space-y-6 text-[18px] leading-relaxed text-sand/90">
         <p>
           Crescent began as a two-bench workshop on Murree Road with a simple stubbornness: that a
           piece of furniture should outlive the person who bought it, and that everything needed to
@@ -50,7 +50,7 @@ export default async function AboutPage() {
 
       <div className="panel-c mt-14 p-10 text-center">
         <h2 className="display-c text-[24px]">Visit the workshop</h2>
-        <p className="mx-auto mt-3 max-w-md text-[16px] text-muted">{business.address}</p>
+        <p className="mx-auto mt-3 max-w-md text-[16px] text-sand">{business.address}</p>
         <Link href="/contact" className="btn btn-primary mt-6">
           Plan a visit
         </Link>
@@ -62,10 +62,10 @@ export default async function AboutPage() {
 function Value({ title, body }: { title: string; body: string }) {
   return (
     <div className="panel-c p-6">
-      <h3 className="font-display text-[14px] font-semibold uppercase tracking-[0.12em] text-maroon">
+      <h3 className="font-display text-[14px] font-semibold uppercase tracking-[0.12em] text-cream">
         {title}
       </h3>
-      <p className="mt-3 text-[16px] leading-relaxed text-ink/85">{body}</p>
+      <p className="mt-3 text-[16px] leading-relaxed text-sand/85">{body}</p>
     </div>
   );
 }

@@ -85,7 +85,7 @@ export function ProductForm({
     <form onSubmit={submit} className="mt-8 grid max-w-4xl gap-8 lg:grid-cols-[1fr_320px]">
       <div className="space-y-6">
         <section className="panel-c space-y-4 p-6">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
             Basics
           </h2>
           <Field label="Name">
@@ -112,7 +112,7 @@ export function ProductForm({
         </section>
 
         <section className="panel-c space-y-4 p-6">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
             Pricing & availability
           </h2>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -147,7 +147,7 @@ export function ProductForm({
 
         <section className="panel-c space-y-4 p-6">
           <div className="flex items-center justify-between">
-            <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+            <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
               Variants
             </h2>
             <button type="button" onClick={addVariant} className="btn btn-secondary btn-sm">
@@ -166,7 +166,7 @@ export function ProductForm({
                 <button
                   type="button"
                   onClick={() => removeVariant(i)}
-                  className="text-[14px] text-muted hover:text-coral-dark"
+                  className="text-[14px] text-sand hover:text-terra"
                   aria-label={`Remove ${v.name || "variant group"}`}
                 >
                   Remove
@@ -204,7 +204,7 @@ export function ProductForm({
                           priceDeltas: (v.priceDeltas ?? v.options.map(() => 0)).filter((_, x) => x !== oi),
                         })
                       }
-                      className="px-2 text-muted hover:text-coral-dark"
+                      className="px-2 text-sand hover:text-terra"
                       aria-label={`Remove option ${opt || oi + 1}`}
                     >
                       ×
@@ -219,21 +219,21 @@ export function ProductForm({
                       priceDeltas: [...(v.priceDeltas ?? v.options.map(() => 0)), 0],
                     })
                   }
-                  className="text-[14px] text-coral-dark hover:underline"
+                  className="text-[14px] text-terra hover:underline"
                 >
                   + option
                 </button>
               </div>
             </div>
           ))}
-          <p className="text-[13.5px] text-muted">
+          <p className="text-[13.5px] text-sand">
             The number column is the price added for that option (can be negative). Base price is
             the product price.
           </p>
         </section>
 
         <section className="panel-c space-y-4 p-6">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
             Images
           </h2>
           {images.length ? (
@@ -254,7 +254,7 @@ export function ProductForm({
               ))}
             </div>
           ) : (
-            <p className="text-[15px] text-muted">No images yet.</p>
+            <p className="text-[15px] text-sand">No images yet.</p>
           )}
           <div className="flex gap-2">
             <input
@@ -285,12 +285,12 @@ export function ProductForm({
           <Toggle name="active" label="Live on the storefront" defaultChecked={product?.active ?? true} />
           <Toggle name="featured" label="Featured on home page" defaultChecked={product?.featured ?? false} />
           {error ? (
-            <p className="rounded-btn bg-coral-tint px-3 py-2 text-[14px] text-coral-dark">{error}</p>
+            <p className="rounded-btn bg-terra-veil px-3 py-2 text-[14px] text-terra">{error}</p>
           ) : null}
           <button type="submit" disabled={saving} className="btn btn-primary w-full">
             {saving ? "Saving…" : isEdit ? "Save changes" : "Create product"}
           </button>
-          <button type="button" onClick={() => router.back()} className="w-full text-[14px] text-muted underline underline-offset-4">
+          <button type="button" onClick={() => router.back()} className="w-full text-[14px] text-sand underline underline-offset-4">
             Cancel
           </button>
         </div>
@@ -310,7 +310,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 function Toggle({ name, label, defaultChecked }: { name: string; label: string; defaultChecked?: boolean }) {
   return (
-    <label className="flex items-center gap-3 text-[15px] text-ink">
+    <label className="flex items-center gap-3 text-[15px] text-sand">
       <input type="checkbox" name={name} defaultChecked={defaultChecked} className="h-4 w-4 accent-[#E5624D]" />
       {label}
     </label>

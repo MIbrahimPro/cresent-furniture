@@ -42,8 +42,8 @@ export function Header({
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-cream/90 backdrop-blur-md">
       {announcement ? (
-        <div className="bg-maroon px-4 py-2 text-center">
-          <p className="font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-coral">
+        <div className="bg-ink px-4 py-2 text-center">
+          <p className="font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-terra">
             {announcement}
           </p>
         </div>
@@ -75,7 +75,7 @@ export function Header({
             type="button"
             aria-label="Search products"
             onClick={() => setSearchOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-btn text-maroon transition-colors hover:bg-parchment"
+            className="grid h-10 w-10 place-items-center rounded-btn text-cream transition-colors hover:bg-walnut-2"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
               <circle cx="11" cy="11" r="7" />
@@ -86,14 +86,14 @@ export function Header({
           <Link
             href="/cart"
             aria-label={`Cart, ${ready ? count : 0} items`}
-            className="relative grid h-10 w-10 place-items-center rounded-btn text-maroon transition-colors hover:bg-parchment"
+            className="relative grid h-10 w-10 place-items-center rounded-btn text-cream transition-colors hover:bg-walnut-2"
           >
             <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8Z" />
               <path d="M9 10V6a3 3 0 0 1 6 0v4" />
             </svg>
             {ready && count > 0 ? (
-              <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-coral px-1 font-display text-[10px] font-bold text-deep">
+              <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-terra px-1 font-display text-[10px] font-bold text-deep">
                 {count}
               </span>
             ) : null}
@@ -108,7 +108,7 @@ export function Header({
             aria-label="Open menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-btn text-maroon lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-btn text-cream lg:hidden"
           >
             {menuOpen ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -163,12 +163,12 @@ function NavLinkC({ href, label, active }: { href: string; label: string; active
   return (
     <Link
       href={href}
-      className={`relative font-display text-[12px] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-coral-dark ${
-        active ? "text-coral-dark" : "text-maroon"
+      className={`relative font-display text-[12px] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-terra ${
+        active ? "text-terra" : "text-cream"
       }`}
     >
       {label}
-      {active ? <span className="absolute -bottom-[10px] left-0 right-0 h-0.5 bg-coral" /> : null}
+      {active ? <span className="absolute -bottom-[10px] left-0 right-0 h-0.5 bg-terra" /> : null}
     </Link>
   );
 }
@@ -178,7 +178,7 @@ function MobileLink({ href, label, onClick }: { href: string; label: string; onC
     <Link
       href={href}
       onClick={onClick}
-      className="rounded-btn px-3 py-3 font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-maroon hover:bg-parchment"
+      className="rounded-btn px-3 py-3 font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-cream hover:bg-walnut-2"
     >
       {label}
     </Link>

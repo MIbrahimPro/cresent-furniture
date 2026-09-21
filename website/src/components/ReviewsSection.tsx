@@ -28,16 +28,16 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
           <div className="flex items-baseline gap-3">
             <h2 className="display-c text-[24px]">Owners' notes</h2>
             {reviews.length ? (
-              <span className="text-[15px] text-muted">
+              <span className="text-[15px] text-sand">
                 {avg.toFixed(1)} ★ · {reviews.length} {reviews.length === 1 ? "note" : "notes"}
               </span>
             ) : null}
           </div>
 
           {reviews.length === 0 ? (
-            <p className="mt-5 text-[16px] text-muted">
+            <p className="mt-5 text-[16px] text-sand">
               No notes yet for this piece. Bought it from us before?{" "}
-              <Link href="/contact" className="text-coral-dark underline underline-offset-4">
+              <Link href="/contact" className="text-terra underline underline-offset-4">
                 Tell the workshop
               </Link>{" "}
               and leave the first note.
@@ -47,17 +47,17 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
               {reviews.map((r) => (
                 <li key={String(r._id)} className="panel-c p-6">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-maroon">
+                    <p className="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-cream">
                       {r.name}
                     </p>
                     <Stars value={r.rating} />
                   </div>
                   {r.title ? (
-                    <p className="mt-2 font-display text-[15px] font-semibold text-ink">{r.title}</p>
+                    <p className="mt-2 font-display text-[15px] font-semibold text-sand">{r.title}</p>
                   ) : null}
-                  <p className="mt-2 text-[16px] leading-relaxed text-ink/90">{r.body}</p>
+                  <p className="mt-2 text-[16px] leading-relaxed text-sand/90">{r.body}</p>
                   {r.orderNumber ? (
-                    <p className="mt-3 text-[13px] text-muted">Order {r.orderNumber} · verified</p>
+                    <p className="mt-3 text-[13px] text-sand">Order {r.orderNumber} · verified</p>
                   ) : null}
                 </li>
               ))}
@@ -66,10 +66,10 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
         </div>
 
         <div>
-          <h3 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-maroon">
+          <h3 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-cream">
             Leave a note
           </h3>
-          <p className="mt-2 text-[15px] text-muted">
+          <p className="mt-2 text-[15px] text-sand">
             Notes are read by the workshop and published after a quick check.
           </p>
           <ReviewForm productSlug={productSlug} />
@@ -81,7 +81,7 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
 
 function Stars({ value }: { value: number }) {
   return (
-    <span aria-label={`${value} out of 5 stars`} className="whitespace-nowrap text-coral">
+    <span aria-label={`${value} out of 5 stars`} className="whitespace-nowrap text-terra">
       {"★".repeat(Math.round(value))}
       <span className="text-line">{"★".repeat(5 - Math.round(value))}</span>
     </span>

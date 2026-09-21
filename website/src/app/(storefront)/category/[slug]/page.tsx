@@ -40,26 +40,26 @@ export default async function CategoryPage({
 
   return (
     <div className="container-c py-12">
-      <nav aria-label="Breadcrumb" className="text-[14px] text-muted">
-        <Link href="/" className="hover:text-coral-dark">Home</Link>
+      <nav aria-label="Breadcrumb" className="text-[14px] text-sand">
+        <Link href="/" className="hover:text-terra">Home</Link>
         <span className="mx-2">/</span>
-        <Link href="/shop" className="hover:text-coral-dark">Shop</Link>
+        <Link href="/shop" className="hover:text-terra">Shop</Link>
         <span className="mx-2">/</span>
         <span>{cat?.name ?? slug}</span>
       </nav>
 
       <header className="mt-4 max-w-2xl">
-        <p className="overline-c text-coral-dark">Category</p>
+        <p className="overline-c text-terra">Category</p>
         <h1 className="display-c mt-3 text-[32px]">{cat?.name ?? slug}</h1>
         {cat?.description ? (
-          <p className="mt-3 text-[17px] text-muted">{cat.description}</p>
+          <p className="mt-3 text-[17px] text-sand">{cat.description}</p>
         ) : null}
       </header>
 
       {dbError ? (
-        <p className="panel-c mt-10 p-6 text-[16px] text-muted">Database unreachable — try again shortly.</p>
+        <p className="panel-c mt-10 p-6 text-[16px] text-sand">Database unreachable — try again shortly.</p>
       ) : products.length === 0 ? (
-        <div className="panel-c mt-10 p-10 text-center text-muted">
+        <div className="panel-c mt-10 p-10 text-center text-sand">
           No pieces in this category yet.
         </div>
       ) : (
@@ -72,7 +72,7 @@ export default async function CategoryPage({
 
       {others.length ? (
         <div className="mt-14 border-t border-line pt-8">
-          <p className="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-muted">
+          <p className="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-sand">
             Keep browsing
           </p>
           <div className="mt-4 flex flex-wrap gap-3">

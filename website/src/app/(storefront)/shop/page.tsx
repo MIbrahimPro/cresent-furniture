@@ -64,15 +64,15 @@ export default async function ShopPage({
 
   return (
     <div className="container-c py-12">
-      <nav aria-label="Breadcrumb" className="text-[14px] text-muted">
-        <Link href="/" className="hover:text-coral-dark">Home</Link>
+      <nav aria-label="Breadcrumb" className="text-[14px] text-sand">
+        <Link href="/" className="hover:text-terra">Home</Link>
         <span className="mx-2">/</span>
         <span>{activeCategory ? activeCategory.name : "Shop"}</span>
       </nav>
 
       <header className="mt-4 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="overline-c text-coral-dark">The Collection</p>
+          <p className="overline-c text-terra">The Collection</p>
           <h1 className="display-c mt-3 text-[32px]">
             {sp.q
               ? `Results for “${sp.q}”`
@@ -81,7 +81,7 @@ export default async function ShopPage({
                 : "All furniture"}
           </h1>
           {activeCategory?.description ? (
-            <p className="mt-3 max-w-xl text-[17px] text-muted">{activeCategory.description}</p>
+            <p className="mt-3 max-w-xl text-[17px] text-sand">{activeCategory.description}</p>
           ) : null}
         </div>
         <Suspense fallback={null}>
@@ -90,7 +90,7 @@ export default async function ShopPage({
       </header>
 
       {dbError ? (
-        <p className="panel-c mt-10 p-6 text-[16px] text-muted">
+        <p className="panel-c mt-10 p-6 text-[16px] text-sand">
           The catalogue is resting — the database is unreachable. Run <code>npm run seed</code> and
           refresh.
         </p>
@@ -101,15 +101,15 @@ export default async function ShopPage({
           </Suspense>
 
           <div>
-            <p className="text-[15px] text-muted">
+            <p className="text-[15px] text-sand">
               {products.length} {products.length === 1 ? "piece" : "pieces"}
             </p>
             {products.length === 0 ? (
               <div className="panel-c mt-4 p-10 text-center">
-                <p className="font-display text-[16px] uppercase tracking-[0.14em] text-maroon">
+                <p className="font-display text-[16px] uppercase tracking-[0.14em] text-cream">
                   Nothing matches that search
                 </p>
-                <p className="mt-2 text-[16px] text-muted">
+                <p className="mt-2 text-[16px] text-sand">
                   Try a different word, or clear a filter or two.
                 </p>
               </div>

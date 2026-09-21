@@ -45,16 +45,16 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
   }
 
   if (!ready) {
-    return <p className="py-16 text-center text-muted">Opening your selection…</p>;
+    return <p className="py-16 text-center text-sand">Opening your selection…</p>;
   }
 
   if (items.length === 0) {
     return (
       <div className="panel-c mx-auto max-w-lg p-12 text-center">
-        <h2 className="font-display text-[18px] font-semibold uppercase tracking-[0.12em] text-maroon">
+        <h2 className="font-display text-[18px] font-semibold uppercase tracking-[0.12em] text-cream">
           Your selection is empty
         </h2>
-        <p className="mt-3 text-[16px] text-muted">
+        <p className="mt-3 text-[16px] text-sand">
           Add pieces from the collection and we will start a conversation.
         </p>
         <Link href="/shop" className="btn btn-primary mt-7">
@@ -72,7 +72,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
             <li key={item.productId + JSON.stringify(item.options)} className="flex gap-4 py-5">
               <Link
                 href={`/product/${item.slug}`}
-                className="h-24 w-28 shrink-0 overflow-hidden rounded-card bg-parchment"
+                className="h-24 w-28 shrink-0 overflow-hidden rounded-card bg-walnut-2"
               >
                 {item.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -84,25 +84,25 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
                   <div>
                     <Link
                       href={`/product/${item.slug}`}
-                      className="font-display text-[15px] font-semibold text-maroon hover:text-coral-dark"
+                      className="font-display text-[15px] font-semibold text-cream hover:text-terra"
                     >
                       {item.name}
                     </Link>
                     {Object.keys(item.options).length ? (
-                      <p className="mt-0.5 text-[14px] text-muted">{optionsLabel(item.options)}</p>
+                      <p className="mt-0.5 text-[14px] text-sand">{optionsLabel(item.options)}</p>
                     ) : null}
                   </div>
-                  <p className="whitespace-nowrap font-display text-[15px] font-semibold text-maroon">
+                  <p className="whitespace-nowrap font-display text-[15px] font-semibold text-cream">
                     {formatPKR(item.unitPrice * item.qty)}
                   </p>
                 </div>
                 <div className="mt-3 flex items-center gap-4">
-                  <div className="flex items-center rounded-btn border border-line bg-white">
+                  <div className="flex items-center rounded-btn border border-line bg-walnut-2">
                     <button
                       type="button"
                       aria-label="Decrease quantity"
                       onClick={() => setQty(item.productId, item.options, item.qty - 1)}
-                      className="grid h-9 w-9 place-items-center text-maroon hover:text-coral-dark"
+                      className="grid h-9 w-9 place-items-center text-cream hover:text-terra"
                     >
                       −
                     </button>
@@ -111,7 +111,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
                       type="button"
                       aria-label="Increase quantity"
                       onClick={() => setQty(item.productId, item.options, item.qty + 1)}
-                      className="grid h-9 w-9 place-items-center text-maroon hover:text-coral-dark"
+                      className="grid h-9 w-9 place-items-center text-cream hover:text-terra"
                     >
                       +
                     </button>
@@ -119,7 +119,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
                   <button
                     type="button"
                     onClick={() => removeItem(item.productId, item.options)}
-                    className="text-[14px] text-muted underline underline-offset-4 hover:text-coral-dark"
+                    className="text-[14px] text-sand underline underline-offset-4 hover:text-terra"
                   >
                     Remove
                   </button>
@@ -131,7 +131,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
         <button
           type="button"
           onClick={clear}
-          className="mt-5 text-[14px] text-muted underline underline-offset-4 hover:text-coral-dark"
+          className="mt-5 text-[14px] text-sand underline underline-offset-4 hover:text-terra"
         >
           Clear selection
         </button>
@@ -140,7 +140,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
       {/* Summary + checkout */}
       <div>
         <div className="panel-c sticky top-24 p-6">
-          <h2 className="font-display text-[14px] font-semibold uppercase tracking-[0.18em] text-maroon">
+          <h2 className="font-display text-[14px] font-semibold uppercase tracking-[0.18em] text-cream">
             Your commission
           </h2>
           <div className="mt-4 space-y-2 text-[16px]">
@@ -151,11 +151,11 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
             <span className="font-display text-[13px] font-semibold uppercase tracking-[0.16em]">
               Estimated total
             </span>
-            <span className="font-display text-[20px] font-semibold text-maroon">
+            <span className="font-display text-[20px] font-semibold text-cream">
               {formatPKR(total)}
             </span>
           </div>
-          <p className="mt-2 text-[13.5px] italic text-muted">{settings.shippingNote}</p>
+          <p className="mt-2 text-[13.5px] italic text-sand">{settings.shippingNote}</p>
 
           {!open ? (
             <button type="button" onClick={() => setOpen(true)} className="btn btn-primary mt-6 w-full">
@@ -169,7 +169,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
                 checkout();
               }}
             >
-              <p className="text-[14px] leading-snug text-muted">
+              <p className="text-[14px] leading-snug text-sand">
                 Your order opens in WhatsApp with everything already written — just press send.
               </p>
               <div>
@@ -195,13 +195,13 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
               <button type="submit" className="btn btn-primary w-full">
                 Open WhatsApp with my order
               </button>
-              <button type="button" onClick={() => setOpen(false)} className="w-full text-[14px] text-muted underline underline-offset-4">
+              <button type="button" onClick={() => setOpen(false)} className="w-full text-[14px] text-sand underline underline-offset-4">
                 Back
               </button>
             </form>
           )}
 
-          <p className="mt-4 text-center text-[13px] text-muted">
+          <p className="mt-4 text-center text-[13px] text-sand">
             No online payment — the workshop confirms everything with you personally.
           </p>
         </div>
@@ -213,8 +213,8 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
 function Row({ label, value, muted }: { label: string; value: string; muted?: boolean }) {
   return (
     <div className="flex justify-between gap-4">
-      <span className="text-muted">{label}</span>
-      <span className={muted ? "text-muted" : "font-medium text-ink"}>{value}</span>
+      <span className="text-sand">{label}</span>
+      <span className={muted ? "text-sand" : "font-medium text-sand"}>{value}</span>
     </div>
   );
 }

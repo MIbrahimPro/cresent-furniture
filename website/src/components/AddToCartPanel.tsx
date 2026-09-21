@@ -55,12 +55,12 @@ export function ProductDetail({
     <div className="grid gap-10 lg:grid-cols-2">
       {/* Gallery */}
       <div>
-        <div className="card-c aspect-[4/3] overflow-hidden bg-parchment">
+        <div className="card-c aspect-[4/3] overflow-hidden bg-walnut-2">
           {p.images?.[imageIdx] ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={p.images[imageIdx]} alt={p.name} className="h-full w-full object-cover" />
           ) : (
-            <div className="grid h-full place-items-center text-muted">No image yet</div>
+            <div className="grid h-full place-items-center text-sand">No image yet</div>
           )}
         </div>
         {p.images.length > 1 ? (
@@ -72,7 +72,7 @@ export function ProductDetail({
                 onClick={() => setImageIdx(i)}
                 aria-label={`Image ${i + 1}`}
                 className={`h-20 w-24 shrink-0 overflow-hidden rounded-card border-2 transition-colors ${
-                  i === imageIdx ? "border-coral" : "border-transparent hover:border-line"
+                  i === imageIdx ? "border-terra" : "border-transparent hover:border-line"
                 }`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -85,18 +85,18 @@ export function ProductDetail({
 
       {/* Details + purchase */}
       <div>
-        <p className="overline-c text-coral-dark">
+        <p className="overline-c text-terra">
           {p.kind === "in-stock" ? "Ready to deliver" : "Made to order"}
         </p>
         <h1 className="display-c mt-3 text-[30px] sm:text-[36px]">{p.name}</h1>
-        <p className="mt-3 text-[18px] italic text-muted">{p.tagline}</p>
+        <p className="mt-3 text-[18px] italic text-sand">{p.tagline}</p>
 
         <div className="mt-5 flex items-baseline gap-3">
-          <span className="font-display text-[24px] font-semibold text-maroon">
+          <span className="font-display text-[24px] font-semibold text-cream">
             {formatPKR(unitPrice)}
           </span>
           {p.comparePrice && p.comparePrice > unitPrice ? (
-            <span className="text-[17px] text-muted line-through">{formatPKR(p.comparePrice)}</span>
+            <span className="text-[17px] text-sand line-through">{formatPKR(p.comparePrice)}</span>
           ) : null}
         </div>
 
@@ -104,7 +104,7 @@ export function ProductDetail({
         {p.variants.map((g) => (
           <div key={g.name} className="mt-7">
             <p className="label-c">
-              {g.name} — <span className="text-coral-dark">{options[g.name]}</span>
+              {g.name} — <span className="text-terra">{options[g.name]}</span>
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {g.options.map((opt) => {
@@ -119,8 +119,8 @@ export function ProductDetail({
                     aria-pressed={selected}
                     className={`min-h-[44px] rounded-btn border px-4 py-2 text-[15px] transition-colors ${
                       selected
-                        ? "border-maroon bg-maroon text-cream"
-                        : "border-line bg-white text-ink hover:border-coral"
+                        ? "border-ink bg-ink text-cream"
+                        : "border-line bg-walnut-2 text-sand hover:border-terra"
                     }`}
                   >
                     {opt}
@@ -138,11 +138,11 @@ export function ProductDetail({
 
         {/* Quantity + add */}
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <div className="flex items-center rounded-btn border border-line bg-white">
+          <div className="flex items-center rounded-btn border border-line bg-walnut-2">
             <button
               type="button"
               onClick={() => setQty((q) => Math.max(1, q - 1))}
-              className="grid h-[46px] w-11 place-items-center text-maroon hover:text-coral-dark"
+              className="grid h-[46px] w-11 place-items-center text-cream hover:text-terra"
               aria-label="Decrease quantity"
             >
               −
@@ -153,7 +153,7 @@ export function ProductDetail({
             <button
               type="button"
               onClick={() => setQty((q) => q + 1)}
-              className="grid h-[46px] w-11 place-items-center text-maroon hover:text-coral-dark"
+              className="grid h-[46px] w-11 place-items-center text-cream hover:text-terra"
               aria-label="Increase quantity"
             >
               +
@@ -177,7 +177,7 @@ export function ProductDetail({
         </div>
 
         {outOfStock ? (
-          <p className="mt-3 text-[15px] text-coral-dark">
+          <p className="mt-3 text-[15px] text-terra">
             This piece is between commissions — message the workshop on WhatsApp and we will make
             another.
           </p>
@@ -188,7 +188,7 @@ export function ProductDetail({
           href={buildEnquiryUrl(whatsapp, p.name)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-2 text-[15px] font-medium text-coral-dark hover:text-coral"
+          className="mt-4 inline-flex items-center gap-2 text-[15px] font-medium text-terra hover:text-terra"
         >
           <WhatsGlyph /> Ask about this piece on WhatsApp
         </a>
@@ -205,10 +205,10 @@ export function ProductDetail({
         </dl>
 
         <div className="mt-8 border-t border-line pt-7">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-maroon">
+          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-cream">
             About this piece
           </h2>
-          <p className="mt-3 text-[17px] leading-relaxed text-ink/90">{p.description}</p>
+          <p className="mt-3 text-[17px] leading-relaxed text-sand/90">{p.description}</p>
         </div>
       </div>
     </div>
@@ -218,10 +218,10 @@ export function ProductDetail({
 function Detail({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex gap-4">
-      <dt className="w-32 shrink-0 font-display text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">
+      <dt className="w-32 shrink-0 font-display text-[12px] font-semibold uppercase tracking-[0.14em] text-sand">
         {label}
       </dt>
-      <dd className="text-ink/90">{value}</dd>
+      <dd className="text-sand/90">{value}</dd>
     </div>
   );
 }

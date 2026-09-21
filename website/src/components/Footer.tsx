@@ -13,7 +13,7 @@ export function Footer({
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 bg-maroon text-cream">
+    <footer className="mt-24 bg-ink text-cream">
       <div className="container-c grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -29,14 +29,14 @@ export function Footer({
         </div>
 
         <nav aria-label="Shop">
-          <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.24em] text-coral">
+          <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.24em] text-terra">
             Shop
           </h3>
           <ul className="mt-4 space-y-2 text-[16px]">
-            <li><Link href="/shop" className="text-cream/85 hover:text-coral">All Furniture</Link></li>
+            <li><Link href="/shop" className="text-cream/85 hover:text-terra">All Furniture</Link></li>
             {categories.map((c) => (
               <li key={c.slug}>
-                <Link href={`/shop?category=${c.slug}`} className="text-cream/85 hover:text-coral">
+                <Link href={`/shop?category=${c.slug}`} className="text-cream/85 hover:text-terra">
                   {c.name}
                 </Link>
               </li>
@@ -45,7 +45,7 @@ export function Footer({
         </nav>
 
         <div>
-          <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.24em] text-coral">
+          <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.24em] text-terra">
             Workshop
           </h3>
           <ul className="mt-4 space-y-3 text-[16px] text-cream/85">
@@ -55,7 +55,7 @@ export function Footer({
             </li>
             <li className="flex gap-2.5">
               <PhoneIcon />
-              <a href={`tel:${business.phone.replace(/\s/g, "")}`} className="hover:text-coral">
+              <a href={`tel:${business.phone.replace(/\s/g, "")}`} className="hover:text-terra">
                 {business.phone}
               </a>
             </li>
@@ -64,7 +64,7 @@ export function Footer({
         </div>
 
         <div>
-          <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.24em] text-coral">
+          <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.24em] text-terra">
             Commission
           </h3>
           <p className="mt-4 text-[16px] text-cream/85">
@@ -93,7 +93,7 @@ export function Footer({
 
 function PinIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="mt-1 shrink-0 text-coral" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="mt-1 shrink-0 text-terra" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z" />
       <circle cx="12" cy="10" r="2.5" />
     </svg>
@@ -102,7 +102,7 @@ function PinIcon() {
 
 function PhoneIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="mt-1 shrink-0 text-coral" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="mt-1 shrink-0 text-terra" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
     </svg>
   );

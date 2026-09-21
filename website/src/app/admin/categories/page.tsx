@@ -11,7 +11,7 @@ export default async function AdminCategories() {
   return (
     <div>
       <h1 className="display-c text-[26px]">Categories</h1>
-      <p className="mt-1.5 text-[16px] text-muted">
+      <p className="mt-1.5 text-[16px] text-sand">
         Categories drive the storefront navigation and shop filters.
       </p>
       <CategoriesManager categories={categories} />

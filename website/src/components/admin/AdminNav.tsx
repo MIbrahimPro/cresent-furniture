@@ -27,9 +27,9 @@ export function AdminNav({ user }: { user: { name: string; email: string } }) {
   }
 
   return (
-    <aside className="flex w-full shrink-0 flex-col border-r border-line bg-maroon lg:sticky lg:top-0 lg:h-screen lg:w-60">
+    <aside className="flex w-full shrink-0 flex-col border-r border-line bg-ink lg:sticky lg:top-0 lg:h-screen lg:w-60">
       <div className="border-b border-cream/10 px-5 py-5">
-        <p className="font-display text-[14px] font-semibold uppercase tracking-[0.2em] text-coral">
+        <p className="font-display text-[14px] font-semibold uppercase tracking-[0.2em] text-terra">
           Crescent
         </p>
         <p className="mt-0.5 text-[12px] text-cream/60">Workshop CRM</p>
@@ -43,7 +43,7 @@ export function AdminNav({ user }: { user: { name: string; email: string } }) {
               key={l.href}
               href={l.href}
               className={`whitespace-nowrap rounded-btn px-3.5 py-2.5 font-display text-[12px] font-semibold uppercase tracking-[0.12em] transition-colors ${
-                active ? "bg-coral text-deep" : "text-cream/80 hover:bg-cream/10 hover:text-cream"
+                active ? "bg-terra text-deep" : "text-cream/80 hover:bg-cream/10 hover:text-cream"
               }`}
             >
               {l.label}

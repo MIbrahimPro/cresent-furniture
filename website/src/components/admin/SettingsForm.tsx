@@ -45,7 +45,7 @@ export function SettingsForm({ settings }: { settings: SettingsDoc }) {
   return (
     <form onSubmit={submit} className="mt-8 grid max-w-4xl gap-8 lg:grid-cols-2">
       <section className="panel-c space-y-4 p-6">
-        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
           Business details
         </h2>
         <Field label="Name"><input name="name" defaultValue={settings.business.name} className="input-c" /></Field>
@@ -58,12 +58,12 @@ export function SettingsForm({ settings }: { settings: SettingsDoc }) {
       </section>
 
       <section className="panel-c space-y-4 p-6">
-        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
           WhatsApp & notices
         </h2>
         <Field label="WhatsApp number (checkout target)">
           <input name="whatsapp" required defaultValue={settings.business.whatsapp} className="input-c" placeholder="923118550000" />
-          <span className="mt-1.5 block text-[13px] text-muted">
+          <span className="mt-1.5 block text-[13px] text-sand">
             Country code + number, digits only. Every checkout and chat bubble opens this number.
           </span>
         </Field>
@@ -72,13 +72,13 @@ export function SettingsForm({ settings }: { settings: SettingsDoc }) {
         </Field>
         <Field label="Top bar announcement">
           <input name="announcement" defaultValue={settings.announcement} className="input-c" placeholder="Eid delivery bookings now open" />
-          <span className="mt-1.5 block text-[13px] text-muted">
+          <span className="mt-1.5 block text-[13px] text-sand">
             Shown in the maroon bar above the header. Offers have their own banner in the Offers tab.
           </span>
         </Field>
 
-        {error ? <p className="rounded-btn bg-coral-tint px-3 py-2 text-[14px] text-coral-dark">{error}</p> : null}
-        {saved ? <p className="text-[14px] font-medium text-coral-dark">Saved ✓</p> : null}
+        {error ? <p className="rounded-btn bg-terra-veil px-3 py-2 text-[14px] text-terra">{error}</p> : null}
+        {saved ? <p className="text-[14px] font-medium text-terra">Saved ✓</p> : null}
 
         <div className="flex gap-3">
           <button type="submit" disabled={saving} className="btn btn-primary">

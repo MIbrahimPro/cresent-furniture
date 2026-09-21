@@ -32,7 +32,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
 
   if (state === "done") {
     return (
-      <p className="panel-c mt-4 p-5 text-[15px] text-muted">
+      <p className="panel-c mt-4 p-5 text-[15px] text-sand">
         Shukriya — your note is with the workshop and will appear after a quick check.
       </p>
     );
@@ -55,7 +55,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
               aria-label={`${n} star${n > 1 ? "s" : ""}`}
               aria-pressed={rating === n}
               className={`text-[22px] leading-none transition-colors ${
-                n <= rating ? "text-coral" : "text-line hover:text-coral-tint"
+                n <= rating ? "text-terra" : "text-line hover:text-cream"
               }`}
             >
               ★
@@ -72,7 +72,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
         <textarea id="rv-body" name="body" required rows={4} className="input-c" />
       </div>
       {state === "error" ? (
-        <p className="text-[14px] text-coral-dark">Something went wrong — please try again.</p>
+        <p className="text-[14px] text-terra">Something went wrong — please try again.</p>
       ) : null}
       <button type="submit" disabled={state === "loading"} className="btn btn-primary w-full">
         {state === "loading" ? "Sending…" : "Send note"}

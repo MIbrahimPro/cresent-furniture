@@ -34,7 +34,7 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
       </div>
 
       {visible.length === 0 ? (
-        <p className="panel-c mt-6 p-8 text-center text-muted">No orders in this view.</p>
+        <p className="panel-c mt-6 p-8 text-center text-sand">No orders in this view.</p>
       ) : (
         <div className="panel-c mt-6 divide-y divide-line">
           {visible.map((o) => {
@@ -49,9 +49,9 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
                     onClick={() => setExpanded(open ? null : id)}
                     className="min-w-0 text-left"
                   >
-                    <p className="font-display text-[14px] font-semibold text-maroon">
+                    <p className="font-display text-[14px] font-semibold text-cream">
                       {o.number} · {o.customer.name}
-                      <span className="ml-2 font-body text-[13.5px] font-normal normal-case tracking-normal text-muted">
+                      <span className="ml-2 font-body text-[13.5px] font-normal normal-case tracking-normal text-sand">
                         {o.items.length} piece{o.items.length === 1 ? "" : "s"} · {formatPKR(o.total)} ·{" "}
                         {new Date(o.createdAt).toLocaleDateString()}
                       </span>
@@ -62,10 +62,10 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
                     <span
                       className={`rounded-full px-3 py-1 text-[12px] font-semibold ${
                         o.status === "new"
-                          ? "bg-coral text-deep"
+                          ? "bg-terra text-deep"
                           : o.status === "cancelled"
-                            ? "bg-parchment text-muted"
-                            : "bg-maroon text-cream"
+                            ? "bg-walnut-2 text-sand"
+                            : "bg-ink text-cream"
                       }`}
                     >
                       {STATUS_LABELS[o.status]}
@@ -98,10 +98,10 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
                 </div>
 
                 {open ? (
-                  <div className="mt-4 rounded-card bg-parchment p-4">
+                  <div className="mt-4 rounded-card bg-walnut-2 p-4">
                     <div className="grid gap-6 md:grid-cols-2">
                       <div>
-                        <h3 className="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
+                        <h3 className="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sand">
                           Pieces
                         </h3>
                         <ul className="mt-2 space-y-2 text-[15px]">
@@ -109,28 +109,28 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
                             <li key={i}>
                               {item.name}
                               {Object.keys(item.options).length ? (
-                                <span className="text-muted"> — {optionsLabel(item.options)}</span>
+                                <span className="text-sand"> — {optionsLabel(item.options)}</span>
                               ) : null}
-                              <span className="text-muted"> × {item.qty}</span>
+                              <span className="text-sand"> × {item.qty}</span>
                             </li>
                           ))}
                         </ul>
-                        <p className="mt-3 font-display text-[14px] font-semibold text-maroon">
+                        <p className="mt-3 font-display text-[14px] font-semibold text-cream">
                           Total: {formatPKR(o.total)}
                         </p>
                       </div>
                       <div>
-                        <h3 className="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
+                        <h3 className="font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-sand">
                           Customer
                         </h3>
                         <p className="mt-2 text-[15px]">{o.customer.name}</p>
                         <p className="text-[15px]">{o.customer.phone}</p>
-                        <p className="text-[15px] text-ink/85">
+                        <p className="text-[15px] text-sand/85">
                           {o.customer.address}
                           {o.customer.city ? `, ${o.customer.city}` : ""}
                         </p>
                         {o.customer.note ? (
-                          <p className="mt-2 text-[14.5px] italic text-muted">“{o.customer.note}”</p>
+                          <p className="mt-2 text-[14.5px] italic text-sand">“{o.customer.note}”</p>
                         ) : null}
                       </div>
                     </div>
@@ -145,7 +145,7 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
                             body: JSON.stringify({ status: "cancelled" }),
                           });
                         }}
-                        className="mt-4 text-[13.5px] text-muted underline underline-offset-4 hover:text-coral-dark"
+                        className="mt-4 text-[13.5px] text-sand underline underline-offset-4 hover:text-terra"
                       >
                         Cancel order
                       </button>
@@ -175,7 +175,7 @@ function FilterChip({
       type="button"
       onClick={onClick}
       className={`rounded-full px-3.5 py-1.5 font-display text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors ${
-        active ? "bg-maroon text-cream" : "bg-white text-muted hover:text-maroon"
+        active ? "bg-ink text-cream" : "bg-walnut-2 text-sand hover:text-cream"
       }`}
     >
       {label}

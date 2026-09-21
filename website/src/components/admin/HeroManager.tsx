@@ -109,24 +109,24 @@ export function HeroManager({
       {/* Playlist */}
       <section className="panel-c p-6">
         <div className="flex items-center justify-between">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
             Playlist ({media.length})
           </h2>
-          {saved ? <p className="text-[14px] font-medium text-coral-dark">Saved ✓</p> : null}
+          {saved ? <p className="text-[14px] font-medium text-terra">Saved ✓</p> : null}
         </div>
 
         {media.length === 0 ? (
-          <p className="mt-4 text-[15px] text-muted">
+          <p className="mt-4 text-[15px] text-sand">
             Empty — the home page falls back to a maroon hero. Add a video below.
           </p>
         ) : (
           <ol className="mt-4 space-y-3">
             {media.map((m, i) => (
               <li key={m.id} className="flex items-center gap-3 rounded-card border border-line p-3">
-                <span className="w-6 text-center font-display text-[13px] font-bold text-muted">
+                <span className="w-6 text-center font-display text-[13px] font-bold text-sand">
                   {i + 1}
                 </span>
-                <div className="h-14 w-24 shrink-0 overflow-hidden rounded-btn bg-parchment">
+                <div className="h-14 w-24 shrink-0 overflow-hidden rounded-btn bg-walnut-2">
                   {m.type === "image" ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={m.url} alt="" className="h-full w-full object-cover" />
@@ -135,8 +135,8 @@ export function HeroManager({
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[14.5px] font-medium text-ink">{m.type === "video" ? "Video" : "Image"} · {m.url.split("/").pop()}</p>
-                  {m.credit ? <p className="truncate text-[12.5px] text-muted">{m.credit}</p> : null}
+                  <p className="truncate text-[14.5px] font-medium text-sand">{m.type === "video" ? "Video" : "Image"} · {m.url.split("/").pop()}</p>
+                  {m.credit ? <p className="truncate text-[12.5px] text-sand">{m.credit}</p> : null}
                 </div>
                 <div className="flex shrink-0 items-center gap-1">
                   <IconBtn label="Move up" onClick={() => move(i, -1)} disabled={i === 0}>↑</IconBtn>
@@ -171,21 +171,21 @@ export function HeroManager({
             />
           </label>
           {uploadError ? (
-            <p className="mt-2 rounded-btn bg-coral-tint px-3 py-2 text-[14px] text-coral-dark">
+            <p className="mt-2 rounded-btn bg-terra-veil px-3 py-2 text-[14px] text-terra">
               {uploadError}
             </p>
           ) : null}
-          <p className="mt-2 text-[13px] text-muted">Up to 60 MB. MP4 recommended for videos.</p>
+          <p className="mt-2 text-[13px] text-sand">Up to 60 MB. MP4 recommended for videos.</p>
         </div>
       </section>
 
       {/* Pexels samples */}
       <section className="panel-c h-fit p-6">
-        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
           Pexels samples
         </h2>
         {!pexelsConfigured ? (
-          <p className="mt-3 text-[14.5px] text-muted">
+          <p className="mt-3 text-[14.5px] text-sand">
             PEXELS_API is not set in the environment — add it to <code>.env</code> to search samples.
           </p>
         ) : (
@@ -202,7 +202,7 @@ export function HeroManager({
                 {searching ? "…" : "Search"}
               </button>
             </div>
-            {searchError ? <p className="mt-2 text-[14px] text-coral-dark">{searchError}</p> : null}
+            {searchError ? <p className="mt-2 text-[14px] text-terra">{searchError}</p> : null}
 
             {samples ? (
               <ul className="mt-4 max-h-[480px] space-y-3 overflow-y-auto pr-1">
@@ -213,8 +213,8 @@ export function HeroManager({
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={s.preview} alt="" className="h-14 w-24 shrink-0 rounded-btn object-cover" />
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-[13.5px] text-ink">{s.credit}</p>
-                        <p className="text-[12.5px] text-muted">{s.duration}s</p>
+                        <p className="truncate text-[13.5px] text-sand">{s.credit}</p>
+                        <p className="text-[12.5px] text-sand">{s.duration}s</p>
                       </div>
                       <button
                         type="button"
@@ -229,7 +229,7 @@ export function HeroManager({
                 })}
               </ul>
             ) : (
-              <p className="mt-3 text-[14.5px] text-muted">
+              <p className="mt-3 text-[14.5px] text-sand">
                 Search Pexels and add sample clips — useful while the workshop's own footage is
                 being filmed.
               </p>
@@ -259,7 +259,7 @@ function IconBtn({
       title={label}
       onClick={onClick}
       disabled={disabled}
-      className="grid h-8 w-8 place-items-center rounded-btn border border-line text-[15px] text-maroon transition-colors hover:border-coral hover:text-coral-dark disabled:opacity-30"
+      className="grid h-8 w-8 place-items-center rounded-btn border border-line text-[15px] text-cream transition-colors hover:border-terra hover:text-terra disabled:opacity-30"
     >
       {children}
     </button>

@@ -15,17 +15,17 @@ export default async function AdminSubscribers() {
   return (
     <div>
       <h1 className="display-c text-[26px]">Subscribers</h1>
-      <p className="mt-1.5 text-[16px] text-muted">
+      <p className="mt-1.5 text-[16px] text-sand">
         {rows.length} workshop-letter {rows.length === 1 ? "reader" : "readers"}.
       </p>
       <div className="panel-c mt-8 max-w-3xl divide-y divide-line">
         {rows.length === 0 ? (
-          <p className="p-6 text-[15px] text-muted">Nobody yet — the letter is young.</p>
+          <p className="p-6 text-[15px] text-sand">Nobody yet — the letter is young.</p>
         ) : (
           rows.map((r) => (
             <div key={r.email} className="flex items-center justify-between px-5 py-3">
               <p className="text-[15px]">{r.email}</p>
-              <p className="text-[13.5px] text-muted">
+              <p className="text-[13.5px] text-sand">
                 {new Date(r.subscribedAt).toLocaleDateString()}
               </p>
             </div>

@@ -36,18 +36,18 @@ export function OffersManager({ banner }: { banner: OfferBanner | null }) {
     <div className="mt-8 max-w-2xl">
       {/* Live preview */}
       <p className="label-c">Preview</p>
-      <div className={`mt-2 rounded-card px-4 py-3 text-center transition-opacity ${active ? "bg-maroon" : "bg-parchment"}`}>
+      <div className={`mt-2 rounded-card px-4 py-3 text-center transition-opacity ${active ? "bg-ink" : "bg-walnut-2"}`}>
         {text ? (
-          <p className={`font-display text-[11px] font-semibold uppercase tracking-[0.22em] ${active ? "text-coral" : "text-muted"}`}>
+          <p className={`font-display text-[11px] font-semibold uppercase tracking-[0.22em] ${active ? "text-terra" : "text-sand"}`}>
             {text}
           </p>
         ) : (
-          <p className="font-display text-[11px] uppercase tracking-[0.22em] text-muted">
+          <p className="font-display text-[11px] uppercase tracking-[0.22em] text-sand">
             Your offer text appears here
           </p>
         )}
       </div>
-      <p className="mt-2 text-[13.5px] text-muted">
+      <p className="mt-2 text-[13.5px] text-sand">
         {active ? "The banner is live above the header." : "The banner is currently hidden."}
       </p>
 
@@ -87,7 +87,7 @@ export function OffersManager({ banner }: { banner: OfferBanner | null }) {
           <button type="button" onClick={() => save()} disabled={saving} className="btn btn-primary">
             {saving ? "Saving…" : "Save offer"}
           </button>
-          {saved ? <p className="text-[14px] font-medium text-coral-dark">Saved ✓</p> : null}
+          {saved ? <p className="text-[14px] font-medium text-terra">Saved ✓</p> : null}
         </div>
       </div>
     </div>

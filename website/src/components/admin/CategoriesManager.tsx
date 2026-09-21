@@ -47,13 +47,13 @@ export function CategoriesManager({ categories }: { categories: Category[] }) {
     <div className="mt-8 grid max-w-4xl gap-8 lg:grid-cols-[1fr_320px]">
       <div className="panel-c divide-y divide-line">
         {categories.length === 0 ? (
-          <p className="p-6 text-[15px] text-muted">No categories yet.</p>
+          <p className="p-6 text-[15px] text-sand">No categories yet.</p>
         ) : (
           categories.map((c) => (
             <div key={String(c._id)} className="flex items-center justify-between gap-4 px-5 py-4">
               <div className="min-w-0">
-                <p className="font-medium text-maroon">{c.name}</p>
-                <p className="truncate text-[13.5px] text-muted">
+                <p className="font-medium text-cream">{c.name}</p>
+                <p className="truncate text-[13.5px] text-sand">
                   /{c.slug} · order {c.order} · {c.active ? "visible" : "hidden"}
                 </p>
               </div>
@@ -61,14 +61,14 @@ export function CategoriesManager({ categories }: { categories: Category[] }) {
                 <button
                   type="button"
                   onClick={() => toggle(c)}
-                  className="rounded-btn border border-line px-3 py-1.5 text-[13px] font-medium text-maroon hover:border-coral"
+                  className="rounded-btn border border-line px-3 py-1.5 text-[13px] font-medium text-cream hover:border-terra"
                 >
                   {c.active ? "Hide" : "Show"}
                 </button>
                 <button
                   type="button"
                   onClick={() => remove(c)}
-                  className="text-[14px] text-muted hover:text-coral-dark hover:underline"
+                  className="text-[14px] text-sand hover:text-terra hover:underline"
                 >
                   Delete
                 </button>
@@ -79,7 +79,7 @@ export function CategoriesManager({ categories }: { categories: Category[] }) {
       </div>
 
       <form onSubmit={addCategory} className="panel-c h-fit space-y-4 p-6">
-        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-maroon">
+        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
           Add category
         </h2>
         <div>

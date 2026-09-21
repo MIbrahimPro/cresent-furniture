@@ -2,25 +2,18 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const cinzel = localFont({
+const fraunces = localFont({
   src: [
-    { path: "../fonts/Cinzel-Regular.ttf", weight: "400", style: "normal" },
-    { path: "../fonts/Cinzel-Medium.ttf", weight: "500", style: "normal" },
-    { path: "../fonts/Cinzel-SemiBold.ttf", weight: "600", style: "normal" },
-    { path: "../fonts/Cinzel-Bold.ttf", weight: "700", style: "normal" },
+    { path: "../fonts/Fraunces-Variable.ttf", weight: "300 900", style: "normal" },
+    { path: "../fonts/Fraunces-Italic-Variable.ttf", weight: "300 900", style: "italic" },
   ],
-  variable: "--font-cinzel",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
-const garamond = localFont({
-  src: [
-    { path: "../fonts/EBGaramond-Regular.ttf", weight: "400", style: "normal" },
-    { path: "../fonts/EBGaramond-Medium.ttf", weight: "500", style: "normal" },
-    { path: "../fonts/EBGaramond-SemiBold.ttf", weight: "600", style: "normal" },
-    { path: "../fonts/EBGaramond-Italic.ttf", weight: "400", style: "italic" },
-  ],
-  variable: "--font-garamond",
+const inter = localFont({
+  src: [{ path: "../fonts/Inter-Variable.ttf", weight: "100 900", style: "normal" }],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -47,12 +40,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#3D141E",
+  themeColor: "#1c0a10",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${garamond.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );
