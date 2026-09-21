@@ -1,0 +1,127 @@
+{
+  "products": [
+    {
+      "slug": "rawalpindi-sideboard",
+      "name": "The Rawalpindi Sideboard",
+      "categorySlug": "dining",
+      "tagline": "Storage for the good china and the everyday plates.",
+      "description": "Four soft-close doors behind a fluted front, with an adjustable shelf in each bay. The flutes are cut on the router but cleaned up by hand, one at a time.",
+      "price": 132000,
+      "images": ["pexels:sideboard-cabinet", "pexels:dining-room-storage"],
+      "variants": [
+        { "name": "Finish", "options": ["Walnut", "Natural Teak"], "priceDeltas": [0, 0] },
+        { "name": "Hardware", "options": ["Brass", "Blackened steel"], "priceDeltas": [6000, 0] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": false, "active": true,
+      "materials": ["Sheesham", "Fluted doors"], "leadTime": "7 weeks",
+      "dimensions": "180 × 45 × 82 cm"
+    },
+    {
+      "slug": "cherat-nightstand",
+      "name": "The Cherat Nightstand",
+      "categorySlug": "bedroom",
+      "tagline": "One drawer, one shelf, no clutter.",
+      "description": "A small bedside table with a dovetailed drawer that slides on waxed runners and closes with the quiet click of solid wood against solid wood.",
+      "price": 34000, "comparePrice": 39000,
+      "images": ["pexels:nightstand-bedroom", "pexels:bedside-lamp"],
+      "variants": [
+        { "name": "Finish", "options": ["Natural Cedar", "Walnut", "Painted Ivory"], "priceDeltas": [0, 4000, 4000] }
+      ],
+      "kind": "in-stock", "stock": 8, "featured": false, "active": true,
+      "materials": ["Deodar cedar", "Dovetail drawer"], "leadTime": "Ready to deliver",
+      "dimensions": "48 × 40 × 58 cm"
+    },
+    {
+      "slug": "attok-three-seat-sofa",
+      "name": "The Attok Three-Seat Sofa",
+      "categorySlug": "living",
+      "tagline": "Room for three, comfort for all.",
+      "description": "A straight-backed three-seater on exposed hardwood legs, sprung with elastic webbing and filled with high-resilience foam over a feather topper.",
+      "price": 165000,
+      "images": ["pexels:three-seat-sofa", "pexels:living-room-furniture"],
+      "variants": [
+        { "name": "Fabric", "options": ["Ivory linen", "Charcoal weave", "Rust velvet"], "priceDeltas": [0, 0, 18000] },
+        { "name": "Legs", "options": ["Teak", "Walnut"], "priceDeltas": [0, 0] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": true, "active": true,
+      "materials": ["Kiln-dried frame", "HR foam"], "leadTime": "5-6 weeks",
+      "dimensions": "220 × 92 × 84 cm"
+    },
+    {
+      "slug": "safari-console-table",
+      "name": "The Safari Console Table",
+      "categorySlug": "living",
+      "tagline": "Slim enough for a hallway, handsome enough for anywhere.",
+      "description": "A narrow console with a drawer for keys and a lower shelf for shoes that never quite made it upstairs. The top is a single board.",
+      "price": 48000,
+      "images": ["pexels:console-table-entryway", "pexels:hallway-table"],
+      "variants": [
+        { "name": "Finish", "options": ["Walnut", "Espresso", "Painted Ivory"], "priceDeltas": [0, 0, 5000] }
+      ],
+      "kind": "in-stock", "stock": 3, "featured": false, "active": true,
+      "materials": ["Sheesham"], "leadTime": "Ready to deliver",
+      "dimensions": "110 × 35 × 80 cm"
+    },
+    {
+      "slug": "shahrah-dining-chair",
+      "name": "The Shahrah Dining Chair",
+      "categorySlug": "dining",
+      "tagline": "Sold in pairs, built for decades.",
+      "description": "A spindle-back chair steam-bent for a gentle recline. The joints are wedged, not glued — tighten a wedge, add a decade.",
+      "price": 28000,
+      "images": ["pexels:wooden-dining-chair", "pexels:dining-chair-detail"],
+      "variants": [
+        { "name": "Finish", "options": ["Natural Teak", "Walnut", "Espresso"], "priceDeltas": [0, 0, 0] },
+        { "name": "Seat", "options": ["Wood", "Rush weave", "Upholstered"], "priceDeltas": [0, 3000, 6000] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": false, "active": true,
+      "materials": ["Teak", "Steam-bent spindles"], "leadTime": "4 weeks",
+      "dimensions": "46 × 52 × 88 cm"
+    },
+    {
+      "slug": "kohsar-coffee-set",
+      "name": "The Kohsar Coffee Table Set",
+      "categorySlug": "living",
+      "tagline": "One large table, two nesting companions.",
+      "description": "A trio of tables that tuck under one another when the room needs its floor back. Turned legs, rounded corners, honest grain.",
+      "price": 74000,
+      "images": ["pexels:nesting-coffee-tables", "pexels:living-room-tables"],
+      "variants": [
+        { "name": "Finish", "options": ["Walnut", "Natural Teak"], "priceDeltas": [0, 0] }
+      ],
+      "kind": "in-stock", "stock": 2, "featured": false, "active": true,
+      "materials": ["Sheesham"], "leadTime": "Ready to deliver",
+      "dimensions": "Nests to 100 × 55 × 45 cm"
+    },
+    {
+      "slug": "commission-your-piece",
+      "name": "Commission a Bespoke Piece",
+      "categorySlug": "bespoke",
+      "tagline": "Your drawing, our workshop, one heirloom.",
+      "description": "Bring a sketch, a photograph, or just an idea. We measure the room, choose the timber with you, and draw the piece full-size before a single cut is made. Most commissions take between six and twelve weeks.",
+      "price": 150000,
+      "images": ["pexels:carpenter-workshop", "pexels:woodworking-tools"],
+      "variants": [
+        { "name": "Scope", "options": ["Single piece", "Room set", "Whole home"], "priceDeltas": [0, 0, 0] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": true, "active": true,
+      "materials": ["Timber chosen with you"], "leadTime": "6-12 weeks"
+    },
+    {
+      "slug": "heirloom-dresser",
+      "name": "The Heirloom Dresser",
+      "categorySlug": "bedroom",
+      "tagline": "Nine drawers of order.",
+      "description": "A wide dresser with hand-cut dovetails in every drawer and a mirror framed in the same board that forms its top.",
+      "price": 118000,
+      "images": ["pexels:wooden-dresser", "pexels:bedroom-storage"],
+      "variants": [
+        { "name": "Mirror", "options": ["With mirror", "Without"], "priceDeltas": [15000, 0] },
+        { "name": "Finish", "options": ["Walnut", "Espresso"], "priceDeltas": [0, 0] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": false, "active": true,
+      "materials": ["Rosewood", "Hand-cut dovetails"], "leadTime": "8 weeks",
+      "dimensions": "150 × 48 × 90 cm"
+    }
+  ]
+}

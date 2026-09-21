@@ -1,0 +1,121 @@
+{
+  "categories": [
+    { "slug": "living", "name": "Living", "description": "Sofas, armchairs, and centre tables for the room where life happens.", "order": 1 },
+    { "slug": "dining", "name": "Dining", "description": "Tables and sideboards jointed for decades of shared meals.", "order": 2 },
+    { "slug": "bedroom", "name": "Bedroom", "description": "Beds, wardrobes, and nightstands built from seasoned hardwood.", "order": 3 },
+    { "slug": "office", "name": "Office & Study", "description": "Desks, chairs, and shelving for rooms where work is done well.", "order": 4 },
+    { "slug": "bespoke", "name": "Bespoke Commissions", "description": "One-of-a-kind pieces, drawn in the workshop and made to order.", "order": 5 }
+  ],
+  "products": [
+    {
+      "slug": "shalimar-dining-table",
+      "name": "The Shalimar Dining Table",
+      "categorySlug": "dining",
+      "tagline": "Eight seats, one hundred years of dinners.",
+      "description": "A long table in solid sheesham, its top drawn from a single seasoned plank and finished with a hand-rubbed oil that deepens with every year. The legs are pinned with traditional mortise-and-tenon joints — no screws, no shortcuts.",
+      "price": 285000, "comparePrice": 320000,
+      "images": ["pexels:dining-table-wood", "pexels:dining-room-interior", "pexels:carpenter-workshop"],
+      "variants": [
+        { "name": "Finish", "options": ["Natural Teak", "Walnut", "Espresso"], "priceDeltas": [0, 15000, 15000] },
+        { "name": "Size", "options": ["6-seater", "8-seater", "10-seater"], "priceDeltas": [0, 0, 45000] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": true, "active": true,
+      "materials": ["Solid sheesham", "Brass pins"], "leadTime": "8-10 weeks",
+      "dimensions": "240 × 110 × 76 cm"
+    },
+    {
+      "slug": "kashmir-bed-frame",
+      "name": "The Kashmir Bed Frame",
+      "categorySlug": "bedroom",
+      "tagline": "Carved headboard, quiet nights.",
+      "description": "Chinar-leaf carving runs along the headboard of this king bed, each motif cut by hand in our Rawalpindi workshop. The frame is seasoned deodar — cedar that smells faintly of the hills it came from.",
+      "price": 195000,
+      "images": ["pexels:wooden-bed-bedroom", "pexels:carved-wood-detail"],
+      "variants": [
+        { "name": "Size", "options": ["Queen", "King"], "priceDeltas": [0, 25000] },
+        { "name": "Finish", "options": ["Natural Cedar", "Antique White"], "priceDeltas": [0, 10000] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": true, "active": true,
+      "materials": ["Deodar cedar", "Hand carving"], "leadTime": "6-8 weeks",
+      "dimensions": "King: 193 × 203 × 120 cm"
+    },
+    {
+      "slug": "margalla-wardrobe",
+      "name": "The Margalla Wardrobe",
+      "categorySlug": "bedroom",
+      "tagline": "Doors that will outlast fashion.",
+      "description": "Three bays, a full-length mirror framed in rosewood, and hanging rails mounted on seasoned hardwood bearers. Built to be inherited, not replaced.",
+      "price": 240000,
+      "images": ["pexels:wooden-wardrobe", "pexels:bedroom-furniture"],
+      "variants": [
+        { "name": "Configuration", "options": ["2-door", "3-door", "3-door with drawers"], "priceDeltas": [0, 40000, 65000] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": false, "active": true,
+      "materials": ["Rosewood", "Solid back panels"], "leadTime": "8 weeks",
+      "dimensions": "183 × 61 × 213 cm"
+    },
+    {
+      "slug": "faizabad-centre-table",
+      "name": "The Faizabad Centre Table",
+      "categorySlug": "living",
+      "tagline": "Low, wide, and unhurried.",
+      "description": "A low table for long evenings — aproned corners, chamfered edges, and a finish you can put a cup of chai down on without thinking twice.",
+      "price": 62000, "comparePrice": 74000,
+      "images": ["pexels:coffee-table-wood", "pexels:living-room-sofa"],
+      "variants": [
+        { "name": "Finish", "options": ["Walnut", "Natural Teak"], "priceDeltas": [0, -5000] },
+        { "name": "Shape", "options": ["Rectangular", "Round"], "priceDeltas": [0, 8000] }
+      ],
+      "kind": "in-stock", "stock": 4, "featured": true, "active": true,
+      "materials": ["Sheesham veneer core", "Hardwood edge"], "leadTime": "Ready to deliver",
+      "dimensions": "120 × 60 × 42 cm"
+    },
+    {
+      "slug": "gulberg-armchair",
+      "name": "The Gulberg Armchair",
+      "categorySlug": "living",
+      "tagline": "A chair you negotiate for at family gatherings.",
+      "description": "Deep-cushioned, wide-armed, and sprung with jute webbing the old way. The frame is kiln-dried hardwood; the covers are removable and re-sewable.",
+      "price": 88000,
+      "images": ["pexels:armchair-interior", "pexels:upholstery-fabric"],
+      "variants": [
+        { "name": "Fabric", "options": ["Ivory linen", "Charcoal weave", "Rust velvet"], "priceDeltas": [0, 0, 12000] },
+        { "name": "Legs", "options": ["Teak", "Walnut"], "priceDeltas": [0, 0] }
+      ],
+      "kind": "in-stock", "stock": 6, "featured": false, "active": true,
+      "materials": ["Kiln-dried hardwood", "Jute webbing"], "leadTime": "2 weeks",
+      "dimensions": "86 × 90 × 78 cm"
+    },
+    {
+      "slug": "murree-bookshelf",
+      "name": "The Murree Bookshelf",
+      "categorySlug": "office",
+      "tagline": "Five shelves, adjustable, forever.",
+      "description": "Shelves sit on brass pin rests, so the spacing changes as your library does. The back is solid wood, not ply — it matters when you open a door fifty years from now.",
+      "price": 96000,
+      "images": ["pexels:bookshelf-wood", "pexels:home-library"],
+      "variants": [
+        { "name": "Height", "options": ["Standard", "Tall"], "priceDeltas": [0, 18000] },
+        { "name": "Finish", "options": ["Walnut", "Espresso"], "priceDeltas": [0, 0] }
+      ],
+      "kind": "made-to-order", "stock": 0, "featured": false, "active": true,
+      "materials": ["Solid rosewood", "Brass pins"], "leadTime": "6 weeks",
+      "dimensions": "91 × 33 × 198 cm"
+    },
+    {
+      "slug": "crescent-writing-desk",
+      "name": "The Crescent Writing Desk",
+      "categorySlug": "office",
+      "tagline": "Two drawers that close with one hand.",
+      "description": "A modest desk with dovetailed drawers that ride on waxed runners, cut for a laptop and a lamp and nothing you don't need.",
+      "price": 79000,
+      "images": ["pexels:wooden-desk", "pexels:writing-desk-interior"],
+      "variants": [
+        { "name": "Finish", "options": ["Natural Teak", "Walnut", "Espresso"], "priceDeltas": [0, 8000, 8000] }
+      ],
+      "kind": "in-stock", "stock": 2, "featured": false, "active": true,
+      "materials": ["Teak", "Dovetail joinery"], "leadTime": "Ready to deliver",
+      "dimensions": "140 × 65 × 75 cm"
+    }
+  ]
+}
