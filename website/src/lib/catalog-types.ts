@@ -9,7 +9,7 @@ export interface VariantGroup {
   priceDeltas?: number[];
 }
 
-export type ProductKind = "ready" | "bespoke";
+export type ProductKind = "in-stock" | "made-to-order";
 
 export interface Product {
   _id?: import("mongodb").ObjectId;
