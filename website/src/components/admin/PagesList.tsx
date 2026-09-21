@@ -24,6 +24,10 @@ export function PagesList({ pages }: { pages: CustomPage[] }) {
 
   return (
     <div className="panel-c mt-8 max-w-4xl divide-y divide-line">
+      <p className="border-b border-line bg-parchment px-5 py-3 text-[13.5px] text-muted">
+        Draft pages are not shown on the storefront. To preview a draft, tick “Published” and save —
+        the page then renders at /p/your-slug; untick it again when you are done.
+      </p>
       {pages.length === 0 ? (
         <p className="p-6 text-[15px] text-muted">
           No pages yet. Create one — for example an “Eid Deals” page you can publish when ready.
