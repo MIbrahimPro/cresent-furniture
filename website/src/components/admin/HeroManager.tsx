@@ -143,7 +143,10 @@ export function HeroManager({
                   <IconBtn label="Move down" onClick={() => move(i, 1)} disabled={i === media.length - 1}>↓</IconBtn>
                   <IconBtn
                     label="Remove"
-                    onClick={() => save(media.filter((_, x) => x !== i))}
+                    onClick={() => {
+                      if (!confirm("Remove this clip from the hero playlist?")) return;
+                      save(media.filter((_, x) => x !== i));
+                    }}
                   >
                     ×
                   </IconBtn>
