@@ -2,7 +2,7 @@ import "server-only";
 import crypto from "crypto";
 import { cookies } from "next/headers";
 import { getCollection } from "./mongo";
-import { makeToken, SESSION_COOKIE, SESSION_MAX_AGE } from "./session";
+import { makeToken, verifyToken, SESSION_COOKIE, SESSION_MAX_AGE } from "./session";
 import type { CrmUser } from "./types";
 
 export { SESSION_COOKIE } from "./session";
@@ -32,6 +32,8 @@ export async function getSessionUser() {
   const jar = await cookies();
   const token = jar.get(SESSION_COOKIE)?.value;
   if (!token) return null;
+  const userId = await verifyToken(token);
+  if (!userId) return null;
   const users = await getCollection<CrmUser>("crm_users");
   const user = await users.findOne({ _id: new (await import("mongodb")).ObjectId(userId) });
   if (!user) return null;
