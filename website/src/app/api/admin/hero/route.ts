@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getCollection } from "@/lib/mongo";
-import { revalidateStorefront } from "@/lib/admin";
 import { pexelsKey, searchPexelsVideos } from "@/lib/pexels";
 import type { HeroMediaItem, SettingsDoc } from "@/lib/types";
 
@@ -34,7 +33,6 @@ export async function PUT(req: Request) {
       { $set: { heroMedia: media, updatedAt: new Date() } },
       { upsert: true },
     );
-    revalidateStorefront();
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });

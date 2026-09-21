@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { updateSettings } from "@/lib/settings";
-import { revalidateStorefront } from "@/lib/admin";
 import type { SettingsDoc } from "@/lib/types";
 
 export async function PUT(req: Request) {
@@ -12,7 +11,6 @@ export async function PUT(req: Request) {
       shippingNote: body.shippingNote,
       announcement: body.announcement,
     });
-    revalidateStorefront();
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getCollection } from "@/lib/mongo";
-import { revalidateStorefront } from "@/lib/admin";
 import type { Category } from "@/lib/types";
 
 export async function POST(req: Request) {
@@ -18,7 +17,6 @@ export async function POST(req: Request) {
       active: true,
       createdAt: new Date(),
     });
-    revalidateStorefront();
     return NextResponse.json({ ok: true });
   } catch (e: unknown) {
     const dup = e instanceof Error && e.message.includes("duplicate");

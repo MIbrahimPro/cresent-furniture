@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getCollection } from "@/lib/mongo";
-import { revalidateStorefront } from "@/lib/admin";
 import type { Product } from "@/lib/types";
 
 export async function POST(req: Request) {
@@ -22,7 +21,6 @@ export async function POST(req: Request) {
       createdAt: now,
       updatedAt: now,
     });
-    revalidateStorefront();
     return NextResponse.json({ ok: true });
   } catch (e: unknown) {
     const msg = e instanceof Error && e.message.includes("duplicate") ? "That slug already exists" : "Server error";

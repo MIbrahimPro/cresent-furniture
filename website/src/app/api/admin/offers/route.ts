@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getCollection } from "@/lib/mongo";
-import { revalidateStorefront } from "@/lib/admin";
 import type { OfferBanner, SettingsDoc } from "@/lib/types";
 
 export async function PUT(req: Request) {
@@ -20,7 +19,6 @@ export async function PUT(req: Request) {
       { _id: "site" as unknown as never },
       { $set: { offerBanner: banner, updatedAt: new Date() } },
     );
-    revalidateStorefront();
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
