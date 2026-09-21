@@ -20,7 +20,7 @@ async function main() {
 
   const client = new MongoClient(uri);
   await client.connect();
-  const db = client.db();
+  const db = client.db(process.env.MONGODB_DB || undefined);
 
   // Indexes
   await db.collection("products").createIndex({ slug: 1 }, { unique: true });

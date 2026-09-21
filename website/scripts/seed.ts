@@ -118,7 +118,7 @@ async function main() {
 
   const client = new MongoClient(uri);
   await client.connect();
-  const db = client.db();
+  const db = client.db(process.env.MONGODB_DB || undefined);
 
   // Upsert categories
   for (const c of categories) {

@@ -28,7 +28,8 @@ export function getMongoClient(): Promise<MongoClient> {
 
 export async function getDB(): Promise<Db> {
   const c = await getMongoClient();
-  return c.db();
+  // Optional override so the same cluster can host several apps safely
+  return c.db(process.env.MONGODB_DB || undefined);
 }
 
 export async function getCollection<T extends Document>(name: string) {
