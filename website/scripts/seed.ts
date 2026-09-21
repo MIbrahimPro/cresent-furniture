@@ -182,7 +182,7 @@ async function main() {
     await new Promise((r) => setTimeout(r, 250));
   }
   if (hero.length) {
-    await db.collection("settings").updateOne(
+    await db.collection<any>("settings").updateOne(
       { _id: "site" },
       { $set: { heroMedia: hero, updatedAt: new Date() } },
     );

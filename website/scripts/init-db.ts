@@ -34,7 +34,7 @@ async function main() {
   await db.collection("reviews").createIndex({ productSlug: 1, approved: 1 });
 
   // Settings doc
-  await db.collection("settings").updateOne(
+  await db.collection<any>("settings").updateOne(
     { _id: "site" },
     {
       $setOnInsert: {
@@ -63,7 +63,7 @@ async function main() {
   const password = process.env.CRM_ADMIN_PASSWORD || "crescent-admin";
   const name = process.env.CRM_ADMIN_NAME || "Owner";
 
-  await db.collection("crm_users").updateOne(
+  await db.collection<any>("crm_users").updateOne(
     { email: email.toLowerCase() },
     {
       $setOnInsert: {
