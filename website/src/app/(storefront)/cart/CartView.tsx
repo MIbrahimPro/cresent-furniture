@@ -16,11 +16,30 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
   const [city, setCity] = useState("");
   const [note, setNote] = useState("");
 
-  function checkout() {
-    const url = buildWhatsAppUrl(
-      settings.business.whatsapp,
-      buildWhatsAppMessage(items, { customerName: name, phone, address, city, note }),
-    );
+  async function checkout() {
+    const message = buildWhatsAppMessage(items, {
+      customerName: name,
+      phone,
+      address,
+      city,
+      note,
+    });
+
+    // Record the order for the CRM before opening WhatsApp
+    try {
+      await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items,
+          customer: { name, phone, address, city: city || undefined, note: note || undefined },
+        }),
+      });
+    } catch {
+      // Never block the customer on a logging failure
+    }
+
+    const url = buildWhatsAppUrl(settings.business.whatsapp, message);
     window.open(url, "_blank", "noopener,noreferrer");
     setOpen(false);
   }
