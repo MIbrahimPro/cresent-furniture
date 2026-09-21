@@ -1,4 +1,6 @@
-import { MongoClient, type Db, type Document } from "mongodb";
+import { MongoClient, ObjectId, type Db, type Document } from "mongodb";
+
+export { ObjectId };
 
 const uri = process.env.MONGODB_URI;
 

@@ -1,7 +1,7 @@
 import "server-only";
 import crypto from "crypto";
 import { cookies } from "next/headers";
-import { getCollection } from "./mongo";
+import { getCollection, ObjectId } from "./mongo";
 import { makeToken, verifyToken, SESSION_COOKIE, SESSION_MAX_AGE } from "./session";
 import type { CrmUser } from "./types";
 
@@ -35,7 +35,7 @@ export async function getSessionUser() {
   const userId = await verifyToken(token);
   if (!userId) return null;
   const users = await getCollection<CrmUser>("crm_users");
-  const user = await users.findOne({ _id: new (await import("mongodb")).ObjectId(userId) });
+  const user = await users.findOne({ _id: new ObjectId(userId) });
   if (!user) return null;
   return { id: userId, name: user.name, email: user.email, role: user.role };
 }

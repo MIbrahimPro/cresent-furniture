@@ -8,6 +8,7 @@
 import { MongoClient } from "mongodb";
 import fs from "fs";
 import path from "path";
+import { searchPexelsPhotos, searchPexelsVideos } from "../src/lib/pexels";
 
 const CACHE_FILE = path.join(process.cwd(), "data", "pexels-cache.json");
 
@@ -25,27 +26,13 @@ function saveCache(cache: Cache) {
   fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
 }
 
-async function pexelsSearch(query: string, key: string): Promise<{ url: string; credit: string }[]> {
-  const res = await fetch(
-    `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=6&orientation=landscape`,
-    { headers: { Authorization: key } },
-  );
-  if (!res.ok) throw new Error(`Pexels search failed for "${query}": ${res.status}`);
-  const data = await res.json();
-  return (data.photos ?? []).map((p: any) => ({
-    url: p.src?.large2x || p.src?.large,
-    credit: `Photo by ${p.photographer} on Pexels`,
-  }));
-}
-
 async function main() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
     console.error("MONGODB_URI is not set.");
     process.exit(1);
   }
-  const pexelsKey = process.env.PEXELS_API;
-  if (!pexelsKey) {
+  if (!process.env.PEXELS_API) {
     console.error("PEXELS_API is not set.");
     process.exit(1);
   }
@@ -88,7 +75,7 @@ async function main() {
       continue;
     }
     try {
-      const results = await pexelsSearch(query, pexelsKey);
+      const results = await searchPexelsPhotos(query, 6);
       if (results.length) {
         pools[token] = results;
         cache[token] = results[0];
@@ -154,27 +141,17 @@ async function main() {
   const hero: any[] = [];
   for (const q of heroQueries) {
     try {
-      const res = await fetch(
-        `https://api.pexels.com/videos/search?query=${encodeURIComponent(q)}&per_page=3&orientation=landscape`,
-        { headers: { Authorization: pexelsKey } },
-      );
-      const data = await res.json();
-      const v = (data.videos ?? [])[0];
+      const samples = await searchPexelsVideos(q, 3);
+      const v = samples[0];
       if (v) {
-        const files = (v.video_files ?? []).filter((f: any) => (f.file_type ?? "").includes("mp4"));
-        const best = files.sort(
-          (a: any, b: any) => Math.abs((a.width ?? 0) - 1600) - Math.abs((b.width ?? 0) - 1600),
-        )[0];
-        if (best) {
-          hero.push({
-            id: String(v.id),
-            type: "video",
-            url: best.link,
-            credit: `Video by ${v.user?.name ?? "Pexels"} on Pexels`,
-            addedAt: new Date(),
-          });
-          console.log(`  ✓ hero video: ${q} -> ${v.id}`);
-        }
+        hero.push({
+          id: `px-${v.id}`,
+          type: "video",
+          url: v.url,
+          credit: v.credit,
+          addedAt: new Date(),
+        });
+        console.log(`  ✓ hero video: ${q} -> ${v.id}`);
       }
     } catch (e: any) {
       console.warn(`  ! hero video "${q}": ${e.message}`);

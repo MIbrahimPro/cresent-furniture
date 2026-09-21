@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getCollection } from "@/lib/mongo";
+import { getCollection, ObjectId } from "@/lib/mongo";
 import type { Category, Product } from "@/lib/types";
 import { ProductForm } from "@/components/admin/ProductForm";
 
@@ -12,7 +12,6 @@ export default async function EditProductPage({
 }) {
   const { id } = await params;
   const col = await getCollection<Product>("products");
-  const { ObjectId } = await import("mongodb");
   const product = await col.findOne({ _id: new ObjectId(id) });
   if (!product) notFound();
 

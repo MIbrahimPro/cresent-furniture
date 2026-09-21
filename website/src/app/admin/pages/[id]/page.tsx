@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getCollection } from "@/lib/mongo";
+import { getCollection, ObjectId } from "@/lib/mongo";
 import type { CustomPage } from "@/lib/types";
 import { PageEditor } from "@/components/admin/PageEditor";
 
@@ -12,7 +12,6 @@ export default async function EditPagePage({
 }) {
   const { id } = await params;
   const col = await getCollection<CustomPage>("custom_pages");
-  const { ObjectId } = await import("mongodb");
   const page = await col.findOne({ _id: new ObjectId(id) });
   if (!page) notFound();
 

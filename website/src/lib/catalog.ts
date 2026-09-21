@@ -68,11 +68,6 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
   return col.findOne({ slug, active: true });
 }
 
-export async function getProductsBySlugs(slugs: string[]): Promise<Product[]> {
-  const col = await getCollection<Product>("products");
-  return col.find({ slug: { $in: slugs }, active: true }).toArray();
-}
-
 export async function getRelatedProducts(product: Product, limit = 4): Promise<Product[]> {
   const col = await getCollection<Product>("products");
   return col

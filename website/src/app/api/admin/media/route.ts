@@ -8,12 +8,6 @@ import type { CrmMedia } from "@/lib/types";
 const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads");
 const MAX_BYTES = 60 * 1024 * 1024; // 60 MB
 
-export async function GET() {
-  const col = await getCollection<CrmMedia>("crm_media");
-  const items = await col.find().sort({ addedAt: -1 }).limit(200).toArray();
-  return NextResponse.json({ items });
-}
-
 /** Upload a file as a base64 data URL; returns the public path. */
 export async function POST(req: Request) {
   try {
