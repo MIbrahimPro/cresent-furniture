@@ -95,7 +95,7 @@ export default async function ShopPage({
           refresh.
         </p>
       ) : (
-        <div className="mt-10 grid gap-10 lg:grid-cols-[240px_1fr]">
+        <div className="mt-10 grid items-start gap-10 lg:grid-cols-[250px_1fr]">
           <Suspense fallback={null}>
             <ShopFilters data={{ categories, variantFacets: facets }} />
           </Suspense>

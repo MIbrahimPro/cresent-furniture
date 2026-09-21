@@ -28,6 +28,12 @@
   /* Accent — warm gold, sparingly */
   --color-brass: #d2a86c;
 
+  /* Light surfaces — parchment details that lift out of the dark */
+  --color-parchment: #f2e9dc;
+  --color-parchment-2: #e9dcc9;
+  --color-espresso: #57443b;
+  --color-ink-strong: #2a1813;
+
   /* Status */
   --color-sale: #d4544a;
 
@@ -63,7 +69,8 @@
     color: var(--color-sand);
     font-family: var(--font-body);
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.65;
+    letter-spacing: 0.002em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -111,12 +118,12 @@
 
 /* ---------- Type utilities ---------- */
 
-/* Large display headline — Marcellus caps, board tracking */
+/* Large display headline — Marcellus caps, gently tracked */
 .display-c {
   font-family: var(--font-display);
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.045em;
+  letter-spacing: 0.02em;
   line-height: 1.14;
   text-wrap: balance;
 }
@@ -126,7 +133,7 @@
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-terra);
 }
@@ -165,7 +172,7 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1;
   cursor: pointer;
@@ -196,6 +203,14 @@
   color: var(--color-cream);
   border: 0;
 }
+
+/* On light panels: deep espresso pill, parchment text — 9.8:1 */
+.btn-dark {
+  background: var(--color-ink-strong);
+  color: var(--color-parchment);
+  border: 0;
+}
+.btn-dark:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn-light:hover { background: var(--color-walnut-3); transform: translateY(-2px); }
 
 /* On dark surfaces: outlined cream */
@@ -221,9 +236,7 @@
 }
 
 .btn-primary .icon-arrow { transition: transform 220ms var(--ease-brand); }
-.btn-primary:hover .icon-arrow { transform: translateX(3px); }
-
-.btn:disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+.btn-primary:hover .icon-arrow { transform: translateX(3px); }  .btn:disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 
 /* ---------- Inputs ---------- */
 
@@ -274,6 +287,28 @@ select.input-c {
   border: 1px solid var(--color-line);
   border-radius: var(--radius-card-lg);
 }
+
+/* Light panel — for sections that lift out of the dark ground */
+.panel-light {
+  background: var(--color-parchment);
+  border: 1px solid rgba(38, 16, 26, 0.08);
+  border-radius: var(--radius-card-lg);
+  color: var(--color-espresso);
+}
+.panel-light h1, .panel-light h2, .panel-light h3 {
+  color: var(--color-ink-strong);
+}
+.panel-light .overline-c { color: var(--color-terra-deep); }
+
+/* Light section slab */
+.section-light {
+  background: var(--color-parchment);
+  color: var(--color-espresso);
+}
+.section-light h1, .section-light h2, .section-light h3 {
+  color: var(--color-ink-strong);
+}
+.section-light .overline-c { color: var(--color-terra-deep); }
 
 .card-c {
   background: var(--color-walnut);

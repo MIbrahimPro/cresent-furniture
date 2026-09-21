@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "./CartProvider";
+import { Logo } from "./Logo";
 
 export interface NavLink {
   label: string;
@@ -51,8 +52,7 @@ export function Header({
 
       <div className="container-c flex h-[76px] items-center justify-between gap-4">
         <Link href="/" aria-label="Crescent — home" className="flex shrink-0 items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/crescent-logo-light.svg" alt="Crescent — Bespoke Furniture House" className="h-12 w-auto" />
+          <Logo className="h-14 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
@@ -88,9 +88,10 @@ export function Header({
             aria-label={`Cart, ${ready ? count : 0} items`}
             className="relative grid h-11 w-11 place-items-center rounded-full text-sand transition-colors hover:bg-walnut-2 hover:text-cream"
           >
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8Z" />
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 8h12l-1.1 11.2a2 2 0 0 1-2 1.8H9.1a2 2 0 0 1-2-1.8L6 8Z" />
               <path d="M9 10V6a3 3 0 0 1 6 0v4" />
+              <path d="M4.5 8h15" />
             </svg>
             {ready && count > 0 ? (
               <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-terra px-1 text-[10px] font-bold text-deep">

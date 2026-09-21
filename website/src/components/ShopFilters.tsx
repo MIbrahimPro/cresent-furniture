@@ -37,7 +37,7 @@ export function ShopFilters({ data }: { data: FilterData }) {
   const hasFilters = category || band || variant || availability;
 
   return (
-    <aside className="space-y-8">
+    <aside className="panel-light sticky top-24 space-y-7 p-6">
       <FilterGroup title="Category">
         <ul className="space-y-2">
           <FilterLink active={!category} onClick={() => setParam("category", null)}>
@@ -117,7 +117,7 @@ export function ShopFilters({ data }: { data: FilterData }) {
         <button
           type="button"
           onClick={() => router.push("/shop", { scroll: false })}
-          className="text-[14px] text-terra underline underline-offset-4 hover:text-terra"
+          className="text-[14px] text-terra-deep underline underline-offset-4 hover:text-terra"
         >
           Clear all filters
         </button>
@@ -160,7 +160,7 @@ export function SortSelect() {
 function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brass">
+      <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-terra-deep">
         {title}
       </h3>
       <div className="mt-3">{children}</div>
@@ -182,8 +182,8 @@ function FilterLink({
       <button
         type="button"
         onClick={onClick}
-        className={`text-left text-[16px] transition-colors ${
-          active ? "font-medium text-terra underline underline-offset-4" : "text-sand/80 hover:text-terra"
+        className={`text-left text-[15px] transition-colors ${
+          active ? "font-semibold text-terra-deep underline underline-offset-4" : "text-espresso hover:text-terra-deep"
         }`}
       >
         {children}

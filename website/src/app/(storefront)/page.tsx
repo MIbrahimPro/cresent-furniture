@@ -9,33 +9,8 @@ import type { Product } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "The dining table we commissioned is without question the finest piece of furniture in our home.",
-    name: "Ahmed K.",
-    city: "Islamabad",
-    piece: "The Shalimar Dining Table",
-  },
-  {
-    quote: "Crescent built exactly what we imagined. The craftsmanship is extraordinary.",
-    name: "Sara M.",
-    city: "Rawalpindi",
-    piece: "The Kashmir Bed Frame",
-  },
-  {
-    quote: "The wardrobe they made for us is a work of art. Forty years from now it will still be standing.",
-    name: "Fatima R.",
-    city: "Islamabad",
-    piece: "The Margalla Wardrobe",
-  },
-  {
-    quote: "From the first conversation to the final delivery — a flawless experience.",
-    name: "Bilal H.",
-    city: "Karachi",
-    piece: "Bespoke Office Commission",
-  },
-];
+const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/maps/search/Crescent+Furniture+Murree+Road+Rawalpindi";
 
 export default async function HomePage() {
   const [settings, categories] = await Promise.all([getSettings(), getActiveCategories()]);
@@ -43,6 +18,15 @@ export default async function HomePage() {
   let categoryImages: Record<string, string> = {};
   try {
     featured = await getFeaturedProducts(8);
+    // Top up with the newest pieces so the grid never sits ragged
+    if (featured.length < 8) {
+      const seen = new Set(featured.map((p) => String(p._id)));
+      const newest = await searchProducts({ sort: "newest" });
+      for (const p of newest) {
+        if (featured.length >= 8) break;
+        if (!seen.has(String(p._id))) featured.push(p);
+      }
+    }
     // Category tiles fall back to their first product photo
     const all = await searchProducts({});
     for (const p of all) {
@@ -212,35 +196,46 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-ink section-flow">
+      {/* Reviews — light slab, honest link-out to Google */}
+      <section className="section-light section-flow">
         <div className="container-c">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
-              <p className="overline-c">Kind Words</p>
+              {/* Google "G" */}
+              <svg width="44" height="44" viewBox="0 0 48 48" aria-hidden className="mx-auto">
+                <path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.6-9.6 6.6-16.2z" />
+                <path fill="#34A853" d="M24 46c6 0 11-2 14.6-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.5 2.1-5.8 0-10.7-3.9-12.4-9.2H4.2v5.7C7.9 41 15.4 46 24 46z" />
+                <path fill="#FBBC05" d="M11.6 28.1c-.4-1.3-.7-2.7-.7-4.1s.3-2.8.7-4.1v-5.7H4.2C2.7 17.1 2 20.4 2 24s.7 6.9 2.2 9.8l7.4-5.7z" />
+                <path fill="#EA4335" d="M24 10.8c3.3 0 6.2 1.1 8.5 3.3l6.3-6.3C35 4.3 30 2 24 2 15.4 2 7.9 7 4.2 14.2l7.4 5.7c1.7-5.3 6.6-9.1 12.4-9.1z" />
+              </svg>
+              <p className="overline-c mt-6">Reviewed on Google</p>
               <h2 className="display-c mt-4 text-[32px] sm:text-[42px]">
-                From our <span className="accent-i">clients&rsquo; homes.</span>
+                The word on <span className="accent-i">the street.</span>
               </h2>
+              <p className="mx-auto mt-5 max-w-lg text-[16px] leading-[1.8] text-espresso">
+                Our customers share their experiences on Google — the workshop, the finishing,
+                the delivery. Read what they say, and add your own words after your visit.
+              </p>
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-dark"
+                >
+                  Read reviews on Google
+                </a>
+                <a
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-ghost border-espresso/40 text-espresso hover:bg-espresso/10"
+                >
+                  Write a review
+                </a>
+              </div>
             </div>
           </Reveal>
-          <div className="mt-14 columns-1 gap-5 md:columns-2 [&>*]:mb-5">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.name} delay={(i % 2) * 80} className="break-inside-avoid">
-                <figure className="panel-c p-8">
-                  <span className="font-display text-[44px] leading-none text-terra/60" aria-hidden>“</span>
-                  <blockquote className="-mt-4 text-[16px] leading-[1.75] text-sand">
-                    {t.quote}
-                  </blockquote>
-                  <figcaption className="mt-6 border-t border-line pt-5">
-                    <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-cream">
-                      {t.name} · {t.city}
-                    </p>
-                    <p className="mt-1.5 text-[13.5px] italic text-mute">{t.piece}</p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { SettingsDoc } from "@/lib/types";
 import { buildEnquiryUrl } from "@/lib/format";
+import { Logo } from "./Logo";
 
 export function Footer({
   settings,
@@ -16,12 +17,7 @@ export function Footer({
     <footer className="mt-24 rounded-t-[40px] border-t border-line bg-ink">
       <div className="container-c grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.2fr_1fr]">
         <div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/crescent-logo-light.svg"
-            alt="Crescent — Bespoke Furniture House"
-            className="h-12 w-auto"
-          />
+          <Logo className="h-16 w-auto" />
           <p className="mt-5 max-w-xs text-[14px] leading-relaxed text-sand/80">
             A bespoke furniture house in Rawalpindi. Every piece made to order, by hand, from
             seasoned hardwood.
