@@ -28,8 +28,9 @@ export function getMongoClient(): Promise<MongoClient> {
 
 export async function getDB(): Promise<Db> {
   const c = await getMongoClient();
-  // Optional override so the same cluster can host several apps safely
-  return c.db(process.env.MONGODB_DB || undefined);
+  // "crescent" by default so a shared cluster URI never collides with
+  // another app's database; MONGODB_DB overrides when needed.
+  return c.db(process.env.MONGODB_DB || "crescent");
 }
 
 export async function getCollection<T extends Document>(name: string) {
