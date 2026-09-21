@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="t d">
   <title id="t">Crescent maker's seal</title>
-  <desc id="d">Cream crescent beneath a terracotta sweep, ringed by a dashed brass circle — the workshop's maker's seal.</desc>
+  <desc id="d">Cream crescent beneath a salmon sweep, ringed by a dashed gold circle — the workshop's maker's seal.</desc>
   <!-- outer craft rings -->
-  <circle cx="240" cy="240" r="222" fill="none" stroke="#F3ECE2" stroke-opacity="0.25" stroke-width="1.5"/>
-  <circle cx="240" cy="240" r="202" fill="none" stroke="#C9A36A" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 11"/>
+  <circle cx="240" cy="240" r="222" fill="none" stroke="#F5EFE6" stroke-opacity="0.25" stroke-width="1.5"/>
+  <circle cx="240" cy="240" r="202" fill="none" stroke="#D2A86C" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 11"/>
   <!-- sweep -->
-  <path d="M150 208 Q240 96 330 208" fill="none" stroke="#E07856" stroke-width="11" stroke-linecap="round"/>
-  <!-- crescent -->
-  <path d="M240 135 A115 115 0 1 0 240 365 A95 95 0 1 1 240 135 Z" fill="#F3ECE2"/>
-  <!-- three brass dots -->
-  <circle cx="196" cy="398" r="5" fill="#C9A36A"/>
-  <circle cx="240" cy="406" r="5" fill="#C9A36A"/>
-  <circle cx="284" cy="398" r="5" fill="#C9A36A"/>
+  <path d="M150 208 Q240 96 330 208" fill="none" stroke="#EF6E50" stroke-width="11" stroke-linecap="round"/>
+  <!-- crescent: outer circle (240,250,r120) minus bite circle (295,250,r100) -->
+  <path d="M307.5 150.8 A120 120 0 1 0 307.5 349.2 A100 100 0 0 1 307.5 150.8 Z" fill="#F5EFE6"/>
+  <!-- three gold dots -->
+  <circle cx="196" cy="398" r="5" fill="#D2A86C"/>
+  <circle cx="240" cy="406" r="5" fill="#D2A86C"/>
+  <circle cx="284" cy="398" r="5" fill="#D2A86C"/>
 </svg>

@@ -5,11 +5,12 @@ import { formatPKR } from "@/lib/format";
 export function ProductCard({ product }: { product: Product }) {
   const p = product;
   const onSale = p.comparePrice && p.comparePrice > p.price;
-  const badge =
-    p.kind === "in-stock" ? "In stock" : p.featured ? "Bespoke" : "Made to order";
 
   return (
-    <Link href={`/product/${p.slug}`} className="card-c group block p-2">
+    <Link
+      href={`/product/${p.slug}`}
+      className="card-c group flex h-full flex-col p-2"
+    >
       <div className="relative aspect-[4/3] overflow-hidden rounded-[14px] bg-walnut-2">
         {p.images?.[0] ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -22,27 +23,33 @@ export function ProductCard({ product }: { product: Product }) {
         ) : (
           <div className="grid h-full place-items-center text-mute">No image</div>
         )}
-        <span className="absolute left-3 top-3 rounded-full bg-deep/70 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-brass backdrop-blur-sm">
-          {badge}
-        </span>
-        {onSale ? (
-          <span className="absolute right-3 top-3 rounded-full bg-sale px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-cream">
-            Offer
-          </span>
-        ) : null}
       </div>
-      <div className="px-3 pb-4 pt-4">
-        <h3 className="font-display text-[17px] font-medium leading-snug text-cream transition-colors group-hover:text-terra">
+      <div className="flex flex-1 flex-col px-3 pb-2 pt-4">
+        <h3 className="font-display text-[17px] leading-snug text-cream transition-colors group-hover:text-terra [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] min-h-[2.75em] [overflow:hidden]">
           {p.name}
         </h3>
-        <p className="mt-1.5 line-clamp-2 text-[13.5px] leading-relaxed text-mute">{p.tagline}</p>
-        <div className="mt-3 flex items-baseline gap-2.5">
-          <span className="font-display text-[16px] font-semibold text-cream">
-            {formatPKR(p.price)}
+        <p className="mt-1.5 line-clamp-2 text-[13.5px] leading-relaxed text-mute">
+          {p.tagline}
+        </p>
+        <div className="mt-auto flex items-center justify-between pt-4">
+          <div className="flex items-baseline gap-2.5">
+            <span className="font-display text-[16px] font-semibold text-cream">
+              {formatPKR(p.price)}
+            </span>
+            {onSale ? (
+              <span className="text-[13px] text-mute line-through">
+                {formatPKR(p.comparePrice!)}
+              </span>
+            ) : null}
+          </div>
+          <span
+            aria-hidden
+            className="grid h-8 w-8 place-items-center rounded-full border border-line-strong text-sand transition-all duration-300 group-hover:border-terra group-hover:bg-terra group-hover:text-ink"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
           </span>
-          {onSale ? (
-            <span className="text-[13px] text-mute line-through">{formatPKR(p.comparePrice!)}</span>
-          ) : null}
         </div>
       </div>
     </Link>

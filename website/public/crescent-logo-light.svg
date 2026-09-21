@@ -1,29 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="t d">
   <title id="t">Crescent Bespoke Furniture House</title>
-  <desc id="d">Cream Crescent wordmark with terracotta arc, drawn as pure geometry.</desc>
-  <!-- terracotta sweep above the wordmark -->
-  <path d="M118 96 Q500 8 882 96" fill="none" stroke="#E07856" stroke-width="9" stroke-linecap="round"/>
-  <!-- wordmark: stroked letterforms, cream -->
-  <g fill="none" stroke="#F3ECE2" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
-    <!-- C -->
-    <path d="M156 178 a52 52 0 1 0 0 64"/>
-    <!-- R -->
-    <path d="M226 142 v136 M226 142 h34 a26 26 0 0 1 0 52 h-34 M258 194 l28 84"/>
-    <!-- E -->
-    <path d="M306 142 v136 h58 M306 210 h48"/>
-    <!-- S -->
-    <path d="M442 148 a26 26 0 0 0 -44 18 c0 32 50 22 50 54 a26 26 0 0 1 -50 16"/>
-    <!-- C -->
-    <path d="M562 178 a52 52 0 1 0 0 64"/>
-    <!-- E -->
-    <path d="M634 142 v136 h58 M634 210 h48"/>
-    <!-- N -->
-    <path d="M714 278 v-136 l64 136 v-136"/>
-    <!-- T -->
-    <path d="M796 142 h62 M827 142 v136"/>
+  <desc id="d">Salmon-red Crescent wordmark with sweep arc and cream descriptor, matching the shop board.</desc>
+  <!-- sweep arc, as on the board -->
+  <path d="M118 96 Q500 8 882 96" fill="none" stroke="#EF6E50" stroke-width="9" stroke-linecap="round"/>
+  <!-- CRESCENT — Marcellus-genre stroked roman caps, salmon -->
+  <g fill="none" stroke="#EF6E50" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M239 184 A 36 36 0 1 0 239 236"/>
+    <path d="M267 142 V278 M267 142 H295 A 24 24 0 0 1 295 190 H267 M291 190 L323 278"/>
+    <path d="M405 142 H349 V278 H405 M349 210 H395"/>
+    <path d="M479 160 C468 142 438 140 436 166 C434 190 478 194 480 220 C482 248 446 252 434 234"/>
+    <path d="M567 184 A 36 36 0 1 0 567 236"/>
+    <path d="M651 142 H595 V278 H651 M595 210 H641"/>
+    <path d="M677 278 V142 L733 278 V142"/>
+    <path d="M759 142 H815 M787 142 V278"/>
   </g>
-  <!-- descriptor rule + text -->
-  <line x1="300" y1="316" x2="418" y2="316" stroke="#C9A36A" stroke-width="2"/>
-  <line x1="582" y1="316" x2="700" y2="316" stroke="#C9A36A" stroke-width="2"/>
-  <text x="500" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" font-weight="500" letter-spacing="10" fill="#C9B8A5">BESPOKE FURNITURE HOUSE</text>
+  <!-- descriptor rule + cream text -->
+  <line x1="300" y1="316" x2="418" y2="316" stroke="#F5EFE6" stroke-width="2.5"/>
+  <line x1="582" y1="316" x2="700" y2="316" stroke="#F5EFE6" stroke-width="2.5"/>
+  <text x="500" y="325" text-anchor="middle" font-family="system-ui, sans-serif" font-size="27" font-weight="500" letter-spacing="9" fill="#F5EFE6">BESPOKE FURNITURE HOUSE</text>
 </svg>

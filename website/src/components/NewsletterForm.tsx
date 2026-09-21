@@ -25,7 +25,7 @@ export function NewsletterForm() {
 
   if (state === "done") {
     return (
-      <p className="mt-6 font-display italic text-[17px] text-terra">
+      <p className="mt-6 font-display text-[17px] text-terra">
         Shukriya — you are on the list.
       </p>
     );

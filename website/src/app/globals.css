@@ -1,44 +1,44 @@
 @import "tailwindcss";
 
-/* ---------- Brand tokens — "The Dark Atelier" ----------
-   Near-black walnut-brown base, terracotta primary, warm
-   neutrals. Everything flows: large radii, soft veils, no
-   hard drop shadows. */
+/* ---------- Brand tokens — "The Signboard" ----------
+   Derived from the shop board on Murree Road: deep maroon
+   ground, salmon-red wordmark, cream serif descriptor.
+   Dark, rounded, flowy — but unmistakably Crescent. */
 
 @theme {
   /* Surfaces — darkest first */
-  --color-deep: #140b08;      /* page background */
-  --color-ink: #1c0f0a;       /* raised sections, footer */
-  --color-walnut: #241510;    /* elevated cards */
-  --color-walnut-2: #2e1c15;  /* hover surfaces, inputs */
-  --color-walnut-3: #3a251c;  /* borders on light accents */
+  --color-deep: #1c0b12;      /* page background */
+  --color-ink: #26101a;       /* raised sections, footer — board maroon */
+  --color-walnut: #331722;    /* elevated cards */
+  --color-walnut-2: #3d1c29;  /* hover surfaces, inputs */
+  --color-walnut-3: #4a2433;  /* pressed surfaces */
 
   /* Type */
-  --color-cream: #f3ece2;     /* headings on dark */
-  --color-sand: #c9b8a5;      /* body on dark */
-  --color-mute: #8f7d6e;      /* de-emphasized text on dark */
-  --color-line: rgba(243, 236, 226, 0.1);      /* hairlines on dark */
-  --color-line-strong: rgba(243, 236, 226, 0.18);
+  --color-cream: #f5efe6;     /* headings on dark — board descriptor */
+  --color-sand: #d9c4bd;      /* body on dark */
+  --color-mute: #a48d92;      /* de-emphasized text on dark */
+  --color-line: rgba(245, 239, 230, 0.1);      /* hairlines on dark */
+  --color-line-strong: rgba(245, 239, 230, 0.2);
 
-  /* Primary — terracotta */
-  --color-terra: #e07856;
-  --color-terra-deep: #c95f3f;
-  --color-terra-veil: rgba(224, 120, 86, 0.14);
+  /* Primary — the board's salmon red */
+  --color-terra: #ef6e50;
+  --color-terra-deep: #d5543a;
+  --color-terra-veil: rgba(239, 110, 80, 0.14);
 
-  /* Accent — antique brass, sparingly */
-  --color-brass: #c9a36a;
+  /* Accent — warm gold, sparingly */
+  --color-brass: #d2a86c;
 
   /* Status */
   --color-sale: #d4544a;
 
-  /* Typography */
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  /* Typography — Marcellus is the board's Trajan genre */
+  --font-display: var(--font-marcellus), "Trajan Pro", Georgia, "Times New Roman", serif;
   --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
 
-  /* Shape — the "rounded, flowy" brief */
-  --radius-btn: 999px;
-  --radius-card: 20px;
-  --radius-card-lg: 28px;
+  /* Shape — rounded, not pill-shaped surfaces */
+  --radius-btn: 999px;        /* buttons stay pill */
+  --radius-card: 14px;        /* cards: soft rectangle */
+  --radius-card-lg: 20px;     /* panels */
 
   /* Shadows — veils, not edges */
   --shadow-sm: 0 2px 12px rgba(8, 4, 2, 0.25);
@@ -57,8 +57,8 @@
 
   body {
     background:
-      radial-gradient(1100px 520px at 85% -5%, rgba(201, 163, 106, 0.06), transparent 62%),
-      radial-gradient(900px 560px at -10% 18%, rgba(224, 120, 86, 0.05), transparent 58%),
+      radial-gradient(1100px 520px at 85% -5%, rgba(210, 168, 108, 0.05), transparent 62%),
+      radial-gradient(900px 560px at -10% 18%, rgba(239, 110, 80, 0.05), transparent 58%),
       var(--color-deep);
     color: var(--color-sand);
     font-family: var(--font-body);
@@ -70,11 +70,10 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 550;
-    font-variation-settings: "SOFT" 60, "WONK" 0, "opsz" 60;
+    font-weight: 400;
     color: var(--color-cream);
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+    letter-spacing: 0.01em;
+    line-height: 1.18;
   }
 
   ::selection {
@@ -112,13 +111,13 @@
 
 /* ---------- Type utilities ---------- */
 
-/* Large display headline — Fraunces at its softest */
+/* Large display headline — Marcellus caps, board tracking */
 .display-c {
   font-family: var(--font-display);
-  font-weight: 560;
-  font-variation-settings: "SOFT" 100, "WONK" 0, "opsz" 144;
-  letter-spacing: -0.015em;
-  line-height: 1.08;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  line-height: 1.14;
   text-wrap: balance;
 }
 
@@ -141,11 +140,9 @@
   color: var(--color-terra);
 }
 
-/* Italic Fraunces pull-phrase inside a heading */
+/* Salmon-red pull-phrase inside a heading, as on the board */
 .accent-i {
-  font-style: italic;
-  font-weight: 480;
-  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  font-style: normal;
   color: var(--color-terra);
 }
 
@@ -179,23 +176,23 @@
 
 .btn-sm { min-height: 42px; padding: 0 22px; }
 
-/* Cream text on terracotta: 6.5:1 */
+/* The board inverted: deep maroon text on salmon red — 5.97:1 */
 .btn-primary {
   background: linear-gradient(160deg, var(--color-terra), var(--color-terra-deep));
-  color: #fff8f0;
+  color: var(--color-ink);
   border: 0;
-  box-shadow: 0 10px 26px rgba(224, 120, 86, 0.22);
+  box-shadow: 0 10px 26px rgba(239, 110, 80, 0.25);
 }
 .btn-primary:hover {
-  box-shadow: 0 14px 32px rgba(224, 120, 86, 0.3);
+  box-shadow: 0 14px 32px rgba(239, 110, 80, 0.35);
   transform: translateY(-2px);
 }
 .btn-primary:active { transform: translateY(0); }
 .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
 
-/* On light/image surfaces: deep walnut pill */
+/* Solid dark pill: cream text on board maroon — 12:1 */
 .btn-light {
-  background: var(--color-walnut-2);
+  background: var(--color-ink);
   color: var(--color-cream);
   border: 0;
 }
@@ -222,6 +219,9 @@
   background: var(--color-terra-veil);
   border-color: var(--color-terra);
 }
+
+.btn-primary .icon-arrow { transition: transform 220ms var(--ease-brand); }
+.btn-primary:hover .icon-arrow { transform: translateX(3px); }
 
 .btn:disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 
@@ -281,11 +281,12 @@ select.input-c {
   border-radius: var(--radius-card);
   overflow: hidden;
   transition: border-color 260ms var(--ease-brand), transform 260ms var(--ease-brand),
-    box-shadow 260ms var(--ease-brand);
+    box-shadow 260ms var(--ease-brand), background 260ms var(--ease-brand);
 }
 .card-c:hover {
-  border-color: rgba(224, 120, 86, 0.4);
-  transform: translateY(-4px);
+  border-color: rgba(239, 110, 80, 0.45);
+  background: var(--color-walnut-2);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 

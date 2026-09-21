@@ -2,12 +2,9 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const fraunces = localFont({
-  src: [
-    { path: "../fonts/Fraunces-Variable.ttf", weight: "300 900", style: "normal" },
-    { path: "../fonts/Fraunces-Italic-Variable.ttf", weight: "300 900", style: "italic" },
-  ],
-  variable: "--font-fraunces",
+const marcellus = localFont({
+  src: [{ path: "../fonts/Marcellus-Regular.ttf", weight: "400", style: "normal" }],
+  variable: "--font-marcellus",
   display: "swap",
 });
 
@@ -40,12 +37,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1c0a10",
+  themeColor: "#26101a",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${marcellus.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );

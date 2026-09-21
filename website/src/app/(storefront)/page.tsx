@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getSettings } from "@/lib/settings";
-import { getActiveCategories, getFeaturedProducts } from "@/lib/catalog";
+import { getActiveCategories, getFeaturedProducts, searchProducts } from "@/lib/catalog";
 import { HeroVideo } from "@/components/HeroVideo";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
@@ -40,8 +40,16 @@ const TESTIMONIALS = [
 export default async function HomePage() {
   const [settings, categories] = await Promise.all([getSettings(), getActiveCategories()]);
   let featured: Product[] = [];
+  let categoryImages: Record<string, string> = {};
   try {
     featured = await getFeaturedProducts(8);
+    // Category tiles fall back to their first product photo
+    const all = await searchProducts({});
+    for (const p of all) {
+      if (p.images?.[0] && !categoryImages[p.categorySlug]) {
+        categoryImages[p.categorySlug] = p.images[0];
+      }
+    }
   } catch {
     // DB unreachable — the hero and story sections still render
   }
@@ -83,10 +91,10 @@ export default async function HomePage() {
                 href={`/shop?category=${c.slug}`}
                 className="card-c group relative block h-full min-h-[240px] lg:min-h-0"
               >
-                {c.image ? (
+                {c.image || categoryImages[c.slug] ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    src={c.image}
+                    src={c.image || categoryImages[c.slug]}
                     alt=""
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.04]"
                   />
@@ -108,7 +116,7 @@ export default async function HomePage() {
           <Reveal delay={categories.length * 70}>
             <Link href="/bespoke" className="card-c group relative block h-full min-h-[240px] bg-walnut">
               <div className="absolute inset-0 flex flex-col justify-between p-6">
-                <span className="w-fit rounded-full border border-terra/50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-terra">
+                <span className="w-fit rounded-[10px] border border-terra/40 bg-terra-veil px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-terra">
                   Made to order
                 </span>
                 <div>
