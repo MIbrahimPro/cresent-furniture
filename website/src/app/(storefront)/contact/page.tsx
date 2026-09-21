@@ -26,7 +26,7 @@ export default async function ContactPage() {
 
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         <div className="panel-c p-7">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-terra">
+          <h2 className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brass">
             Workshop
           </h2>
           <p className="mt-4 text-[17px] leading-relaxed text-sand/90">{business.address}</p>
@@ -43,7 +43,7 @@ export default async function ContactPage() {
         </div>
 
         <div className="panel-c p-7">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-terra">
+          <h2 className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brass">
             Call or message
           </h2>
           <a
@@ -64,7 +64,7 @@ export default async function ContactPage() {
         </div>
 
         <div className="panel-c p-7">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-terra">
+          <h2 className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brass">
             Commissions
           </h2>
           <p className="mt-4 text-[16px] leading-relaxed text-sand/90">

@@ -51,7 +51,7 @@ export default async function AdminDashboard() {
 
           <div className="panel-c mt-8">
             <div className="flex items-center justify-between border-b border-line px-5 py-4">
-              <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+              <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
                 Recent orders
               </h2>
               <Link href="/admin/orders" className="text-[14px] text-terra hover:underline">

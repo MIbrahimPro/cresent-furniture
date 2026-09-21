@@ -47,7 +47,7 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
               {reviews.map((r) => (
                 <li key={String(r._id)} className="panel-c p-6">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-cream">
+                    <p className="text-[14px] font-semibold text-cream">
                       {r.name}
                     </p>
                     <Stars value={r.rating} />
@@ -66,7 +66,7 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
         </div>
 
         <div>
-          <h3 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-cream">
+          <h3 className="font-display text-[20px] font-medium text-cream">
             Leave a note
           </h3>
           <p className="mt-2 text-[15px] text-sand">

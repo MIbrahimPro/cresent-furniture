@@ -45,7 +45,7 @@ export function SettingsForm({ settings }: { settings: SettingsDoc }) {
   return (
     <form onSubmit={submit} className="mt-8 grid max-w-4xl gap-8 lg:grid-cols-2">
       <section className="panel-c space-y-4 p-6">
-        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+        <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
           Business details
         </h2>
         <Field label="Name"><input name="name" defaultValue={settings.business.name} className="input-c" /></Field>
@@ -58,7 +58,7 @@ export function SettingsForm({ settings }: { settings: SettingsDoc }) {
       </section>
 
       <section className="panel-c space-y-4 p-6">
-        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+        <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
           WhatsApp & notices
         </h2>
         <Field label="WhatsApp number (checkout target)">

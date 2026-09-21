@@ -40,19 +40,19 @@ export function Header({
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-cream/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line bg-deep/80 backdrop-blur-xl">
       {announcement ? (
-        <div className="bg-ink px-4 py-2 text-center">
-          <p className="font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-terra">
+        <div className="bg-terra-veil px-4 py-2 text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brass">
             {announcement}
           </p>
         </div>
       ) : null}
 
-      <div className="container-c flex h-[72px] items-center justify-between gap-4">
+      <div className="container-c flex h-[76px] items-center justify-between gap-4">
         <Link href="/" aria-label="Crescent — home" className="flex shrink-0 items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/crescent-logo-light.svg" alt="Crescent — Bespoke Furniture House" className="h-11 w-auto" />
+          <img src="/crescent-logo-light.svg" alt="Crescent — Bespoke Furniture House" className="h-12 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
@@ -70,12 +70,12 @@ export function Header({
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <button
             type="button"
             aria-label="Search products"
             onClick={() => setSearchOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-btn text-cream transition-colors hover:bg-walnut-2"
+            className="grid h-11 w-11 place-items-center rounded-full text-sand transition-colors hover:bg-walnut-2 hover:text-cream"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
               <circle cx="11" cy="11" r="7" />
@@ -86,20 +86,20 @@ export function Header({
           <Link
             href="/cart"
             aria-label={`Cart, ${ready ? count : 0} items`}
-            className="relative grid h-10 w-10 place-items-center rounded-btn text-cream transition-colors hover:bg-walnut-2"
+            className="relative grid h-11 w-11 place-items-center rounded-full text-sand transition-colors hover:bg-walnut-2 hover:text-cream"
           >
             <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8Z" />
               <path d="M9 10V6a3 3 0 0 1 6 0v4" />
             </svg>
             {ready && count > 0 ? (
-              <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-terra px-1 font-display text-[10px] font-bold text-deep">
+              <span className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-terra px-1 text-[10px] font-bold text-deep">
                 {count}
               </span>
             ) : null}
           </Link>
 
-          <Link href="/contact" className="btn btn-primary btn-sm hidden md:inline-flex">
+          <Link href="/contact" className="btn btn-primary btn-sm ml-1 hidden md:inline-flex">
             Enquire
           </Link>
 
@@ -108,7 +108,7 @@ export function Header({
             aria-label="Open menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-btn text-cream lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-full text-sand transition-colors hover:bg-walnut-2 hover:text-cream lg:hidden"
           >
             {menuOpen ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -124,8 +124,8 @@ export function Header({
       </div>
 
       {searchOpen ? (
-        <div className="border-t border-line bg-cream">
-          <form onSubmit={submitSearch} className="container-c flex gap-2 py-4" role="search">
+        <div className="border-t border-line bg-deep/95">
+          <form onSubmit={submitSearch} className="container-c flex gap-3 py-4" role="search">
             <input
               autoFocus
               value={q}
@@ -142,7 +142,7 @@ export function Header({
       ) : null}
 
       {menuOpen ? (
-        <nav className="border-t border-line bg-cream lg:hidden" aria-label="Mobile">
+        <nav className="border-t border-line bg-deep/95 lg:hidden" aria-label="Mobile">
           <div className="container-c flex flex-col gap-1 py-4">
             <MobileLink href="/shop" label="Shop All" onClick={() => setMenuOpen(false)} />
             {categories.map((c) => (
@@ -163,12 +163,17 @@ function NavLinkC({ href, label, active }: { href: string; label: string; active
   return (
     <Link
       href={href}
-      className={`relative font-display text-[12px] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-terra ${
-        active ? "text-terra" : "text-cream"
+      className={`relative rounded-full px-1 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] transition-colors ${
+        active ? "text-cream" : "text-sand hover:text-cream"
       }`}
     >
       {label}
-      {active ? <span className="absolute -bottom-[10px] left-0 right-0 h-0.5 bg-terra" /> : null}
+      <span
+        aria-hidden
+        className={`absolute inset-x-1 -bottom-0.5 h-[3px] rounded-full bg-terra transition-opacity ${
+          active ? "opacity-100" : "opacity-0"
+        }`}
+      />
     </Link>
   );
 }
@@ -178,7 +183,7 @@ function MobileLink({ href, label, onClick }: { href: string; label: string; onC
     <Link
       href={href}
       onClick={onClick}
-      className="rounded-btn px-3 py-3 font-display text-[13px] font-semibold uppercase tracking-[0.18em] text-cream hover:bg-walnut-2"
+      className="rounded-2xl px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.16em] text-sand transition-colors hover:bg-walnut-2 hover:text-cream"
     >
       {label}
     </Link>

@@ -34,7 +34,7 @@ export function HeroVideo({ media }: { media: HeroMediaItem[] }) {
 
   return (
     <section
-      className="relative h-[92vh] min-h-[560px] w-full overflow-hidden bg-ink"
+      className="relative h-[92vh] min-h-[580px] w-full overflow-hidden bg-deep"
       aria-label="Crescent workshop film"
     >
       {/* Background layer */}
@@ -64,36 +64,41 @@ export function HeroVideo({ media }: { media: HeroMediaItem[] }) {
         )
       ) : null}
 
-      {/* Dark maroon overlay for legibility (brand spec: 35–55% scrim) */}
-      <div className="absolute inset-0 bg-ink/55" aria-hidden />
+      {/* Deep gradient scrim for legibility */}
       <div
-        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-deep/70 to-transparent"
+        className="absolute inset-0 bg-gradient-to-b from-deep/70 via-deep/35 to-deep"
         aria-hidden
       />
 
       {/* Heading and actions sit above the overlay */}
-      <div className="container-c relative z-10 flex h-full flex-col items-center justify-center pb-16 text-center">
-        <p className="overline-c text-terra">Rawalpindi · Bespoke Furniture House</p>
-        <h1 className="display-c mt-5 max-w-3xl text-[40px] text-cream sm:text-[56px] lg:text-[64px]">
-          Furniture that defines a room.
+      <div className="container-c relative z-10 flex h-full flex-col items-center justify-center pb-20 text-center">
+        <p className="overline-c text-brass">Rawalpindi · Bespoke Furniture House</p>
+        <h1 className="display-c mt-6 max-w-3xl text-[42px] text-cream sm:text-[60px] lg:text-[72px]">
+          Furniture that <span className="accent-i">breathes.</span>
         </h1>
-        <p className="mt-6 max-w-xl text-[19px] leading-relaxed text-cream/85">
+        <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-sand sm:text-[19px]">
           Drawn in the workshop, jointed by hand, and finished to live with you. Every Crescent
           piece is made to order from seasoned hardwood.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a href="/shop" className="btn btn-primary">
             Explore the Collection
           </a>
-          <a href="/bespoke" className="btn btn-ghost">
+          <a href="/bespoke" className="btn btn-secondary">
             Commission a Piece
           </a>
         </div>
         {current?.credit ? (
-          <p className="absolute bottom-4 right-5 z-10 hidden text-[11px] text-cream/45 sm:block">
+          <p className="absolute bottom-4 right-5 z-10 hidden text-[11px] text-sand/50 sm:block">
             {current.credit}
           </p>
         ) : null}
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex" aria-hidden>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-sand/50">Scroll</span>
+        <span className="scroll-cue h-10 w-px bg-gradient-to-b from-terra to-transparent" />
       </div>
 
       {/* Pause / play control for the background film */}
@@ -102,7 +107,7 @@ export function HeroVideo({ media }: { media: HeroMediaItem[] }) {
           type="button"
           onClick={() => setPaused((p) => !p)}
           aria-label={paused ? "Play background video" : "Pause background video"}
-          className="absolute bottom-5 left-5 z-20 grid h-11 w-11 place-items-center rounded-full border border-cream/40 text-cream transition-colors hover:bg-cream/15"
+          className="absolute bottom-5 left-5 z-20 grid h-11 w-11 place-items-center rounded-full border border-line-strong text-cream transition-colors hover:bg-cream/10"
         >
           {paused ? (
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

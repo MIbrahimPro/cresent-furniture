@@ -205,7 +205,7 @@ export function ProductDetail({
         </dl>
 
         <div className="mt-8 border-t border-line pt-7">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-cream">
+          <h2 className="font-display text-[20px] font-medium text-cream">
             About this piece
           </h2>
           <p className="mt-3 text-[17px] leading-relaxed text-sand/90">{p.description}</p>
@@ -218,7 +218,7 @@ export function ProductDetail({
 function Detail({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex gap-4">
-      <dt className="w-32 shrink-0 font-display text-[12px] font-semibold uppercase tracking-[0.14em] text-sand">
+      <dt className="w-32 shrink-0 text-[12px] font-semibold uppercase tracking-[0.14em] text-mute">
         {label}
       </dt>
       <dd className="text-sand/90">{value}</dd>

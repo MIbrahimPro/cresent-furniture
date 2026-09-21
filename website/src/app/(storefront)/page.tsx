@@ -48,55 +48,79 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero: background video with dark overlay + heading (media managed in CRM) */}
+      {/* Hero: background video with deep gradient scrim + heading (media managed in CRM) */}
       <HeroVideo media={settings.heroMedia} />
 
-      {/* Categories */}
-      <section className="container-c py-20">
+      {/* Wood-to-workshop marquee strip */}
+      <div className="border-y border-line bg-ink/60 py-5" aria-hidden>
+        <div className="container-c flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-mute">
+          <span>Seasoned hardwood</span>
+          <Dot />
+          <span className="text-brass">Hand-cut joinery</span>
+          <Dot />
+          <span>Made to order</span>
+          <Dot />
+          <span className="text-brass">Since 1981</span>
+          <Dot />
+          <span>Delivered across Pakistan</span>
+        </div>
+      </div>
+
+      {/* Categories — editorial mosaic */}
+      <section className="container-c section-flow">
         <Reveal>
-          <div className="text-center">
-            <p className="overline-c text-terra">The Collection</p>
-            <h2 className="display-c mt-4 text-[30px] sm:text-[34px]">Made for how you live</h2>
-            <hr className="hr-coral mx-auto mt-6" />
+          <div className="max-w-2xl">
+            <p className="overline-c">The Collection</p>
+            <h2 className="display-c mt-4 text-[32px] sm:text-[42px]">
+              Made for <span className="accent-i">how you live.</span>
+            </h2>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((c, i) => (
-            <Reveal key={c.slug} delay={i * 60}>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2">
+          {categories.slice(0, 3).map((c, i) => (
+            <Reveal key={c.slug} delay={i * 70} className={i === 0 ? "sm:col-span-2 lg:row-span-2" : ""}>
               <Link
                 href={`/shop?category=${c.slug}`}
-                className="card-c group relative block h-56"
+                className="card-c group relative block h-full min-h-[240px] lg:min-h-0"
               >
                 {c.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={c.image}
                     alt=""
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.04]"
                   />
-                ) : null}
-                <div className="absolute inset-0 bg-ink/45 transition-colors group-hover:bg-ink/30" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <h3 className="font-display text-[20px] font-semibold uppercase tracking-[0.08em] text-cream">
+                ) : (
+                  <div className="absolute inset-0 bg-walnut-2" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-deep/85 via-deep/20 to-transparent transition-opacity group-hover:opacity-80" />
+                <div className={`absolute inset-x-0 bottom-0 p-6 ${i === 0 ? "lg:p-8" : ""}`}>
+                  <h3 className={`font-display font-medium text-cream ${i === 0 ? "text-[26px] lg:text-[32px]" : "text-[20px]"}`}>
                     {c.name}
                   </h3>
-                  <p className="mt-1 font-display text-[11px] uppercase tracking-[0.22em] text-terra">
+                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-terra">
                     Explore →
                   </p>
                 </div>
               </Link>
             </Reveal>
           ))}
-          <Reveal delay={categories.length * 60}>
-            <Link href="/bespoke" className="card-c group relative block h-56 bg-ink">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-5 text-center">
-                <p className="overline-c text-terra">Made to order</p>
-                <h3 className="font-display text-[20px] font-semibold uppercase tracking-[0.08em] text-cream">
-                  Your vision. Our craft.
-                </h3>
-                <p className="font-display text-[11px] uppercase tracking-[0.22em] text-terra">
-                  Start a commission →
-                </p>
+          <Reveal delay={categories.length * 70}>
+            <Link href="/bespoke" className="card-c group relative block h-full min-h-[240px] bg-walnut">
+              <div className="absolute inset-0 flex flex-col justify-between p-6">
+                <span className="w-fit rounded-full border border-terra/50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-terra">
+                  Made to order
+                </span>
+                <div>
+                  <h3 className="font-display text-[22px] font-medium leading-snug text-cream">
+                    Your vision.
+                    <br />
+                    <span className="accent-i">Our craft.</span>
+                  </h3>
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-brass transition-colors group-hover:text-terra">
+                    Start a commission →
+                  </p>
+                </div>
               </div>
             </Link>
           </Reveal>
@@ -104,22 +128,24 @@ export default async function HomePage() {
       </section>
 
       {/* Featured products */}
-      <section className="bg-walnut-2 py-20">
+      <section className="bg-ink section-flow">
         <div className="container-c">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <p className="overline-c text-terra">Featured</p>
-                <h2 className="display-c mt-4 text-[30px] sm:text-[34px]">The workshop's best</h2>
+              <div className="max-w-xl">
+                <p className="overline-c">Featured</p>
+                <h2 className="display-c mt-4 text-[32px] sm:text-[42px]">
+                  The workshop&rsquo;s <span className="accent-i">best.</span>
+                </h2>
               </div>
               <Link href="/shop" className="btn btn-secondary">
                 View all furniture
               </Link>
             </div>
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {featured.map((p, i) => (
-              <Reveal key={String(p._id)} delay={(i % 4) * 60}>
+              <Reveal key={String(p._id)} delay={(i % 4) * 70}>
                 <ProductCard product={p} />
               </Reveal>
             ))}
@@ -127,73 +153,81 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Story */}
-      <section className="container-c py-20">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      {/* Story — the maker's seal */}
+      <section className="container-c section-flow">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
           <Reveal>
             <div>
-              <p className="overline-c text-terra">Our Promise</p>
-              <h2 className="display-c mt-4 text-[30px] sm:text-[34px]">
-                Pakistani craft. Global standard.
+              <p className="overline-c">Our Promise</p>
+              <h2 className="display-c mt-4 text-[32px] sm:text-[42px]">
+                Pakistani craft.
+                <br />
+                <span className="accent-i">Global standard.</span>
               </h2>
-              <p className="mt-6 text-[18px] leading-relaxed text-sand/90">
+              <p className="mt-7 max-w-lg text-[16.5px] leading-[1.8] text-sand">
                 We are proud of where we are from. For over four decades, Crescent has proved that
                 the finest handcrafted furniture in the world does not have to come from Europe. It
                 can come from Rawalpindi.
               </p>
-              <p className="mt-4 text-[18px] leading-relaxed text-sand/90">
+              <p className="mt-4 max-w-lg text-[16.5px] leading-[1.8] text-sand">
                 Every joint is cut by hand. Every board is seasoned before it is shaped. Nothing
                 leaves the workshop until it deserves the name on the door.
               </p>
-              <div className="mt-8 grid grid-cols-3 gap-6">
+              <div className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-line pt-8">
                 <Stat value="100%" label="Hand crafted" />
                 <Stat value="45+" label="Years of mastery" />
                 <Stat value="∞" label="Bespoke possibilities" />
               </div>
-              <Link href="/about" className="btn btn-secondary mt-9">
+              <Link href="/about" className="btn btn-ghost mt-10">
                 Our story
               </Link>
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <div className="relative">
-              <div className="card-c aspect-[4/5] overflow-hidden bg-walnut-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={settings.heroMedia.find((m) => m.type === "image")?.url ?? "/crescent-logo-light-2000.png"}
-                  alt="Inside the Crescent workshop"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-5 -left-5 hidden h-40 w-40 rounded-card border border-terra bg-transparent lg:block" aria-hidden />
+            <div className="relative mx-auto max-w-[420px]">
+              {/* Emblem, displayed at a dignified size — not the full wordmark */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/crescent-emblem.svg"
+                alt="The Crescent maker's seal"
+                className="w-full"
+                width={480}
+                height={480}
+              />
+              {/* Warm halo behind the seal */}
+              <div
+                className="absolute inset-6 -z-10 rounded-full bg-terra-veil blur-3xl"
+                aria-hidden
+              />
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-ink py-20">
+      <section className="bg-ink section-flow">
         <div className="container-c">
           <Reveal>
-            <div className="text-center">
-              <p className="overline-c text-terra">Kind Words</p>
-              <h2 className="display-c mt-4 text-[30px] text-cream sm:text-[34px]">
-                From our clients' homes
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="overline-c">Kind Words</p>
+              <h2 className="display-c mt-4 text-[32px] sm:text-[42px]">
+                From our <span className="accent-i">clients&rsquo; homes.</span>
               </h2>
             </div>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-14 columns-1 gap-5 md:columns-2 [&>*]:mb-5">
             {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.name} delay={(i % 2) * 80}>
-                <figure className="h-full rounded-card border border-cream/15 p-7">
-                  <blockquote className="text-[17px] leading-relaxed text-cream/90">
-                    “{t.quote}”
+              <Reveal key={t.name} delay={(i % 2) * 80} className="break-inside-avoid">
+                <figure className="panel-c p-8">
+                  <span className="font-display text-[44px] leading-none text-terra/60" aria-hidden>“</span>
+                  <blockquote className="-mt-4 text-[16px] leading-[1.75] text-sand">
+                    {t.quote}
                   </blockquote>
-                  <figcaption className="mt-5">
-                    <p className="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-terra">
+                  <figcaption className="mt-6 border-t border-line pt-5">
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-cream">
                       {t.name} · {t.city}
                     </p>
-                    <p className="mt-1 text-[14px] italic text-cream/60">{t.piece}</p>
+                    <p className="mt-1.5 text-[13.5px] italic text-mute">{t.piece}</p>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -203,16 +237,24 @@ export default async function HomePage() {
       </section>
 
       {/* Newsletter */}
-      <section className="container-c py-20">
+      <section className="container-c section-flow">
         <Reveal>
-          <div className="mx-auto max-w-xl text-center">
-            <p className="overline-c text-terra">The Workshop Letter</p>
-            <h2 className="display-c mt-4 text-[26px]">News from the bench</h2>
-            <p className="mt-4 text-[17px] text-sand">
-              Occasional letters about new pieces, timber arrivals, and what the workshop is building.
-            </p>
-            <div className="flex justify-center">
-              <NewsletterForm />
+          <div className="panel-c relative mx-auto max-w-3xl overflow-hidden p-10 text-center sm:p-14">
+            {/* soft glow accents */}
+            <div className="absolute -left-16 -top-16 h-48 w-48 rounded-full bg-terra-veil blur-3xl" aria-hidden />
+            <div className="absolute -bottom-16 -right-16 h-48 w-48 rounded-full bg-terra-veil blur-3xl" aria-hidden />
+            <div className="relative">
+              <p className="overline-c">The Workshop Letter</p>
+              <h2 className="display-c mt-4 text-[28px] sm:text-[34px]">
+                News from <span className="accent-i">the bench.</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-md text-[15.5px] leading-relaxed text-sand">
+                Occasional letters about new pieces, timber arrivals, and what the workshop is
+                building.
+              </p>
+              <div className="mt-8 flex justify-center">
+                <NewsletterForm />
+              </div>
             </div>
           </div>
         </Reveal>
@@ -221,11 +263,17 @@ export default async function HomePage() {
   );
 }
 
+function Dot() {
+  return <span className="text-terra/60">✦</span>;
+}
+
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <p className="font-display text-[28px] font-semibold text-terra">{value}</p>
-      <p className="mt-1 text-[14px] leading-snug text-sand">{label}</p>
+      <p className="font-display text-[30px] font-medium text-cream">
+        {value}
+      </p>
+      <p className="mt-1 text-[13px] leading-snug text-mute">{label}</p>
     </div>
   );
 }

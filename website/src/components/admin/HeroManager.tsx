@@ -109,7 +109,7 @@ export function HeroManager({
       {/* Playlist */}
       <section className="panel-c p-6">
         <div className="flex items-center justify-between">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+          <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
             Playlist ({media.length})
           </h2>
           {saved ? <p className="text-[14px] font-medium text-terra">Saved ✓</p> : null}
@@ -181,7 +181,7 @@ export function HeroManager({
 
       {/* Pexels samples */}
       <section className="panel-c h-fit p-6">
-        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+        <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
           Pexels samples
         </h2>
         {!pexelsConfigured ? (

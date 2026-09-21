@@ -51,7 +51,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
   if (items.length === 0) {
     return (
       <div className="panel-c mx-auto max-w-lg p-12 text-center">
-        <h2 className="font-display text-[18px] font-semibold uppercase tracking-[0.12em] text-cream">
+        <h2 className="font-display text-[22px] font-medium text-cream">
           Your selection is empty
         </h2>
         <p className="mt-3 text-[16px] text-sand">
@@ -140,7 +140,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
       {/* Summary + checkout */}
       <div>
         <div className="panel-c sticky top-24 p-6">
-          <h2 className="font-display text-[14px] font-semibold uppercase tracking-[0.18em] text-cream">
+          <h2 className="text-[12px] font-semibold uppercase tracking-[0.2em] text-brass">
             Your commission
           </h2>
           <div className="mt-4 space-y-2 text-[16px]">
@@ -148,7 +148,7 @@ export function CartView({ settings }: { settings: SettingsDoc }) {
             <Row label="Delivery" value="Included locally" muted />
           </div>
           <div className="mt-4 flex items-baseline justify-between border-t border-line pt-4">
-            <span className="font-display text-[13px] font-semibold uppercase tracking-[0.16em]">
+            <span className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand">
               Estimated total
             </span>
             <span className="font-display text-[20px] font-semibold text-cream">

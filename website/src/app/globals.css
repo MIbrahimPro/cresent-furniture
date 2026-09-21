@@ -317,3 +317,24 @@ select.input-c {
 /* Hide scrollbar for horizontally scrollable nav strips */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ---------- Motion ---------- */
+
+@keyframes scroll-cue {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  30% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+}
+
+.scroll-cue {
+  animation: scroll-cue 2.4s var(--ease-brand) infinite;
+}
+
+@keyframes marquee-fade {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.marquee-c {
+  animation: marquee-fade 6s ease-in-out infinite;
+}

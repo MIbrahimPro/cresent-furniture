@@ -62,7 +62,7 @@ export default async function AboutPage() {
 function Value({ title, body }: { title: string; body: string }) {
   return (
     <div className="panel-c p-6">
-      <h3 className="font-display text-[14px] font-semibold uppercase tracking-[0.12em] text-cream">
+      <h3 className="font-display text-[18px] font-medium text-cream">
         {title}
       </h3>
       <p className="mt-3 text-[16px] leading-relaxed text-sand/85">{body}</p>

@@ -72,7 +72,7 @@ export default async function CategoryPage({
 
       {others.length ? (
         <div className="mt-14 border-t border-line pt-8">
-          <p className="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-sand">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brass">
             Keep browsing
           </p>
           <div className="mt-4 flex flex-wrap gap-3">

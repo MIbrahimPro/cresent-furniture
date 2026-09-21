@@ -85,7 +85,7 @@ export function ProductForm({
     <form onSubmit={submit} className="mt-8 grid max-w-4xl gap-8 lg:grid-cols-[1fr_320px]">
       <div className="space-y-6">
         <section className="panel-c space-y-4 p-6">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+          <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
             Basics
           </h2>
           <Field label="Name">
@@ -112,7 +112,7 @@ export function ProductForm({
         </section>
 
         <section className="panel-c space-y-4 p-6">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+          <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
             Pricing & availability
           </h2>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -147,7 +147,7 @@ export function ProductForm({
 
         <section className="panel-c space-y-4 p-6">
           <div className="flex items-center justify-between">
-            <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+            <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
               Variants
             </h2>
             <button type="button" onClick={addVariant} className="btn btn-secondary btn-sm">
@@ -233,7 +233,7 @@ export function ProductForm({
         </section>
 
         <section className="panel-c space-y-4 p-6">
-          <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+          <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
             Images
           </h2>
           {images.length ? (

@@ -79,7 +79,7 @@ export function CategoriesManager({ categories }: { categories: Category[] }) {
       </div>
 
       <form onSubmit={addCategory} className="panel-c h-fit space-y-4 p-6">
-        <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.16em] text-cream">
+        <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-sand text-cream">
           Add category
         </h2>
         <div>

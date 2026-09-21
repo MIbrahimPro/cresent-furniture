@@ -106,7 +106,7 @@ export default async function ShopPage({
             </p>
             {products.length === 0 ? (
               <div className="panel-c mt-4 p-10 text-center">
-                <p className="font-display text-[16px] uppercase tracking-[0.14em] text-cream">
+                <p className="font-display text-[22px] font-medium text-cream">
                   Nothing matches that search
                 </p>
                 <p className="mt-2 text-[16px] text-sand">

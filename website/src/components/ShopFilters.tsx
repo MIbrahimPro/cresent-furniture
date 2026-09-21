@@ -133,7 +133,7 @@ export function SortSelect() {
 
   return (
     <label className="flex items-center gap-2 text-[14px] text-sand">
-      <span className="whitespace-nowrap font-display text-[11px] uppercase tracking-[0.16em]">
+      <span className="whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.18em] text-mute">
         Sort
       </span>
       <select
@@ -160,7 +160,7 @@ export function SortSelect() {
 function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-display text-[12px] font-semibold uppercase tracking-[0.2em] text-cream">
+      <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brass">
         {title}
       </h3>
       <div className="mt-3">{children}</div>
