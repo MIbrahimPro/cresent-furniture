@@ -47,7 +47,7 @@ export default async function ShopPage({
   };
 
   let products = [] as Awaited<ReturnType<typeof searchProducts>>;
-  let categories: { slug: string; name: string }[] = [];
+  let categories: { slug: string; name: string; description?: string }[] = [];
   let facets: Record<string, string[]> = {};
   let dbError = false;
   try {
