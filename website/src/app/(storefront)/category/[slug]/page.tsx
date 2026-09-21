@@ -26,16 +26,16 @@ export default async function CategoryPage({
 
   let categories: { slug: string; name: string; description?: string }[] = [];
   let products: Awaited<ReturnType<typeof searchProducts>> = [];
+  let dbError = false;
   try {
     categories = await getActiveCategories();
-    const cat = categories.find((c) => c.slug === slug);
-    if (!cat) notFound();
     products = await searchProducts({ category: slug, sort: "featured" });
   } catch {
-    // DB unreachable
+    dbError = true;
   }
 
   const cat = categories.find((c) => c.slug === slug);
+  if (!cat) notFound();
   const others = categories.filter((c) => c.slug !== slug);
 
   return (
@@ -56,7 +56,9 @@ export default async function CategoryPage({
         ) : null}
       </header>
 
-      {products.length === 0 ? (
+      {dbError ? (
+        <p className="panel-c mt-10 p-6 text-[16px] text-muted">Database unreachable — try again shortly.</p>
+      ) : products.length === 0 ? (
         <div className="panel-c mt-10 p-10 text-center text-muted">
           No pieces in this category yet.
         </div>
