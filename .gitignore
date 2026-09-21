@@ -40,3 +40,5 @@ public/uploads/
 .vercel
 .eslintcache
 .freebuff/
+__pycache__/
+*.pyc
