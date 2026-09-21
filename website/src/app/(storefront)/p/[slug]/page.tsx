@@ -72,7 +72,7 @@ function SectionView({ section }: { section: PageSection }) {
         {section.intro ? <p className="mt-3 max-w-2xl text-[17px] text-muted">{section.intro}</p> : null}
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {section.offers.map((offer, i) => {
-            const onSale = offer.comparePrice && offer.comparePrice > offer.price;
+            const onSale = offer.price !== undefined && !!offer.comparePrice && offer.comparePrice > offer.price;
             return (
               <OfferCard key={i}>
                 {offer.image ? (
