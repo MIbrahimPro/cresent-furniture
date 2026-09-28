@@ -1,4 +1,5 @@
 import { getSettings } from "@/lib/settings";
+import { toPlainDoc } from "@/lib/serialize";
 import { SettingsForm } from "@/components/admin/SettingsForm";
 
 export const dynamic = "force-dynamic";
@@ -11,7 +12,7 @@ export default async function AdminSettings() {
       <p className="mt-1.5 text-[16px] text-sand">
         Business details, the WhatsApp checkout number, and storefront notices.
       </p>
-      <SettingsForm settings={settings} />
+      <SettingsForm settings={toPlainDoc(settings)} />
     </div>
   );
 }

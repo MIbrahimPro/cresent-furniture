@@ -9,6 +9,7 @@ import { MongoClient } from "mongodb";
 import fs from "fs";
 import path from "path";
 import { searchPexelsPhotos, searchPexelsVideos } from "../src/lib/pexels";
+import type { Category, HeroMediaItem, Product, SettingsDoc } from "../src/lib/types";
 
 const CACHE_FILE = path.join(process.cwd(), "data", "pexels-cache.json");
 
@@ -40,8 +41,8 @@ async function main() {
   // Load catalog parts
   const dir = path.join(process.cwd(), "data");
   const files = fs.readdirSync(dir).filter((f) => f.startsWith("catalog") && f.endsWith(".json"));
-  const categories: any[] = [];
-  const products: any[] = [];
+  const categories: Category[] = [];
+  const products: Product[] = [];
   for (const f of files) {
     const json = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
     categories.push(...(json.categories ?? []));
@@ -83,8 +84,8 @@ async function main() {
       } else {
         console.warn(`  ! no results for "${query}"`);
       }
-    } catch (e: any) {
-      console.warn(`  ! ${token}: ${e.message}`);
+    } catch (e) {
+      console.warn(`  ! ${token}: ${e instanceof Error ? e.message : String(e)}`);
     }
     // Stay well under Pexels rate limits
     await new Promise((r) => setTimeout(r, 250));
@@ -136,9 +137,24 @@ async function main() {
   }
   console.log(`✓ ${products.length} products upserted`);
 
+  // Retire anything removed from the catalog files (e.g. bespoke commissions)
+  const keepSlugs = new Set(products.map((p) => p.slug));
+  const retired = await db
+    .collection("products")
+    .updateMany({ slug: { $nin: [...keepSlugs] } }, { $set: { active: false } });
+  const keepCats = new Set(categories.map((c) => c.slug));
+  const retiredCats = await db
+    .collection("categories")
+    .updateMany({ slug: { $nin: [...keepCats] } }, { $set: { active: false } });
+  if (retired.modifiedCount || retiredCats.modifiedCount) {
+    console.log(
+      `✓ retired ${retired.modifiedCount} product(s), ${retiredCats.modifiedCount} category(ies) not in catalog files`,
+    );
+  }
+
   // Default hero media: 3 Pexels workshop videos
   const heroQueries = ["furniture workshop", "woodworking", "carpentry wood"];
-  const hero: any[] = [];
+  const hero: HeroMediaItem[] = [];
   for (const q of heroQueries) {
     try {
       const samples = await searchPexelsVideos(q, 3);
@@ -153,13 +169,13 @@ async function main() {
         });
         console.log(`  ✓ hero video: ${q} -> ${v.id}`);
       }
-    } catch (e: any) {
-      console.warn(`  ! hero video "${q}": ${e.message}`);
+    } catch (e) {
+      console.warn(`  ! hero video "${q}": ${e instanceof Error ? e.message : String(e)}`);
     }
     await new Promise((r) => setTimeout(r, 250));
   }
   if (hero.length) {
-    await db.collection<any>("settings").updateOne(
+    await db.collection<SettingsDoc>("settings").updateOne(
       { _id: "site" },
       { $set: { heroMedia: hero, updatedAt: new Date() } },
     );

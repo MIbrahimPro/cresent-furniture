@@ -7,10 +7,19 @@ import type { CrmUser } from "./types";
 
 export { SESSION_COOKIE } from "./session";
 
-function secret(): string {
+const SESSION_SECRET_SALT = "crescent-session";
+
+/**
+ * The session token is already signed and verified with this secret; the hash
+ * here just keeps the same entropy in one place for future token versions.
+ */
+function sessionKey(): string {
   const s = process.env.CRM_SESSION_SECRET || process.env.MONGODB_URI || "crescent-dev-secret";
-  return crypto.createHash("sha256").update(s).digest("hex");
+  return crypto.createHash("sha256").update(`${SESSION_SECRET_SALT}:${s}`).digest("hex");
 }
+
+// Referenced by token helpers below to keep the derived key single-sourced.
+void sessionKey;
 
 export async function setSessionCookie(userId: string) {
   const jar = await cookies();

@@ -1,4 +1,5 @@
 import { getCollection } from "@/lib/mongo";
+import { toPlainList } from "@/lib/serialize";
 import type { Order } from "@/lib/types";
 import { OrdersTable } from "@/components/admin/OrdersTable";
 
@@ -14,7 +15,7 @@ export default async function AdminOrders() {
       <p className="mt-1.5 text-[16px] text-sand">
         Commissions started from the storefront. Move them through the pipeline as the workshop works.
       </p>
-      <OrdersTable orders={orders} />
+      <OrdersTable orders={toPlainList(orders)} />
     </div>
   );
 }

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F4EFE6">
+<meta name="description" content="Crescent Bespoke Furniture House — solid wood furniture, made to your measurements.">
+<title>Crescent — Bespoke Furniture House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&family=Archivo:wght@300;400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+--paper:#F4EFE6;--bone:#EAE2D3;--espresso:#211913;--ink:#231B14;--terra:#B85238;--terra-d:#96412C;
+--maroon:#3D141E;--cream:#F7F2E9;--mut:#877663;--mutd:rgba(247,242,233,.66);
+--line:rgba(35,27,20,.16);--line2:rgba(35,27,20,.34);--lined:rgba(247,242,233,.17);
+--fd:'Fraunces',Georgia,serif;--fe:'Merriweather',Georgia,serif;--fj:'Archivo',Helvetica,Arial,sans-serif;--fm:'Marcellus',Georgia,serif;
+--ease:cubic-bezier(.22,.75,.25,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.75 var(--fj);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.no-scroll{overflow:hidden}
+::selection{background:var(--terra);color:var(--cream)}
+::-webkit-scrollbar{width:10px;background:var(--paper)}
+::-webkit-scrollbar-thumb{background:#CBBBA2;border:3px solid var(--paper)}
+img{display:block}a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+h1,h2,h3{font-family:var(--fd);font-weight:380;color:var(--ink);letter-spacing:-.015em}
+h1 em,h2 em,.em{font-style:italic;font-weight:340;color:var(--terra)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 30px}
+.grain{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* pages — hidden only when JS is alive; error-fallback shows home */
+html.js .page{display:none}
+html.js .page.active{display:block;animation:pin .55s var(--ease)}
+@keyframes pin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* header */
+header.hd{position:sticky;top:0;z-index:90;background:rgba(244,239,230,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdrow{display:flex;align-items:center;gap:34px;height:70px}
+.wm{display:flex;align-items:center;text-decoration:none}
+.wm svg{height:38px;width:auto;display:block}
+.hd nav{display:flex;gap:30px;margin-left:auto}
+.hd nav a{font:500 12px var(--fj);letter-spacing:.2em;text-transform:uppercase;color:var(--mut);text-decoration:none;padding:5px 0;border-bottom:1px solid transparent;transition:.25s}
+.hd nav a:hover{color:var(--ink)}
+.hd nav a.active{color:var(--ink);border-bottom-color:var(--terra)}
+.hd .visit{font:500 12px var(--fj);letter-spacing:.2em;text-transform:uppercase;color:var(--terra);text-decoration:none;white-space:nowrap}
+.hd .visit:hover{color:var(--terra-d)}
+.burger{display:none;flex-direction:column;justify-content:center;gap:6px;width:42px;height:42px;margin-left:auto;padding:10px}
+.burger span{display:block;height:1.5px;background:var(--ink);transition:.35s var(--ease)}
+.burger.x span:first-child{transform:translateY(3.75px) rotate(45deg)}
+.burger.x span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:84;background:var(--paper);padding:130px 9vw 40px;display:flex;flex-direction:column;transform:translateY(-102%);transition:transform .55s var(--ease);visibility:hidden}
+.mnav.open{transform:none;visibility:visible}
+.mnav a{font:380 clamp(36px,9.5vw,56px)/1.3 var(--fd);color:var(--ink);text-decoration:none}
+.mnav a:hover,.mnav a:active{color:var(--terra);font-style:italic}
+.mnav p{margin-top:auto;font:italic 300 15px var(--fe);color:var(--mut)}
+/* buttons & links */
+.lnk{display:inline-flex;align-items:center;gap:10px;font:500 12px var(--fj);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding-bottom:5px;border-bottom:1px solid var(--line2);transition:.25s}
+.lnk i{font-style:normal;transition:transform .25s var(--ease)}
+.lnk:hover{color:var(--terra);border-bottom-color:var(--terra)}
+.lnk:hover i{transform:translateX(5px)}
+.lnk.online{color:var(--cream);border-bottom-color:var(--lined)}
+.lnk.online:hover{color:var(--terra);border-bottom-color:var(--terra)}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 34px;border-radius:2px;font:500 12px var(--fj);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:background .25s,color .25s;white-space:nowrap}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.btn-ink:hover{background:var(--terra)}
+.btn-cream{background:var(--cream);color:var(--ink)}
+.btn-cream:hover{background:var(--terra);color:var(--cream)}
+.btn-sm{height:44px;padding:0 22px;font-size:11px}
+.btn[disabled]{opacity:.35;pointer-events:none}
+/* photos */
+.ph{position:relative;overflow:hidden;background:var(--bone)}
+.ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(.92) contrast(1.03);transition:transform .9s var(--ease),opacity .5s ease}
+.ph:hover img{transform:scale(1.04)}
+.w-linen{background:linear-gradient(158deg,#EDE6D7,#E1D4BC)}
+.w-sand{background:linear-gradient(158deg,#E9DCC3,#D9C29E)}
+.w-clay{background:linear-gradient(158deg,#E6CDB1,#D5B18D)}
+.w-blush{background:linear-gradient(158deg,#ECDACB,#DBC0A9)}
+/* hero */
+.hero{padding:76px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:70px;align-items:end}
+.hero h1{font-size:clamp(44px,6vw,86px);line-height:1.02;margin-bottom:30px;max-width:12ch}
+.hero .lede{font:300 17.5px/1.85 var(--fe);color:#5B4C3E;max-width:46ch;margin-bottom:40px}
+.cta-row{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+.hero-fig figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding:16px 2px 14px}
+.hero-fig .fn{font:400 19px var(--fd)}
+.hero-fig .fm2{font:300 12.5px var(--fj);letter-spacing:.08em;color:var(--mut);margin-top:2px}
+.hero-fig .fp{font:500 13.5px var(--fj);letter-spacing:.06em;white-space:nowrap}
+/* collections index */
+.ix{padding:110px 0}
+.ix-grid{display:grid;grid-template-columns:1fr 380px;gap:80px;align-items:start}
+.ixrow{display:flex;align-items:baseline;gap:18px;text-decoration:none;padding:24px 0;border-top:1px solid var(--line);transition:padding .3s var(--ease)}
+.ixrow:last-of-type{border-bottom:1px solid var(--line)}
+.ixname{font:380 clamp(36px,7vw,74px)/1.08 var(--fd);color:var(--ink);transition:color .3s}
+.ixrow sup{font:italic 340 clamp(14px,2vw,17px) var(--fd);color:var(--mut);transition:.3s}
+.ixarr{margin-left:auto;font:400 24px var(--fd);color:var(--terra);opacity:0;transform:translateX(-14px);transition:.3s var(--ease)}
+.ixrow:hover{padding-left:20px}
+.ixrow:hover .ixname,.ixrow:hover sup{color:var(--terra);font-style:italic}
+.ixrow:hover .ixarr{opacity:1;transform:none}
+.ix-view{position:sticky;top:104px}
+.ix-view .ph{aspect-ratio:4/4.7;transition:opacity .18s ease}
+.ix-view p{font:italic 300 14.5px/1.7 var(--fe);color:var(--mut);margin-top:14px}
+/* featured */
+.feat{background:var(--bone);padding:104px 0 116px}
+.feat-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:60px;flex-wrap:wrap}
+.feat-head h2{font-size:clamp(30px,4vw,50px)}
+.feat-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:26px 40px}
+.fcell{display:flex;flex-direction:column}
+.f1{grid-column:1/8}.f1 .ph{aspect-ratio:16/11}
+.f2{grid-column:9/13;margin-top:92px}.f2 .ph{aspect-ratio:4/4.6}
+.f3{grid-column:2/6;margin-top:-26px}.f3 .ph{aspect-ratio:4/4.3}
+.f4{grid-column:7/13;margin-top:56px}.f4 .ph{aspect-ratio:16/10}
+.pcap{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding:15px 2px 13px}
+.pcap .pn{font:400 20px var(--fd)}
+.pcap .pn i{font:italic 340 15px var(--fd);color:var(--terra);margin-left:8px}
+.pcap .pp{font:500 13px var(--fj);letter-spacing:.06em;white-space:nowrap}
+.pcap .pm{font:300 12.5px var(--fj);letter-spacing:.06em;color:var(--mut);margin-top:3px}
+/* band */
+.band{position:relative}
+.band img{width:100%;height:72vh;min-height:420px;object-fit:cover;filter:sepia(.14) saturate(.9)}
+.band::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,16,9,.06) 30%,rgba(23,16,9,.74))}
+.band-cap{position:absolute;left:max(30px,6vw);right:max(30px,6vw);bottom:44px;z-index:2;color:var(--cream)}
+.band-cap blockquote{font:italic 300 clamp(20px,2.6vw,28px)/1.6 var(--fe);max-width:34ch}
+.band-cap cite{display:block;font:500 11px var(--fj);letter-spacing:.28em;text-transform:uppercase;color:var(--mutd);font-style:normal;margin-top:16px}
+/* atelier */
+.atelier{background:linear-gradient(175deg,var(--espresso),#1A130E);color:var(--cream);padding:112px 0}
+.at-grid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start}
+.atelier h2{color:var(--cream);font-size:clamp(32px,3.8vw,52px);line-height:1.12;margin-bottom:26px}
+.atelier .lede{font:300 16.5px/1.9 var(--fe);color:var(--mutd);max-width:44ch;margin-bottom:34px}
+.steps{list-style:none}
+.steps li{display:flex;gap:26px;padding:28px 0;border-top:1px solid var(--lined)}
+.steps li:last-child{border-bottom:1px solid var(--lined)}
+.steps i{font:italic 340 23px var(--fd);color:var(--terra);min-width:42px}
+.steps h3{font-size:20px;color:var(--cream);font-weight:400;margin-bottom:7px}
+.steps p{font-size:14.5px;line-height:1.75;color:var(--mutd)}
+.at-photos{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:88px}
+.at-photos figcaption{font:italic 300 13.5px/1.6 var(--fe);color:var(--mutd);margin-top:12px}
+/* quote + cta */
+.quote{padding:120px 0;text-align:center}
+.quote blockquote{font:italic 300 clamp(22px,3vw,32px)/1.65 var(--fe);max-width:26ch;margin:0 auto 28px}
+.quote cite{font:500 11.5px var(--fj);letter-spacing:.3em;text-transform:uppercase;color:var(--mut);font-style:normal}
+.ctastrip{background:var(--bone);padding:104px 0;text-align:center}
+.ctastrip h2{font-size:clamp(30px,4vw,52px);margin-bottom:16px}
+.ctastrip p{font:300 16px/1.8 var(--fe);color:#5B4C3E;max-width:48ch;margin:0 auto 36px}
+/* shop */
+.sh-head{padding:84px 0 42px}
+.sh-head h2{font-size:clamp(40px,6.5vw,84px);line-height:1.02}
+.sh-head .cnt{font:italic 340 18px var(--fd);color:var(--mut);margin-top:16px}
+.toolbar{display:flex;align-items:center;gap:26px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 2px}
+.ft{font:500 12px var(--fj);letter-spacing:.18em;text-transform:uppercase;color:var(--mut);padding:6px 0;border-bottom:1px solid transparent;transition:.25s}
+.ft:hover{color:var(--ink)}
+.ft.on{color:var(--ink);border-bottom-color:var(--terra)}
+.tspace{flex:1}
+.sel{position:relative}
+.sel select{appearance:none;-webkit-appearance:none;background:transparent;border:none;border-bottom:1px solid var(--line2);color:var(--ink);font:500 11.5px var(--fj);letter-spacing:.16em;text-transform:uppercase;padding:8px 28px 8px 2px;cursor:pointer}
+.sel option{background:var(--paper);color:var(--ink)}
+.sel::after{content:'';position:absolute;right:8px;top:50%;width:7px;height:7px;border-right:1px solid var(--mut);border-bottom:1px solid var(--mut);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:60px 36px;padding:64px 0 36px}
+.pcard{text-decoration:none;display:flex;flex-direction:column}
+.pcard .ph{aspect-ratio:4/5}
+.pcap2{border-bottom:1px solid var(--line);padding:18px 2px 14px}
+.pcap2 .r1{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.pcap2 .pn{font:400 21px var(--fd)}
+.pcap2 .pn i{font:italic 340 15px var(--fd);color:var(--terra);margin-left:8px}
+.pcap2 .pp{font:500 13.5px var(--fj);letter-spacing:.05em}
+.pcap2 .pm{font:300 13px var(--fj);letter-spacing:.05em;color:var(--mut);margin-top:5px}
+.pcap2 .enq{font:500 11px var(--fj);letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-top:13px;opacity:0;transform:translateY(-4px);transition:.3s var(--ease)}
+.pcard:hover .enq{opacity:1;transform:none}
+.pager{display:flex;justify-content:center;gap:28px;padding:28px 0 16px}
+.pg{font:500 12px var(--fj);letter-spacing:.16em;color:var(--mut);padding:6px 2px;border-bottom:1px solid transparent}
+.pg:hover{color:var(--ink)}
+.pg.on{color:var(--ink);border-bottom-color:var(--terra)}
+.bstrip{background:linear-gradient(175deg,var(--espresso),#1A130E);color:var(--cream);text-align:center;padding:104px 30px;margin-top:64px}
+.bstrip h2{color:var(--cream);font-size:clamp(30px,4vw,52px);margin-bottom:16px}
+.bstrip p{font:300 16px/1.8 var(--fe);color:var(--mutd);max-width:46ch;margin:0 auto 36px}
+/* brand */
+.b-hero{padding:88px 0 66px;border-bottom:1px solid var(--line)}
+.b-hero h1{font-size:clamp(42px,6.5vw,84px);line-height:1.02;max-width:14ch;margin-bottom:20px}
+.b-sec{padding:96px 0;border-bottom:1px solid var(--line)}
+.b-sec h2{font-size:clamp(28px,3.6vw,46px);margin-bottom:14px}
+.b-sec .lede{font:300 16.5px/1.85 var(--fe);color:#5B4C3E;max-width:62ch;margin-bottom:48px}
+.matt{background:var(--bone)}
+.logobox svg{width:min(540px,100%);height:auto;margin:0 auto}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.pad{padding:46px 40px}
+.hlab{font:500 11px var(--fj);letter-spacing:.26em;text-transform:uppercase;color:var(--mut);margin-bottom:16px}
+.cs{position:relative;display:inline-block;padding:52px;border:1px dashed var(--line2)}
+.cs b{position:absolute;font:italic 340 13px var(--fd);color:var(--terra)}
+.cs .t{top:12px;left:50%;transform:translateX(-50%)}.cs .b{bottom:12px;left:50%;transform:translateX(-50%)}
+.cs .l{left:14px;top:50%;transform:translateY(-50%)}.cs .r{right:14px;top:50%;transform:translateY(-50%)}
+.cs>div{width:290px}.cs>div svg{width:100%;height:auto}
+.misuse figcaption{font:italic 300 13.5px/1.6 var(--fe);color:var(--mut);margin-top:12px}
+.misuse figcaption b{color:var(--terra);font-style:normal;font-family:var(--fj);font-weight:600}
+.m-stretch svg{transform:scaleX(1.42)}
+.m-recolor svg{filter:hue-rotate(140deg) saturate(2)}
+.swatch{cursor:pointer;transition:transform .25s var(--ease)}
+.swatch:hover{transform:translateY(-4px)}
+.swatch .col{height:106px;border:1px solid var(--line)}
+.swatch .nm{font:400 17px var(--fd);margin-top:14px}
+.swatch .hx{font:12.5px ui-monospace,Menlo,monospace;color:var(--mut);margin-top:3px}
+.swatch .hx b{color:var(--ink);font-weight:400}
+.swatch .use{font-size:13px;line-height:1.6;color:var(--mut);margin:8px 0 10px}
+.swatch .pl{font:600 9.5px var(--fj);letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
+.ratio{display:flex;height:54px;font:600 10px var(--fj);letter-spacing:.14em;text-transform:uppercase}
+.ratio div{display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap;border:1px solid var(--line);border-left:none}
+.ratio div:first-child{border-left:1px solid var(--line)}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:600px;border-top:1px solid var(--line2)}
+th{font:600 10.5px var(--fj);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);text-align:left;padding:15px 14px 12px;border-bottom:1px solid var(--line2)}
+td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+td b{font-weight:500;color:var(--ink)}
+.chipx{font:12px ui-monospace,Menlo,monospace;background:var(--bone);padding:2px 8px}
+.spec{background:var(--bone);padding:38px 34px}
+.spec .aa{font:380 76px/1 var(--fd)}
+.spec .aa.ed{font:300 66px/1.1 var(--fe)}
+.spec .aa.sans{font:300 66px/1.1 var(--fj)}
+.spec h4{font:500 11px var(--fj);letter-spacing:.26em;text-transform:uppercase;margin:20px 0 4px}
+.spec .role{font:italic 300 14px var(--fe);color:var(--mut)}
+.spec ul{list-style:none;margin-top:16px}
+.spec li{padding:9px 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--mut)}
+.spec li b{color:var(--ink);font-weight:500}
+pre{background:var(--espresso);color:var(--cream);padding:24px 26px;overflow:auto;font:12.5px/1.75 ui-monospace,Menlo,monospace;position:relative;margin-top:10px}
+pre .cb{position:absolute;top:12px;right:12px}
+summary{cursor:pointer;font:500 12px var(--fj);letter-spacing:.22em;text-transform:uppercase;color:var(--terra);list-style:none;margin-top:30px}
+summary::-webkit-details-marker{display:none}
+.favrow{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-end}
+.favcell{text-align:center}
+.favcell .bx{width:76px;height:76px;display:flex;align-items:center;justify-content:center;background:var(--bone);margin:0 auto 10px}
+.favcell .lb{font:500 10px var(--fj);letter-spacing:.2em;color:var(--mut);text-transform:uppercase}
+.asset{display:flex;flex-direction:column;gap:10px;padding:26px;background:var(--bone)}
+.asset .nm{font:400 17px var(--fd)}
+.asset .mt{font-size:13.5px;color:var(--mut);line-height:1.6;flex:1}
+.avatarbox{width:150px;margin:0 auto}
+.banner{aspect-ratio:3/1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--espresso)}
+.banner svg{width:min(330px,66%)}
+.covers{display:flex;gap:14px;flex-wrap:wrap}
+.cov{width:64px;height:64px;display:flex;align-items:center;justify-content:center;font:400 22px var(--fd);color:var(--cream)}
+/* footer */
+footer{background:linear-gradient(175deg,var(--espresso),#171009);color:var(--cream);padding:96px 0 0}
+.fwm{text-align:center;padding-bottom:72px;border-bottom:1px solid var(--lined)}
+.fwm .lg{width:min(520px,88vw);margin:0 auto}
+.fwm .tag{font:italic 300 15px var(--fe);color:var(--mutd);margin-top:18px}
+.fcols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.6fr;gap:44px;padding:66px 0}
+.fcols h5{font:500 10.5px var(--fj);letter-spacing:.3em;text-transform:uppercase;color:var(--mutd);margin-bottom:18px}
+.fcols a{display:block;color:rgba(247,242,233,.82);text-decoration:none;font-size:14.5px;padding:5px 0;transition:.2s}
+.fcols a:hover{color:var(--terra)}
+.fcols p{font-size:14.5px;color:var(--mutd);line-height:1.85}
+.fcols .blurb{font:italic 300 15px/1.9 var(--fe)}
+.fnews{display:flex;border-bottom:1px solid var(--lined);margin-top:18px}
+.fnews input{flex:1;min-width:0;background:transparent;border:none;color:var(--cream);font:300 15px var(--fj);padding:12px 2px;outline:none}
+.fnews input::placeholder{color:var(--mutd)}
+.fnews button{font:500 11px var(--fj);letter-spacing:.22em;text-transform:uppercase;color:var(--terra)}
+.fbottom{border-top:1px solid var(--lined);padding:24px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font:300 12.5px var(--fj);letter-spacing:.06em;color:var(--mutd)}
+/* toast + reveal */
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);background:var(--ink);color:var(--cream);font:500 11.5px var(--fj);letter-spacing:.18em;text-transform:uppercase;padding:15px 28px;opacity:0;pointer-events:none;transition:.3s var(--ease);z-index:200}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+/* responsive */
+@media(max-width:1100px){.ix{padding:88px 0}.ix-grid{grid-template-columns:1fr}.ix-view{display:none}}
+@media(max-width:960px){
+.hd nav,.hd .visit{display:none}.burger{display:flex}
+.hero{padding:48px 0 0}.hero-grid{grid-template-columns:1fr;gap:44px}.hero-fig{max-width:560px}
+.feat-grid{display:block}.fcell{margin:0 0 44px!important;width:100%}
+.at-grid{grid-template-columns:1fr;gap:52px}.g2,.g3{grid-template-columns:1fr}
+.fcols{grid-template-columns:1fr 1fr;gap:36px}
+.feat,.atelier,.ctastrip,.bstrip{padding-top:80px;padding-bottom:80px}
+.quote{padding:88px 0}.ix{padding:72px 0}
+.b-sec{padding:72px 0}.b-hero{padding:64px 0 48px}.sh-head{padding:64px 0 36px}
+.band img{height:56vh}.at-photos{margin-top:60px}}
+@media(max-width:640px){
+.wrap{padding:0 20px}.band-cap{left:20px;right:20px;bottom:28px}
+.btn{height:50px;padding:0 26px;letter-spacing:.18em}
+.toolbar{gap:16px;padding:14px 0}
+.pgrid{gap:44px 20px;padding:44px 0 20px}.pcap2 .pn{font-size:18px}
+.at-photos{grid-template-columns:1fr}.fcols{grid-template-columns:1fr;gap:32px}
+footer{padding-top:72px}.fwm .lg{width:min(340px,86vw)}
+pre{font-size:11px;padding:16px}table{font-size:13px}
+.cs{padding:40px}.cs>div{width:230px}.pad{padding:32px 24px}.spec{padding:30px 24px}
+.ixrow{padding:18px 0}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html.js .page.active{animation:none}.ph img,.ph:hover img{transition:none;transform:none!important}.mnav{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="hd">
+  <div class="wrap hdrow">
+    <a class="wm" href="#/home" aria-label="Crescent — home" data-wm="ink"></a>
+    <nav>
+      <a href="#/home" data-r="home">Home</a>
+      <a href="#/shop" data-r="shop">Collection</a>
+      <a href="#/brand" data-r="brand">Brand Guide</a>
+    </nav>
+    <a class="visit" href="#/shop">Book a visit</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mnav" id="mnav">
+  <a href="#/home">Home</a>
+  <a href="#/shop">Collection</a>
+  <a href="#/brand">Brand Guide</a>
+  <a href="#/shop">Book a visit →</a>
+  <p>Aaram ka hai naam.</p>
+</div>
+
+<main>
+<!-- ==================== HOME ==================== -->
+<section class="page" id="page-home">
+
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <h1>Furniture with <em>your name</em> on it.</h1>
+        <p class="lede">Every Crescent piece is drawn with you first — then cut from seasoned solid wood and joined by hand in our workshop. No flat packs, no veneer, no shortcuts. <span class="em">Aaram ka hai naam.</span></p>
+        <div class="cta-row">
+          <a class="btn btn-ink" href="#/shop">Explore the collection</a>
+          <a class="lnk" href="#/brand">The bespoke process <i>→</i></a>
+        </div>
+      </div>
+      <figure class="hero-fig reveal">
+        <div class="ph w-linen" style="aspect-ratio:4/4.7">
+          <img src="https://images.unsplash.com/photo-1571508601891-ca5e7a713859?auto=format&fit=crop&w=1000&q=80" alt="The Four-Poster — sheesham bed with hand-turned posts" fetchpriority="high" onerror="this.style.opacity='0'">
+        </div>
+        <figcaption>
+          <div><div class="fn">The Four-Poster</div><div class="fm2">Sheesham · hand-turned posts</div></div>
+          <div class="fp">PKR 189,000</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="ix">
+    <div class="wrap ix-grid">
+      <div class="reveal">
+        <a class="ixrow" href="#/shop" data-goto="Beds" data-img="bed2" data-plate="w-linen" data-cap="Solid sheesham frames, headboards you can lean into, sizes made to your mattress."><span class="ixname">Beds</span><sup>14</sup><span class="ixarr">→</span></a>
+        <a class="ixrow" href="#/shop" data-goto="Dining" data-img="dining2" data-plate="w-clay" data-cap="Teak tables with butterfly joints — from snug four-seaters to family twelves."><span class="ixname">Dining</span><sup>9</sup><span class="ixarr">→</span></a>
+        <a class="ixrow" href="#/shop" data-goto="Seating" data-img="chair2" data-plate="w-blush" data-cap="Rosewood frames and hand-woven cane, cushioned to be sat in for hours."><span class="ixname">Seating</span><sup>12</sup><span class="ixarr">→</span></a>
+        <a class="ixrow" href="#/shop" data-goto="Storage" data-img="shelf" data-plate="w-sand" data-cap="Carved panels, brass inlay, dovetailed drawers — storage that outlives trends."><span class="ixname">Storage</span><sup>11</sup><span class="ixarr">→</span></a>
+        <a class="ixrow" href="#/shop" data-goto="Living" data-img="living" data-plate="w-linen" data-cap="Low tables and quiet pieces for the room you actually live in."><span class="ixname">Living</span><sup>4</sup><span class="ixarr">→</span></a>
+      </div>
+      <div class="ix-view reveal">
+        <div class="ph w-linen" id="ixView" style="aspect-ratio:4/4.7">
+          <img id="ixImg" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Beds collection preview" onerror="this.style.opacity='0'">
+        </div>
+        <p id="ixCap">Solid sheesham frames, headboards you can lean into, sizes made to your mattress.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat">
+    <div class="wrap">
+      <div class="feat-head reveal">
+        <h2>Selected <em>work</em></h2>
+        <a class="lnk" href="#/shop">All 48 pieces <i>→</i></a>
+      </div>
+      <div class="feat-grid reveal">
+        <div class="fcell f1">
+          <div class="ph w-linen"><img loading="lazy" src="https://images.unsplash.com/photo-1571508601891-ca5e7a713859?auto=format&fit=crop&w=1200&q=80" alt="The Four-Poster" onerror="this.style.opacity='0'"></div>
+          <div class="pcap"><div><div class="pn">The Four-Poster</div><div class="pm">Sheesham · hand-turned posts</div></div><div class="pp">PKR 189,000</div></div>
+        </div>
+        <div class="fcell f2">
+          <div class="ph w-clay"><img loading="lazy" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80" alt="Meridian Table" onerror="this.style.opacity='0'"></div>
+          <div class="pcap"><div><div class="pn">Meridian Table <i>— 8 seats</i></div><div class="pm">Teak · butterfly joints</div></div><div class="pp">PKR 124,500</div></div>
+        </div>
+        <div class="fcell f3">
+          <div class="ph w-sand"><img loading="lazy" src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80" alt="Darbar Wardrobe" onerror="this.style.opacity='0'"></div>
+          <div class="pcap"><div><div class="pn">Darbar Wardrobe</div><div class="pm">Sheesham · carved panels</div></div><div class="pp">PKR 158,000</div></div>
+        </div>
+        <div class="fcell f4">
+          <div class="ph w-blush"><img loading="lazy" src="https://images.unsplash.com/photo-1549497538-303791108f95?auto=format&fit=crop&w=1200&q=80" alt="Haveli Console" onerror="this.style.opacity='0'"></div>
+          <div class="pcap"><div><div class="pn">Haveli Console</div><div class="pm">Sheesham · brass inlay</div></div><div class="pp">PKR 52,500</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1800&q=80" alt="The Crescent workshop — tools on the bench" onerror="this.style.opacity='0'">
+    <div class="band-cap reveal">
+      <blockquote>Four to eight weeks, from the first pencil line to the last coat of wax.</blockquote>
+      <cite>— the workshop floor</cite>
+    </div>
+  </div>
+
+  <div class="atelier">
+    <div class="wrap">
+      <div class="at-grid">
+        <div class="reveal">
+          <h2>Made slowly,<br><em>in solid wood.</em></h2>
+          <p class="lede">A commission starts with two cups of chai and a pencil. We measure your room, sketch on paper, and walk the seasoning yard together to pick your timber. Then the workshop takes over — and you get photographs at every milestone, from first cut to final polish.</p>
+          <a class="lnk online" href="#/shop">Plan a visit <i>→</i></a>
+        </div>
+        <ol class="steps reveal">
+          <li><i>I.</i><div><h3>Consult &amp; measure</h3><p>We sit with your room — its light, its corners, its quirks — and sketch until the piece feels inevitable.</p></div></li>
+          <li><i>II.</i><div><h3>Timber &amp; drawing</h3><p>You approve the working drawing and choose your wood by hand. Nothing enters the workshop unchosen.</p></div></li>
+          <li><i>III.</i><div><h3>Handcrafting</h3><p>Master carpenters cut, join and carve — with progress photos at every stage.</p></div></li>
+          <li><i>IV.</i><div><h3>Finish &amp; deliver</h3><p>Hand-rubbed finish, white-glove delivery and assembly — and free re-polishing for as long as you own it.</p></div></li>
+        </ol>
+      </div>
+      <div class="at-photos reveal">
+        <figure>
+          <div class="ph" style="aspect-ratio:4/3"><img loading="lazy" src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=900&q=80" alt="Hand tools in the workshop" onerror="this.style.opacity='0'"></div>
+          <figcaption>Every joint cut by hand — sheesham, teak, walnut.</figcaption>
+        </figure>
+        <figure>
+          <div class="ph" style="aspect-ratio:4/3"><img loading="lazy" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80" alt="A finished Crescent interior" onerror="this.style.opacity='0'"></div>
+          <figcaption>In the room, not the showroom — pieces made for real light.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <div class="wrap reveal">
+      <blockquote>“The joints are so tight you’d think the tree grew that way. Six months in, it still smells like the workshop.”</blockquote>
+      <cite>— The Khan family · dining commission (sample)</cite>
+    </div>
+  </div>
+
+  <div class="ctastrip">
+    <div class="wrap reveal">
+      <h2>Have something <em>specific</em> in mind?</h2>
+      <p>Bring a photograph, a sketch, or a half-finished sentence. We’ll draw it, price it honestly, and build it around your measurements.</p>
+      <a class="btn btn-ink" href="#/shop">Start a commission</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SHOP ==================== -->
+<section class="page" id="page-shop">
+  <div class="sh-head"><div class="wrap">
+    <h2 class="reveal">Every piece, <em>made to order.</em></h2>
+    <p class="cnt reveal"><span id="countLbl">8</span> pieces — lead time four to eight weeks, bespoke sizes on request.</p>
+  </div></div>
+
+  <div class="wrap">
+    <div class="toolbar reveal">
+      <button class="ft on" data-f="all">All</button>
+      <button class="ft" data-f="Beds">Beds</button>
+      <button class="ft" data-f="Dining">Dining</button>
+      <button class="ft" data-f="Seating">Seating</button>
+      <button class="ft" data-f="Storage">Storage</button>
+      <button class="ft" data-f="Living">Living</button>
+      <span class="tspace"></span>
+      <div class="sel"><select id="sortSel" aria-label="Sort">
+        <option value="feat">Sort — Featured</option>
+        <option value="asc">Price · low to high</option>
+        <option value="desc">Price · high to low</option>
+      </select></div>
+    </div>
+    <div class="pgrid" id="shopGrid"></div>
+    <div class="pager">
+      <button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">Next →</button>
+    </div>
+  </div>
+
+  <div class="bstrip">
+    <h2>Can’t find it? <em>We build it.</em></h2>
+    <p>Any piece here can be resized, re-wooded or redrawn from scratch. The sketch costs nothing — decisions come later.</p>
+    <a class="btn btn-cream" href="#/brand">Request a quote</a>
+  </div>
+</section>
+
+<!-- ==================== BRAND ==================== -->
+<section class="page" id="page-brand">
+
+  <div class="b-hero"><div class="wrap">
+    <h1 class="reveal">The house <em>style.</em></h1>
+    <p class="lede reveal" style="font:300 17px/1.85 var(--fe);color:#5B4C3E;max-width:60ch;margin:0">Everything needed to build the website, social presence and print for Crescent — live on this page. Click swatches to copy hex codes; every asset downloads straight from the browser.</p>
+  </div></div>
+
+  <div class="b-sec"><div class="wrap">
+    <h2>One arc, one name.</h2>
+    <p class="lede">Recreated from the shop signboard: a terracotta sweep — the crescent — over Roman capitals, the descriptor set between hairline rules. The wordmark is set in Marcellus, the closest open match to the sign’s lettering. Website headlines use Fraunces; the logo stays its own thing.</p>
+    <div class="g3" style="margin-bottom:28px">
+      <div class="pad logobox" style="background:var(--bone)" data-logo="light"></div>
+      <div class="pad logobox" style="background:var(--espresso)" data-logo="dark"></div>
+      <div class="pad logobox" style="background:var(--maroon)" data-logo="tile"></div>
+    </div>
+    <p class="lede" style="font-size:14px;color:var(--mut);margin-bottom:44px">Left — on paper, the everyday mark. Centre — on espresso, for dark surfaces. Right — the heritage tile, faithful to the physical sign, used only when the logo stands alone.</p>
+    <h4 class="hlab">Compact lockup — navigation &amp; small spaces</h4>
+    <div class="g2" style="margin-bottom:44px">
+      <div class="pad" style="background:var(--bone);display:flex;justify-content:center" data-wm="ink"></div>
+      <div class="pad" style="background:var(--espresso);display:flex;justify-content:center" data-wm="cream"></div>
+    </div>
+    <div class="g2">
+      <div style="text-align:center">
+        <div class="cs"><b class="t">C</b><b class="b">C</b><b class="l">C</b><b class="r">C</b><div data-logo="light"></div></div>
+        <p class="lede" style="font-size:13.5px;color:var(--mut);margin-top:18px">Clear space — one capital C’s height, all four sides.</p>
+      </div>
+      <div>
+        <div style="display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-bottom:20px">
+          <div data-logo="light" style="width:200px"></div>
+          <div data-logo="light" style="width:130px"></div>
+        </div>
+        <p class="lede" style="font-size:13.5px;color:var(--mut)">Minimums — 190&nbsp;px / 35&nbsp;mm for the lockup; below that, switch to the compact lockup or the arc alone. The physical sign carries a <b style="color:var(--ink)">SINCE —</b> strip whose year is unreadable in the reference photo; confirm it before adding it back.</p>
+      </div>
+    </div>
+    <div class="g3" style="margin-top:52px">
+      <figure class="misuse"><div class="ph w-linen" style="aspect-ratio:16/10"><img loading="lazy" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80" alt="busy interior" onerror="this.style.opacity='0'"></div><figcaption><b>✕</b> Never place the logo on a busy photograph without a paper or espresso mat.</figcaption></figure>
+      <figure class="misuse m-stretch"><div class="pad" style="background:var(--bone);display:flex"><div data-logo="light" style="width:100%"></div></div><figcaption><b>✕</b> Never stretch, squash or re-arc the type.</figcaption></figure>
+      <figure class="misuse m-recolor"><div class="pad" style="background:var(--bone);display:flex"><div data-logo="light" style="width:100%"></div></div><figcaption><b>✕</b> Never recolor — three approved pairings only.</figcaption></figure>
+    </div>
+    <details>
+      <summary>View &amp; copy the logo SVG</summary>
+      <pre id="svgsrc"></pre>
+      <button class="btn btn-ink btn-sm" id="copySvg" style="margin-top:14px">Copy SVG</button>
+    </details>
+  </div></div>
+
+  <div class="b-sec" style="background:var(--bone)"><div class="wrap">
+    <h2>Paper, espresso &amp; one ember.</h2>
+    <p class="lede">The site is light-first: warm paper carries the reading, espresso takes two full-bleed moments per page, and terracotta is spent sparingly — the arc, links, prices, one button. The signboard maroon survives only in the heritage tile. Click any swatch to copy.</p>
+    <div class="g3" id="swatches"></div>
+    <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;margin-top:56px">
+      <div style="flex:1;min-width:280px">
+        <h4 class="hlab">Proportion per page</h4>
+        <div class="ratio">
+          <div style="flex:58;background:var(--paper);color:var(--ink)">Paper 58</div>
+          <div style="flex:14;background:var(--bone);color:var(--ink)">Bone 14</div>
+          <div style="flex:20;background:var(--espresso);color:var(--cream)">Espresso 20</div>
+          <div style="flex:8;background:var(--terra);color:var(--cream)">8</div>
+        </div>
+        <p class="lede" style="font-size:13.5px;color:var(--mut);margin-top:12px">Terracotta above 8% in any view, and the page starts to shout.</p>
+      </div>
+      <div style="flex:1.2;min-width:300px">
+        <h4 class="hlab">Tested pairs</h4>
+        <div class="tblwrap"><table>
+          <tr><th>Pair</th><th>Ratio</th><th>Level</th><th>Use</th></tr>
+          <tr><td><b>Espresso</b> on Paper</td><td>13.6 : 1</td><td>AAA</td><td>All text on light</td></tr>
+          <tr><td><b>Terracotta</b> on Paper</td><td>5.3 : 1</td><td>AA</td><td>Links, prices, accents</td></tr>
+          <tr><td><b>Cream</b> on Espresso</td><td>13.9 : 1</td><td>AAA</td><td>All text on dark</td></tr>
+          <tr><td><b>Terracotta</b> on Espresso</td><td>4.6 : 1</td><td>AA</td><td>Accents on dark</td></tr>
+          <tr><td><b>Cream</b> on Ink button</td><td>13.6 : 1</td><td>AAA</td><td>Primary button</td></tr>
+          <tr><td><b>Cream</b> on Terracotta</td><td>3.4 : 1</td><td>✕ fail</td><td>Forbidden — never cream-on-terracotta text</td></tr>
+        </table></div>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="b-sec"><div class="wrap">
+    <h2>Three voices.</h2>
+    <p class="lede"><b>Fraunces</b> headlines — a soft old-style serif with real personality. <b>Merriweather</b> narrates the editorial moments — ledes, quotes, captions. <b>Archivo</b> does the quiet work — body, buttons, labels. The logo alone keeps <b>Marcellus</b>. All free on Google Fonts.</p>
+    <div class="g3" style="margin-bottom:46px">
+      <div class="spec"><div class="aa">Aa</div><h4>Fraunces — Display</h4><div class="role">headlines &amp; product names</div>
+        <ul><li><b>Weight:</b> 380, optical size auto</li><li><b>Accent:</b> italic 340 in terracotta</li><li><b>Tracking:</b> −.015em, leading 1.05</li><li><b>Never</b> all-caps or bold</li></ul></div>
+      <div class="spec"><div class="aa ed">Aa</div><h4>Merriweather — Editorial</h4><div class="role">ledes, quotes, story text</div>
+        <ul><li><b>Weights:</b> 300 / 400 + true italics</li><li><b>Size:</b> 16.5–32px, leading 1.8</li><li><b>Color:</b> #5B4C3E on paper</li><li><b>Never</b> buttons or labels</li></ul></div>
+      <div class="spec"><div class="aa sans">Aa</div><h4>Archivo — Body &amp; UI</h4><div class="role">body, buttons, nav, meta</div>
+        <ul><li><b>Weights:</b> 300 / 500 / 600</li><li><b>Labels:</b> 500, caps, .2–.3em tracking</li><li><b>Body:</b> 16.5px / 1.75, weight 300</li><li><b>Fallback:</b> Helvetica → sans</li></ul></div>
+    </div>
+    <div class="tblwrap"><table>
+      <tr><th>Style</th><th>Face</th><th>Size / line</th><th>Sample</th></tr>
+      <tr><td><b>H1</b></td><td>Fraunces 380</td><td>44–86 / 1.02</td><td style="font:380 25px var(--fd)">Furniture with <em style="color:var(--terra)">your name</em></td></tr>
+      <tr><td><b>H2</b></td><td>Fraunces 380</td><td>28–52 / 1.1</td><td style="font:380 21px var(--fd)">Made slowly, <em style="color:var(--terra)">in solid wood.</em></td></tr>
+      <tr><td><b>Product name</b></td><td>Fraunces 400</td><td>19–21 / 1.2</td><td style="font:400 19px var(--fd)">The Four-Poster <i style="color:var(--terra);font-size:14px">— New</i></td></tr>
+      <tr><td><b>Lede</b></td><td>Merriweather 300</td><td>16.5–17.5 / 1.85</td><td style="font:300 15px var(--fe);color:#5B4C3E">Drawn with you first, cut from seasoned wood.</td></tr>
+      <tr><td><b>Label</b></td><td>Archivo 500 · caps</td><td>11</td><td style="font:500 11px var(--fj);letter-spacing:.26em;text-transform:uppercase;color:var(--mut)">Sort — Featured</td></tr>
+      <tr><td><b>Button</b></td><td>Archivo 500 · caps</td><td>12</td><td style="font:500 12px var(--fj);letter-spacing:.22em;text-transform:uppercase">Start a commission</td></tr>
+    </table></div>
+  </div></div>
+
+  <div class="b-sec" style="background:var(--bone)"><div class="wrap">
+    <h2>Quiet parts.</h2>
+    <p class="lede">Two-corner buttons (2px, barely) in ink; the ink button’s hover turns terracotta — the one color change you can feel. Underline links carry a dash-arrow that steps forward. Nothing else moves except photographs, at a slow 900ms.</p>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin-bottom:40px">
+      <button class="btn btn-ink">Add to order</button>
+      <button class="btn btn-ink btn-sm" disabled>Disabled</button>
+      <a class="lnk" href="#/brand">Underline link <i>→</i></a>
+      <a class="lnk" style="border:none;color:var(--terra)" href="#/brand">Terracotta link</a>
+    </div>
+    <div class="tblwrap"><table>
+      <tr><th>Token</th><th>Value</th></tr>
+      <tr><td><b>Button primary</b></td><td>bg <span class="chipx">#231B14</span> · text <span class="chipx">#F7F2E9</span> · hover bg <span class="chipx">#B85238</span> · 54px tall · radius 2px</td></tr>
+      <tr><td><b>Button on dark</b></td><td>bg <span class="chipx">#F7F2E9</span> · text <span class="chipx">#231B14</span> · hover bg terracotta, text cream</td></tr>
+      <tr><td><b>Type on buttons</b></td><td>Archivo 500 · 12px · .22em · UPPERCASE</td></tr>
+      <tr><td><b>Links</b></td><td>underline 1px at 34% ink → terracotta on hover · arrow shifts +5px</td></tr>
+      <tr><td><b>Focus</b></td><td>2px terracotta outline, offset 3px</td></tr>
+      <tr><td><b>Motion</b></td><td>250ms cubic-bezier(.22,.75,.25,1) · images 900ms scale 1.04 · reveals 18px fade-up</td></tr>
+      <tr><td><b>Photography</b></td><td>real interiors &amp; workshop shots · warm filter (sepia .12 / sat .92) to sit in the palette · paper-tone plate behind every image while it loads</td></tr>
+    </table></div>
+  </div></div>
+
+  <div class="b-sec"><div class="wrap">
+    <h2>The whole system, <em>copy-paste.</em></h2>
+    <pre><code id="tokens">:root{
+  /* surfaces */
+  --paper:#F4EFE6;   /* page canvas */
+  --bone:#EAE2D3;    /* alt sections, plates, panels */
+  --espresso:#211913;/* dark sections, footer, buttons */
+  --ink:#231B14;     /* headings & text on light */
+  --terra:#B85238;   /* the one accent — arc, links, prices */
+  --terra-d:#96412C; /* terracotta hover */
+  --cream:#F7F2E9;   /* text on dark */
+  --mut:#877663;     /* secondary text on light */
+  --line:rgba(35,27,20,.16);
+  /* type */
+  --fd:'Fraunces',Georgia,serif;      /* display, weight 380 */
+  --fe:'Merriweather',Georgia,serif;  /* editorial, weight 300 */
+  --fj:'Archivo',Helvetica,sans-serif;/* body & UI */
+  --fm:'Marcellus',Georgia,serif;     /* the logo only */
+  /* motion */
+  --ease:cubic-bezier(.22,.75,.25,1);
+}
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&amp;family=Archivo:wght@300;400;500;600&amp;family=Marcellus&amp;display=swap');</code><button class="btn btn-sm cb" id="copyTok" style="background:var(--terra);color:var(--cream)">Copy</button></pre>
+  </div></div>
+
+  <div class="b-sec" style="background:var(--bone)"><div class="wrap">
+    <h2>The compact mark.</h2>
+    <p class="lede">An espresso tile, soft-cornered, with the terracotta arc and a Marcellus C in cream. Three shapes — it survives 16&nbsp;px intact.</p>
+    <div style="display:flex;gap:38px;flex-wrap:wrap;align-items:flex-start">
+      <div class="favrow">
+        <div class="favcell"><div class="bx" id="fv16"></div><div class="lb">16</div></div>
+        <div class="favcell"><div class="bx" id="fv32"></div><div class="lb">32</div></div>
+        <div class="favcell"><div class="bx" id="fv48"></div><div class="lb">48</div></div>
+        <div class="favcell"><div class="bx" id="fv64"></div><div class="lb">64</div></div>
+        <div class="favcell"><div class="bx" id="fv256"></div><div class="lb">256</div></div>
+      </div>
+      <div style="flex:1;min-width:250px;display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn btn-ink btn-sm" data-dl="fav-ico">favicon.ico</button>
+        <button class="btn btn-ink btn-sm" data-dl="fav-32">32 png</button>
+        <button class="btn btn-ink btn-sm" data-dl="fav-180">apple 180</button>
+        <button class="btn btn-ink btn-sm" data-dl="fav-192">192 png</button>
+        <button class="btn btn-ink btn-sm" data-dl="fav-512">512 png</button>
+        <button class="btn btn-ink btn-sm" data-dl="fav-svg">icon.svg</button>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="b-sec" style="border-bottom:none"><div class="wrap">
+    <h2>Everything, <em>one click.</em></h2>
+    <p class="lede">SVGs import Marcellus automatically when opened in a browser — convert text to outlines before print or engraving.</p>
+    <div class="g3" style="margin-bottom:52px">
+      <div style="text-align:center">
+        <div class="avatarbox" data-icon style="width:150px;margin:0 auto 18px"></div>
+        <h4 class="hlab">Profile picture</h4>
+        <p class="lede" style="font-size:13px;color:var(--mut);margin:6px 0 16px">Instagram · Facebook · WhatsApp</p>
+        <button class="btn btn-ink btn-sm" data-dl="avatar">Download 1000px</button>
+      </div>
+      <div style="grid-column:span 2">
+        <h4 class="hlab">Link preview · og:image 1200×630</h4>
+        <div class="banner" style="margin-bottom:16px"><div data-logo="dark"></div></div>
+        <button class="btn btn-ink btn-sm" data-dl="og">Download OG image</button>
+      </div>
+    </div>
+    <h4 class="hlab">Full logo</h4>
+    <div class="g3">
+      <div class="asset"><div class="nm">On paper · SVG</div><div class="mt">Transparent — espresso caps, terracotta arc. Everyday mark.</div><button class="btn btn-ink btn-sm" data-dl="logo-svg-light">Download</button></div>
+      <div class="asset"><div class="nm">On paper · PNG</div><div class="mt">2200×733 transparent.</div><button class="btn btn-ink btn-sm" data-dl="logo-png-light">Download</button></div>
+      <div class="asset"><div class="nm">On espresso · SVG</div><div class="mt">Transparent — cream caps for dark surfaces.</div><button class="btn btn-ink btn-sm" data-dl="logo-svg-dark">Download</button></div>
+      <div class="asset"><div class="nm">On espresso · PNG</div><div class="mt">2200×733 transparent.</div><button class="btn btn-ink btn-sm" data-dl="logo-png-dark">Download</button></div>
+      <div class="asset"><div class="nm">Heritage tile · SVG</div><div class="mt">Maroon field, sign-true coral caps. Stands alone.</div><button class="btn btn-ink btn-sm" data-dl="logo-svg-tile">Download</button></div>
+      <div class="asset"><div class="nm">Heritage tile · PNG</div><div class="mt">2200×733.</div><button class="btn btn-ink btn-sm" data-dl="logo-png-tile">Download</button></div>
+    </div>
+    <p class="lede" style="margin-top:40px;font-size:13.5px;color:var(--mut)">Story-highlight covers rotate the palette with a single Fraunces letter:</p>
+    <div class="covers" style="margin-top:14px">
+      <span class="cov" style="background:var(--espresso)">B</span>
+      <span class="cov" style="background:var(--terra)">D</span>
+      <span class="cov" style="background:var(--maroon)">S</span>
+      <span class="cov" style="background:#5B4C3E">V</span>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fwm reveal">
+      <div class="lg" data-logo="dark"></div>
+      <div class="tag">Aaram ka hai naam.</div>
+    </div>
+    <div class="fcols">
+      <div>
+        <h5>The House</h5>
+        <p class="blurb">Bespoke furniture in solid wood — drawn with you, built by hand, re-polished for life.</p>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <a href="#/shop">All pieces</a>
+        <a href="#/shop" data-goto="Beds">Beds</a>
+        <a href="#/shop" data-goto="Dining">Dining</a>
+        <a href="#/shop" data-goto="Storage">Storage</a>
+      </div>
+      <div>
+        <h5>House</h5>
+        <a href="#/brand">Bespoke process</a>
+        <a href="#/brand">Care &amp; service</a>
+        <a href="#/brand">Brand guide</a>
+      </div>
+      <div>
+        <h5>Visit</h5>
+        <p>The Crescent Workshop<br>Grand Trunk Road, Karachi<br>Sat–Thu · 10am–8pm</p>
+        <div class="fnews">
+          <input type="email" placeholder="Email — for the workshop journal" aria-label="Email">
+          <button id="newsBtn">Join</button>
+        </div>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© 2025 Crescent Bespoke Furniture House — sample build</span>
+      <span>Design system · Paper &amp; Espresso</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" role="status"></div>
+
+<script>
+/* safety net: if anything below fails, Home still renders */
+window.addEventListener('error',function(){var h=document.getElementById('page-home');if(h)h.classList.add('active');},{once:true});
+
+const C={paper:'#F4EFE6',espresso:'#211913',ink:'#231B14',terra:'#B85238',cream:'#F7F2E9',maroon:'#3D141E',coral:'#E5624D'};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let tt;
+const toast=m=>{const t=$('#toast');if(!t)return;t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2400);};
+
+/* ---------- brand SVGs ---------- */
+function buildLogoSVG(v,imp){
+  imp=imp!==false;
+  const tile=v==='tile';
+  const arc=tile?C.coral:C.terra;
+  const caps=tile?C.coral:(v==='dark'?C.cream:C.ink);
+  const sub=(tile||v==='dark')?C.cream:C.ink;
+  const bg=tile?'<rect width="1200" height="400" fill="'+C.maroon+'"/>':'';
+  const i=imp?'<style>@import url(\'https://fonts.googleapis.com/css2?family=Marcellus&display=swap\');</style>':'';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-label="Crescent — Bespoke Furniture House">'+i+bg
+  +'<path d="M170 120 Q600 30 1030 120" fill="none" stroke="'+arc+'" stroke-width="7" stroke-linecap="round"/>'
+  +'<text x="600" y="268" text-anchor="middle" font-family="Marcellus, Georgia, serif" font-size="150" textLength="830" fill="'+caps+'">CRESCENT</text>'
+  +'<line x1="180" y1="338" x2="262" y2="338" stroke="'+sub+'" stroke-width="2.5"/>'
+  +'<text x="600" y="348" text-anchor="middle" font-family="Marcellus, Georgia, serif" font-size="33" textLength="620" fill="'+sub+'">BESPOKE FURNITURE HOUSE</text>'
+  +'<line x1="938" y1="338" x2="1020" y2="338" stroke="'+sub+'" stroke-width="2.5"/></svg>';
+}
+function navWM(color){
+  return '<svg viewBox="0 0 160 42" style="height:38px;width:auto" role="img" aria-label="Crescent">'
+  +'<path d="M12 14 Q80 2 148 14" fill="none" stroke="'+C.terra+'" stroke-width="3.4" stroke-linecap="round"/>'
+  +'<text x="80" y="36" text-anchor="middle" font-family="Marcellus, Georgia, serif" font-size="20" textLength="132" fill="'+color+'">CRESCENT</text></svg>';
+}
+function buildIconSVG(imp){
+  imp=imp!==false;
+  const i=imp?'<style>@import url(\'https://fonts.googleapis.com/css2?family=Marcellus&display=swap\');</style>':'';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Crescent">'+i
+  +'<rect width="96" height="96" rx="12" fill="'+C.espresso+'"/>'
+  +'<path d="M25 41 Q48 22 71 41" fill="none" stroke="'+C.terra+'" stroke-width="5.5" stroke-linecap="round"/>'
+  +'<text x="48" y="74" text-anchor="middle" font-family="Marcellus, Georgia, serif" font-size="50" fill="'+C.cream+'">C</text></svg>';
+}
+ $$('[data-logo]').forEach(n=>n.innerHTML=buildLogoSVG(n.dataset.logo,false));
+ $$('[data-wm]').forEach(n=>n.innerHTML=navWM(n.dataset.wm==='cream'?C.cream:C.ink));
+ $$('[data-icon]').forEach(n=>n.innerHTML=buildIconSVG(false));
+const srcEl=$('#svgsrc');if(srcEl)srcEl.textContent=buildLogoSVG('light');
+(()=>{try{const l=document.createElement('link');l.rel='icon';l.type='image/svg+xml';
+l.href='data:image/svg+xml;utf8,'+encodeURIComponent(buildIconSVG(false));document.head.appendChild(l);}catch(e){}})();
+
+/* ---------- products ---------- */
+const U='https://images.unsplash.com/photo-';
+const IMG={
+ bed:'1571508601891-ca5e7a713859',bed2:'1505693416388-ac5ce068fe85',
+ dining:'1519710164239-da123dc03ef4',dining2:'1540574163026-643ea20ade25',
+ chair:'1567538096630-e0c55bd6374c',chair2:'1592078615290-033ee584e267',chair3:'1503602642458-232111445657',
+ shelf:'1594620302200-9a762244a156',wardrobe:'1584100936595-c0654b55a2e2',
+ coffee:'1499933374294-4584851497cc',console:'1549497538-303791108f95',living:'1555041469-a586c61ea9bc'
+};
+const imgURL=k=>U+(IMG[k]||IMG.bed)+'?auto=format&fit=crop&w=1000&q=80';
+const PRODUCTS=[
+ {name:'The Four-Poster',cat:'Beds',meta:'Sheesham · hand-turned posts',price:189000,flag:'',img:'bed',plate:'w-linen'},
+ {name:'Meridian Table · 8',cat:'Dining',meta:'Teak · butterfly joints',price:124500,flag:'',img:'dining',plate:'w-clay'},
+ {name:'Rosetta Armchair',cat:'Seating',meta:'Rosewood · cane back',price:46000,flag:'New',img:'chair',plate:'w-blush'},
+ {name:'Darbar Wardrobe',cat:'Storage',meta:'Sheesham · carved panels',price:158000,flag:'',img:'wardrobe',plate:'w-sand'},
+ {name:'Scribe’s Bookcase',cat:'Storage',meta:'Walnut · adjustable shelves',price:88000,flag:'',img:'shelf',plate:'w-linen'},
+ {name:'Low Courtyard Table',cat:'Living',meta:'Acacia · live-edge top',price:39500,flag:'New',img:'coffee',plate:'w-clay'},
+ {name:'Jharoka Chair',cat:'Seating',meta:'Sheesham · carved crest rail',price:34000,flag:'Bespoke',img:'chair3',plate:'w-sand'},
+ {name:'Haveli Console',cat:'Storage',meta:'Sheesham · brass inlay',price:52500,flag:'',img:'console',plate:'w-blush'}
+];
+const fmt=n=>'PKR '+n.toLocaleString('en-PK');
+const grid=$('#shopGrid');
+if(grid)grid.innerHTML=PRODUCTS.map((p,i)=>
+ '<a class="pcard" href="#/shop" data-cat="'+p.cat+'" data-price="'+p.price+'" data-idx="'+i+'">'
+ +'<div class="ph '+p.plate+'"><img loading="lazy" src="'+imgURL(p.img)+'" alt="'+p.name+'" onerror="this.style.opacity=\'0\'"></div>'
+ +'<div class="pcap2"><div class="r1"><span class="pn">'+p.name+(p.flag?'<i>— '+p.flag+'</i>':'')+'</span><span class="pp">'+fmt(p.price)+'</span></div>'
+ +'<div class="pm">'+p.meta+'</div><div class="enq">Enquire →</div></div></a>').join('');
+
+/* ---------- shop filter / sort ---------- */
+const countLbl=$('#countLbl');
+function updateCount(){if(!grid||!countLbl)return;countLbl.textContent=[...grid.children].filter(p=>p.style.display!=='none').length;}
+ $$('.ft').forEach(b=>b.addEventListener('click',()=>{
+ $$('.ft').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+ const f=b.dataset.f;
+ [...grid.children].forEach(p=>p.style.display=(f==='all'||p.dataset.cat===f)?'':'none');
+ updateCount();}));
+const sortSel=$('#sortSel');
+if(sortSel)sortSel.addEventListener('change',e=>{
+ const v=e.target.value,arr=[...grid.children];
+ arr.sort((a,b)=>v==='asc'?a.dataset.price-b.dataset.price:v==='desc'?b.dataset.price-a.dataset.price:a.dataset.idx-b.dataset.idx);
+ arr.forEach(p=>grid.appendChild(p));});
+updateCount();
+ $$('.pg').forEach(b=>b.addEventListener('click',()=>toast('Pagination — demo only')));
+
+/* ---------- index hover preview ---------- */
+const ixView=$('#ixView'),ixImg=$('#ixImg'),ixCap=$('#ixCap');
+ $$('.ixrow').forEach(r=>r.addEventListener('mouseenter',()=>{
+ if(!ixView||!ixImg||!ixCap)return;
+ ixView.style.opacity=0;
+ setTimeout(()=>{
+  ixView.className='ph '+r.dataset.plate;
+  ixImg.src=U+IMG[r.dataset.img]+'?auto=format&fit=crop&w=800&q=80';
+  ixCap.textContent=r.dataset.cap;
+  ixView.style.opacity=1;},160);}));
+
+/* ---------- mobile menu (defined BEFORE router uses it) ---------- */
+const burger=$('#burger'),mnav=$('#mnav');
+function closeMenu(){
+ if(!mnav)return;
+ mnav.classList.remove('open');
+ document.body.classList.remove('no-scroll');
+ if(burger){burger.classList.remove('x');burger.setAttribute('aria-expanded','false');}
+}
+if(burger&&mnav){
+ burger.addEventListener('click',()=>{
+  const o=mnav.classList.toggle('open');
+  burger.classList.toggle('x',o);
+  burger.setAttribute('aria-expanded',String(o));
+  document.body.classList.toggle('no-scroll',o);});
+ mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+}
+
+/* ---------- router ---------- */
+function route(){
+ const h=(location.hash||'#/home').replace('#/','');
+ const p=['home','shop','brand'].includes(h)?h:'home';
+ $$('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+p));
+ $$('nav a[data-r]').forEach(a=>a.classList.toggle('active',a.dataset.r===p));
+ document.title='Crescent — '+({home:'Bespoke Furniture House',shop:'The Collection',brand:'Brand Guide'}[p]||'Bespoke Furniture House');
+ window.scrollTo(0,0);
+ closeMenu();
+ $$('.page.active .reveal').forEach(n=>n.classList.add('in'));
+}
+window.addEventListener('hashchange',route);
+route();
+
+/* ---------- category deep links ---------- */
+function gotoCat(cat){
+ if(location.hash!=='#/shop')location.hash='#/shop';
+ setTimeout(()=>{
+  const btn=$$('.ft').find(x=>x.dataset.f===cat);
+  if(btn)btn.click();
+  const sp=$('#page-shop');if(sp)sp.scrollIntoView({behavior:'smooth'});},90);
+}
+ $$('[data-goto]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();gotoCat(el.dataset.goto);}));
+
+/* ---------- misc ---------- */
+const nb=$('#newsBtn');if(nb)nb.addEventListener('click',()=>toast('Subscribed — sample form'));
+async function copyText(t){try{await navigator.clipboard.writeText(t);}catch(e){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e2){}ta.remove();}}
+const ct=$('#copyTok');if(ct)ct.addEventListener('click',async()=>{await copyText($('#tokens').textContent);toast('Tokens copied ✓');});
+const cs2=$('#copySvg');if(cs2)cs2.addEventListener('click',async()=>{await copyText($('#svgsrc').textContent);toast('SVG copied ✓');});
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1});
+ $$('.reveal').forEach(n=>io.observe(n));
+
+/* ---------- swatches ---------- */
+const COLORS=[
+ ['Paper','#F4EFE6','The page canvas — warm, never clinical white.','Primary bg'],
+ ['Bone','#EAE2D3','Alternating sections, image plates, spec panels.','Alt sections'],
+ ['Espresso','#211913','Dark sections, footer, primary buttons.','Dark moments'],
+ ['Ink','#231B14','All headings and body text on light.','Text · AAA'],
+ ['Terracotta','#B85238','The one accent — arc, links, prices, hover.','AA on paper'],
+ ['Terra Deep','#96412C','Terracotta hover / pressed.','Hover'],
+ ['Warm Taupe','#5B4C3E','Lede text on paper, editorial grey-brown.','AA on paper'],
+ ['Sign Maroon','#3D141E','Heritage tile only — carried over from the sign.','Logo tile'],
+ ['Cream','#F7F2E9','Text on espresso and maroon.','On dark · AAA'],
+ ['Faded Umber','#877663','Meta, captions, placeholders.','AA on paper']
+];
+const sw=$('#swatches');
+if(sw){sw.innerHTML=COLORS.map(c=>
+ '<div class="swatch" data-hex="'+c[1]+'" title="Click to copy '+c[1]+'">'
+ +'<div class="col" style="background:'+c[1]+'"></div><div class="nm">'+c[0]+'</div>'
+ +'<div class="hx"><b>'+c[1]+'</b></div><div class="use">'+c[2]+'</div><span class="pl">'+c[3]+'</span></div>').join('');
+ $$('.swatch').forEach(s=>s.addEventListener('click',async()=>{await copyText(s.dataset.hex);toast(s.dataset.hex+' copied ✓');}));}
+
+/* ---------- canvas exports ---------- */
+function spacedFit(x,t,cx,y,target){
+ const ch=[...t],ws=ch.map(c=>x.measureText(c).width);
+ const nat=ws.reduce((a,b)=>a+b,0),extra=(target-nat)/Math.max(1,ch.length-1);
+ let px=cx-target/2;
+ ch.forEach((c,i)=>{x.fillText(c,px,y);px+=ws[i]+extra;});}
+async function fontsReady(){try{await Promise.all([
+ document.fonts.load('400 150px Marcellus'),
+ document.fonts.load('400 33px Marcellus'),
+ document.fonts.load('400 50px Marcellus')]);}catch(e){}}
+function paintLogo(x,W,v,ox,oy){
+ ox=ox||0;oy=oy||0;
+ const k=W/1200;x.save();x.translate(ox,oy);
+ const tile=v==='tile',arc=tile?C.coral:C.terra,
+  caps=tile?C.coral:(v==='dark'?C.cream:C.ink),
+  sub=(tile||v==='dark')?C.cream:C.ink;
+ if(tile){x.fillStyle=C.maroon;x.fillRect(0,0,W,400*k);}
+ x.strokeStyle=arc;x.lineWidth=7*k;x.lineCap='round';
+ x.beginPath();x.moveTo(170*k,120*k);x.quadraticCurveTo(600*k,30*k,1030*k,120*k);x.stroke();
+ x.fillStyle=caps;x.font='400 '+(150*k)+'px Marcellus, Georgia, serif';spacedFit(x,'CRESCENT',600*k,268*k,830*k);
+ x.fillStyle=sub;x.font='400 '+(33*k)+'px Marcellus, Georgia, serif';spacedFit(x,'BESPOKE FURNITURE HOUSE',600*k,348*k,620*k);
+ x.strokeStyle=sub;x.lineWidth=2.5*k;
+ x.beginPath();x.moveTo(180*k,338*k);x.lineTo(262*k,338*k);x.moveTo(938*k,338*k);x.lineTo(1020*k,338*k);x.stroke();
+ x.restore();}
+function paintIcon(x,S){
+ const k=S/96,r=12*k;
+ x.fillStyle=C.espresso;x.beginPath();
+ x.moveTo(r,0);x.arcTo(S,0,S,S,r);x.arcTo(S,S,0,S,r);x.arcTo(0,S,0,0,r);x.arcTo(0,0,S,0,r);x.fill();
+ x.strokeStyle=C.terra;x.lineWidth=5.5*k;x.lineCap='round';
+ x.beginPath();x.moveTo(25*k,41*k);x.quadraticCurveTo(48*k,22*k,71*k,41*k);x.stroke();
+ x.fillStyle=C.cream;x.font='400 '+(50*k)+'px Marcellus, Georgia, serif';x.textAlign='center';x.fillText('C',48*k,74*k);}
+const toBlob=c=>new Promise((res,rej)=>{try{c.toBlob(b=>b?res(b):rej(new Error('blob')),'image/png');}catch(e){rej(e);}});
+async function iconCanvas(S){await fontsReady();const c=document.createElement('canvas');c.width=c.height=S;paintIcon(c.getContext('2d'),S);return c;}
+async function logoPNG(v,W){await fontsReady();const c=document.createElement('canvas');
+ c.width=W;c.height=Math.round(W/3);paintLogo(c.getContext('2d'),W,v);return toBlob(c);}
+async function makeICO(){
+ const parts=[];
+ for(const s of [16,32,48]){const b=await toBlob(await iconCanvas(s));parts.push({s,buf:new Uint8Array(await b.arrayBuffer())});}
+ let off=6+16*parts.length;
+ const out=new Uint8Array(off+parts.reduce((a,p)=>a+p.buf.length,0)),dv=new DataView(out.buffer);
+ dv.setUint16(2,1,true);dv.setUint16(4,parts.length,true);let e=6;
+ for(const p of parts){dv.setUint8(e,p.s);dv.setUint8(e+1,p.s);dv.setUint16(e+4,1,true);dv.setUint16(e+6,32,true);
+  dv.setUint32(e+8,p.buf.length,true);dv.setUint32(e+12,off,true);out.set(p.buf,off);off+=p.buf.length;e+=16;}
+ return new Blob([out],{type:'image/x-icon'});}
+function dl(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;
+ document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);}
+const svgBlob=s=>new Blob([s],{type:'image/svg+xml'});
+
+/* favicon previews */
+(async()=>{try{
+ await fontsReady();
+ for(const s of [16,32,48,64]){const c=document.createElement('canvas');c.width=c.height=s;paintIcon(c.getContext('2d'),s);const b=$('#fv'+s);if(b)b.appendChild(c);}
+ const big=document.createElement('canvas');big.width=big.height=256;paintIcon(big.getContext('2d'),256);const b256=$('#fv256');if(b256)b256.appendChild(big);
+}catch(e){}})();
+
+/* downloads */
+ $$('[data-dl]').forEach(b=>b.addEventListener('click',async()=>{
+ const k=b.dataset.dl;b.disabled=true;
+ try{
+  let name='';
+  if(k==='logo-svg-light'){dl('crescent-logo-paper.svg',svgBlob(buildLogoSVG('light')));name='crescent-logo-paper.svg';}
+  else if(k==='logo-png-light'){dl('crescent-logo-paper-2200.png',await logoPNG('light',2200));name='crescent-logo-paper-2200.png';}
+  else if(k==='logo-svg-dark'){dl('crescent-logo-espresso.svg',svgBlob(buildLogoSVG('dark')));name='crescent-logo-espresso.svg';}
+  else if(k==='logo-png-dark'){dl('crescent-logo-espresso-2200.png',await logoPNG('dark',2200));name='crescent-logo-espresso-2200.png';}
+  else if(k==='logo-svg-tile'){dl('crescent-logo-heritage-tile.svg',svgBlob(buildLogoSVG('tile')));name='crescent-logo-heritage-tile.svg';}
+  else if(k==='logo-png-tile'){dl('crescent-logo-heritage-tile-2200.png',await logoPNG('tile',2200));name='crescent-logo-heritage-tile-2200.png';}
+  else if(k==='fav-ico'){dl('favicon.ico',await makeICO());name='favicon.ico';}
+  else if(k==='fav-32'){dl('favicon-32.png',await toBlob(await iconCanvas(32)));name='favicon-32.png';}
+  else if(k==='fav-180'){dl('apple-touch-icon-180.png',await toBlob(await iconCanvas(180)));name='apple-touch-icon-180.png';}
+  else if(k==='fav-192'){dl('icon-192.png',await toBlob(await iconCanvas(192)));name='icon-192.png';}
+  else if(k==='fav-512'){dl('icon-512.png',await toBlob(await iconCanvas(512)));name='icon-512.png';}
+  else if(k==='fav-svg'){dl('icon.svg',svgBlob(buildIconSVG(true)));name='icon.svg';}
+  else if(k==='avatar'){dl('crescent-avatar-1000.png',await toBlob(await iconCanvas(1000)));name='crescent-avatar-1000.png';}
+  else if(k==='og'){
+   await fontsReady();
+   const c=document.createElement('canvas');c.width=1200;c.height=630;const x=c.getContext('2d');
+   x.fillStyle=C.espresso;x.fillRect(0,0,1200,630);
+   x.strokeStyle='rgba(247,242,233,.22)';x.lineWidth=2;x.strokeRect(30.5,30.5,1139,569);
+   paintLogo(x,920,'dark',140,160);
+   dl('crescent-og-1200x630.png',await toBlob(c));name='crescent-og-1200x630.png';}
+  toast('Downloaded ✓ '+name);
+ }catch(e){toast('Export failed — try again');}
+ b.disabled=false;
+}));
+</script>
+</body>
+</html>
+<!-- ✓ END OF FILE — if you can read this line, your copy is complete -->

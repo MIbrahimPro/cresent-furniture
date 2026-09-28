@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Review } from "@/lib/types";
+import { api } from "@/lib/api";
 
 export function ReviewsModeration({ reviews }: { reviews: Review[] }) {
   const router = useRouter();
@@ -10,7 +11,7 @@ export function ReviewsModeration({ reviews }: { reviews: Review[] }) {
 
   async function setApproved(review: Review, approved: boolean) {
     setBusyId(String(review._id));
-    await fetch(`/api/admin/reviews/${review._id}`, {
+    await fetch(api("/api/") + `admin/reviews/${review._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ approved }),
@@ -22,7 +23,7 @@ export function ReviewsModeration({ reviews }: { reviews: Review[] }) {
   async function remove(review: Review) {
     if (!confirm(`Delete the note from ${review.name}?`)) return;
     setBusyId(String(review._id));
-    await fetch(`/api/admin/reviews/${review._id}`, { method: "DELETE" });
+    await fetch(api("/api/") + `admin/reviews/${review._id}`, { method: "DELETE" });
     setBusyId(null);
     router.refresh();
   }

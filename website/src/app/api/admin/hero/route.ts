@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCollection } from "@/lib/mongo";
-import { pexelsKey, searchPexelsVideos } from "@/lib/pexels";
+import { searchPexelsVideos } from "@/lib/pexels";
 import type { HeroMediaItem, SettingsDoc } from "@/lib/types";
 
 /** Search Pexels for sample hero videos */

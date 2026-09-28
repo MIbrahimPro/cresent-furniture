@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProductBySlug, getRelatedProducts } from "@/lib/catalog";
+import { getActiveCategories, getProductBySlug, getRelatedProducts } from "@/lib/catalog";
 import { getSettings } from "@/lib/settings";
+import { toPlainDoc, toPlainList } from "@/lib/serialize";
 import { ProductDetail } from "@/components/AddToCartPanel";
 import { ProductCard } from "@/components/ProductCard";
 import { ReviewsSection } from "@/components/ReviewsSection";
@@ -33,39 +34,41 @@ export default async function ProductPage({
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const [settings, related] = await Promise.all([
+  const [settings, related, categories] = await Promise.all([
     getSettings(),
     getRelatedProducts(product, 4),
+    getActiveCategories(),
   ]);
+  const categoryName =
+    toPlainList(categories).find((c) => c.slug === product.categorySlug)?.name ??
+    product.categorySlug;
 
   return (
     <div className="container-c py-12">
-      <nav aria-label="Breadcrumb" className="text-[14px] text-sand">
-        <Link href="/" className="hover:text-terra">Home</Link>
-        <span className="mx-2">/</span>
-        <Link href={`/shop?category=${product.categorySlug}`} className="hover:text-terra">
-          {product.categorySlug}
-        </Link>
-        <span className="mx-2">/</span>
-        <span>{product.name}</span>
+      <nav aria-label="Breadcrumb" className="crumbs">
+        <Link href="/">Home</Link>
+        <span aria-hidden>—</span>
+        <Link href={`/shop?category=${product.categorySlug}`}>{categoryName}</Link>
+        <span aria-hidden>—</span>
+        <span className="crumbs-here">{product.name}</span>
       </nav>
 
       <div className="mt-8">
-        <ProductDetail product={product} whatsapp={settings.business.whatsapp} />
+        <ProductDetail product={toPlainDoc(product)} whatsapp={settings.business.whatsapp} />
       </div>
-
-      <ReviewsSection productSlug={slug} />
 
       {related.length ? (
         <section className="mt-20 border-t border-line pt-12">
           <h2 className="display-c text-[24px]">From the same room</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {related.map((p) => (
+            {toPlainList(related).map((p) => (
               <ProductCard key={String(p._id)} product={p} />
             ))}
           </div>
         </section>
       ) : null}
+
+      <ReviewsSection productSlug={slug} />
     </div>
   );
 }

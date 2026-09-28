@@ -1,4 +1,5 @@
 import { getSettings } from "@/lib/settings";
+import { toPlainDoc } from "@/lib/serialize";
 import { OffersManager } from "@/components/admin/OffersManager";
 
 export const dynamic = "force-dynamic";
@@ -12,7 +13,7 @@ export default async function AdminOffers() {
         One sitewide offer banner at a time — write it, link it, and switch it on. For richer
         campaign pages (deal grids, galleries), use Pages and add one to the navigation.
       </p>
-      <OffersManager banner={settings.offerBanner} />
+      <OffersManager banner={toPlainDoc(settings).offerBanner} />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Product } from "@/lib/types";
 import { formatPKR } from "@/lib/format";
+import { api } from "@/lib/api";
 
 export function ProductRow({ product: p }: { product: Product }) {
   const router = useRouter();
@@ -13,7 +14,7 @@ export function ProductRow({ product: p }: { product: Product }) {
   async function remove() {
     if (!confirm(`Remove "${p.name}" from the catalogue?`)) return;
     setBusy(true);
-    await fetch(`/api/admin/products/${p._id}`, { method: "DELETE" });
+    await fetch(api("/api/") + `admin/products/${p._id}`, { method: "DELETE" });
     router.refresh();
     setBusy(false);
   }

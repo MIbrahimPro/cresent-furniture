@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import type { HeroMediaItem } from "@/lib/types";
+import { api } from "@/lib/api";
 
 interface PexelsSample {
   id: string;
@@ -32,7 +33,7 @@ export function HeroManager({
 
   async function save(next: HeroMediaItem[]) {
     setMedia(next);
-    const res = await fetch("/api/admin/hero", {
+    const res = await fetch(api("/api/") + "admin/hero", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ media: next }),
@@ -62,7 +63,7 @@ export function HeroManager({
         reader.onerror = reject;
         reader.readAsDataURL(file);
       });
-      const res = await fetch("/api/admin/media", {
+      const res = await fetch(api("/api/") + "admin/media", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ dataUrl, filename: file.name }),
@@ -85,7 +86,7 @@ export function HeroManager({
     setSearching(true);
     setSearchError("");
     try {
-      const res = await fetch(`/api/admin/hero?q=${encodeURIComponent(query)}`);
+      const res = await fetch(api("/api/") + `admin/hero?q=${encodeURIComponent(query)}`);
       const j = await res.json();
       if (!res.ok) throw new Error(j.error);
       setSamples(j.videos);
@@ -230,7 +231,7 @@ export function HeroManager({
               </ul>
             ) : (
               <p className="mt-3 text-[14.5px] text-sand">
-                Search Pexels and add sample clips — useful while the workshop's own footage is
+                Search Pexels and add sample clips — useful while the workshop&rsquo;s own footage is
                 being filmed.
               </p>
             )}

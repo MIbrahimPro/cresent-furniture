@@ -2,6 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { HeroMediaItem } from "@/lib/types";
+import { api } from "@/lib/api";
+
+/** DB media may be stored as "/uploads/..." — prefix for subpath deploys. */
+function mediaUrl(url: string | undefined): string | undefined {
+  if (!url) return url;
+  return url.startsWith("/uploads/") ? api(url) : url;
+}
 
 /**
  * Plays hero media in order, then loops back to the first item.
@@ -34,8 +41,8 @@ export function HeroVideo({ media }: { media: HeroMediaItem[] }) {
 
   return (
     <section
-      className="relative h-[92vh] min-h-[580px] w-full overflow-hidden bg-deep"
-      aria-label="Crescent workshop film"
+      className="relative h-[92vh] min-h-[580px] w-full overflow-hidden bg-espresso"
+      aria-label="Crescent showroom film"
     >
       {/* Background layer */}
       {current ? (
@@ -64,28 +71,27 @@ export function HeroVideo({ media }: { media: HeroMediaItem[] }) {
         )
       ) : null}
 
-      {/* Deep gradient scrim for legibility */}
+      {/* Deep espresso gradient scrim for legibility */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-deep/70 via-deep/35 to-deep"
+        className="absolute inset-0 bg-gradient-to-b from-espresso/70 via-espresso/35 to-espresso"
         aria-hidden
       />
 
       {/* Heading and actions sit above the overlay */}
       <div className="container-c relative z-10 flex h-full flex-col items-center justify-center pb-20 text-center">
-        <p className="overline-c text-brass">Rawalpindi · Bespoke Furniture House</p>
+        <p className="overline-c" style={{ color: "var(--color-coral)" }}>Rawalpindi · Furniture Market, Murree Road</p>
         <h1 className="display-c mt-6 max-w-3xl text-[42px] text-cream sm:text-[60px] lg:text-[72px]">
-          Furniture that <span className="accent-i">breathes.</span>
+          Furniture for <span className="accent-i">real homes.</span>
         </h1>
         <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-sand sm:text-[19px]">
-          Drawn in the workshop, jointed by hand, and finished to live with you. Every Crescent
-          piece is made to order from seasoned hardwood.
+          Sofas, dining sets, beds and more — good furniture at honest prices, all under one roof.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a href="/shop" className="btn btn-primary">
-            Explore the Collection
+            Browse the Collection
           </a>
-          <a href="/bespoke" className="btn btn-secondary">
-            Commission a Piece
+          <a href="/contact" className="btn btn-secondary">
+            Visit the Showroom
           </a>
         </div>
         {current?.credit ? (

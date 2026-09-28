@@ -26,16 +26,16 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
       <div className="grid gap-12 lg:grid-cols-[1fr_380px]">
         <div>
           <div className="flex items-baseline gap-3">
-            <h2 className="display-c text-[24px]">Owners' notes</h2>
+            <h2 className="display-c text-[24px]">Owners&rsquo; notes</h2>
             {reviews.length ? (
-              <span className="text-[15px] text-sand">
+              <span className="text-[15px] text-ink-soft">
                 {avg.toFixed(1)} ★ · {reviews.length} {reviews.length === 1 ? "note" : "notes"}
               </span>
             ) : null}
           </div>
 
           {reviews.length === 0 ? (
-            <p className="mt-5 text-[16px] text-sand">
+            <p className="mt-5 text-[16px] text-ink-soft">
               No notes yet for this piece. Bought it from us before?{" "}
               <Link href="/contact" className="text-terra underline underline-offset-4">
                 Tell the workshop
@@ -47,17 +47,17 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
               {reviews.map((r) => (
                 <li key={String(r._id)} className="panel-c p-6">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="text-[14px] font-semibold text-cream">
+                    <p className="text-[14px] font-semibold text-ink">
                       {r.name}
                     </p>
                     <Stars value={r.rating} />
                   </div>
                   {r.title ? (
-                    <p className="mt-2 font-display text-[15px] font-semibold text-sand">{r.title}</p>
+                    <p className="mt-2 font-display text-[15px] font-semibold text-ink-soft">{r.title}</p>
                   ) : null}
-                  <p className="mt-2 text-[16px] leading-relaxed text-sand/90">{r.body}</p>
+                  <p className="mt-2 text-[16px] leading-relaxed text-ink-soft/90">{r.body}</p>
                   {r.orderNumber ? (
-                    <p className="mt-3 text-[13px] text-sand">Order {r.orderNumber} · verified</p>
+                    <p className="mt-3 text-[13px] text-ink-soft">Order {r.orderNumber} · verified</p>
                   ) : null}
                 </li>
               ))}
@@ -66,10 +66,10 @@ export async function ReviewsSection({ productSlug }: { productSlug: string }) {
         </div>
 
         <div>
-          <h3 className="font-display text-[20px] font-medium text-cream">
+          <h3 className="font-display text-[20px] font-medium text-ink">
             Leave a note
           </h3>
-          <p className="mt-2 text-[15px] text-sand">
+          <p className="mt-2 text-[15px] text-ink-soft">
             Notes are read by the workshop and published after a quick check.
           </p>
           <ReviewForm productSlug={productSlug} />

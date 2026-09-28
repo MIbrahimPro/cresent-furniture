@@ -6,7 +6,7 @@
  *
  * Usage: npm run seed-offer-page
  */
-import { MongoClient } from "mongodb";
+import { MongoClient, type Document } from "mongodb";
 
 const SLUG = "offer-deals";
 
@@ -21,13 +21,20 @@ async function main() {
   await client.connect();
   const db = client.db(process.env.MONGODB_DB || "crescent");
 
-  // Real seeded products, pulled live so prices/images stay accurate
-  const products = await db
-    .collection("products")
-    .find({ slug: { $in: ["shalimar-dining-table", "faizabad-centre-table", "cherat-nightstand", "gulberg-armchair"] } })
-    .toArray();
+  interface SeededProduct {
+    slug: string;
+    name?: string;
+    images?: string[];
+    price?: number;
+  }
 
-  const bySlug = new Map(products.map((p: any) => [p.slug, p]));
+  // Real seeded products, pulled live so prices/images stay accurate
+  const products = (await db
+    .collection<SeededProduct>("products")
+    .find({ slug: { $in: ["shalimar-dining-table", "faizabad-centre-table", "cherat-nightstand", "gulberg-armchair"] } })
+    .toArray()) as (SeededProduct & Document)[];
+
+  const bySlug = new Map(products.map((p) => [p.slug, p]));
   function offer(slug: string, badge: string, comparePrice: number, description: string) {
     const p = bySlug.get(slug);
     return {

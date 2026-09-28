@@ -2,15 +2,33 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const marcellus = localFont({
-  src: [{ path: "../fonts/Marcellus-Regular.ttf", weight: "400", style: "normal" }],
-  variable: "--font-marcellus",
+const fraunces = localFont({
+  src: [
+    { path: "../fonts/Fraunces-Variable.ttf", weight: "100 900", style: "normal" },
+    { path: "../fonts/Fraunces-Italic-Variable.ttf", weight: "100 900", style: "italic" },
+  ],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
-const inter = localFont({
-  src: [{ path: "../fonts/Inter-Variable.ttf", weight: "100 900", style: "normal" }],
-  variable: "--font-inter",
+const merriweather = localFont({
+  src: [
+    { path: "../fonts/Merriweather-Variable.ttf", weight: "100 900", style: "normal" },
+    { path: "../fonts/Merriweather-Italic-Variable.ttf", weight: "100 900", style: "italic" },
+  ],
+  variable: "--font-merriweather",
+  display: "swap",
+});
+
+const archivo = localFont({
+  src: [{ path: "../fonts/Archivo-Variable.ttf", weight: "100 900", style: "normal" }],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const marcellus = localFont({
+  src: [{ path: "../fonts/Marcellus-Regular.ttf", weight: "400", style: "normal" }],
+  variable: "--font-marcellus",
   display: "swap",
 });
 
@@ -23,11 +41,8 @@ export const metadata: Metadata = {
   description:
     "Crescent is a bespoke handcrafted furniture house in Rawalpindi. Every piece made to order — living, dining, bedroom and commissioned work.",
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "48x48" },
-    ],
-    apple: "/apple-touch-icon-180.png",
+    icon: [{ url: "/favicon.ico", sizes: "48x48" }],
+    apple: "/apple-icon.png",
   },
   openGraph: {
     type: "website",
@@ -37,12 +52,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#26101a",
+  themeColor: "#f7f3ec",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${marcellus.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${merriweather.variable} ${archivo.variable} ${marcellus.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

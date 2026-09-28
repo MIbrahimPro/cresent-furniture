@@ -1,10 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Order, OrderStatus } from "@/lib/types";
 import { ORDER_STATUSES, STATUS_LABELS } from "@/lib/types";
 import { formatPKR, optionsLabel } from "@/lib/format";
+import { api } from "@/lib/api";
 
 const NEXT_STATUS: Partial<Record<OrderStatus, OrderStatus>> = {
   new: "confirmed",
@@ -74,7 +74,7 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
                       <button
                         type="button"
                         onClick={async () => {
-                          await fetch(`/api/admin/orders/${id}`, {
+                          await fetch(api("/api/") + `admin/orders/${id}`, {
                             method: "PUT",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({ status: next }),
@@ -139,7 +139,7 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
                       <button
                         type="button"
                         onClick={async () => {
-                          await fetch(`/api/admin/orders/${id}`, {
+                          await fetch(api("/api/") + `admin/orders/${id}`, {
                             method: "PUT",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({ status: "cancelled" }),

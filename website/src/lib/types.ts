@@ -214,6 +214,56 @@ export interface CrmUser {
   createdAt: Date;
 }
 
+// ---------- Tracking / analytics ----------
+
+export type TrackingEventType =
+  | "pageview"
+  | "product_view"
+  | "scroll"
+  | "dwell"
+  | "click"
+  | "search"
+  | "cart_add"
+  | "cart_remove"
+  | "checkout_whatsapp"
+  | "newsletter"
+  | "enquiry"
+  | "review_submit";
+
+export interface TrackingEvent {
+  _id?: import("mongodb").ObjectId;
+  /** Long-lived visitor cookie id (crescent_vid) */
+  visitorId: string;
+  /** Sliding 30-minute session cookie id (crescent_sid) */
+  sessionId: string;
+  type: TrackingEventType | string;
+  path: string;
+  /** document.referrer on first hop of the session */
+  referrer?: string;
+  /** Derived channel: google | instagram | whatsapp | facebook | direct | … */
+  source?: string;
+  utm?: Record<string, string>;
+  /** Slug, search term, or click target description */
+  label?: string;
+  /** Scroll %, dwell seconds, qty, etc. */
+  value?: number;
+  meta?: Record<string, unknown>;
+  createdAt: Date;
+}
+
+// ---------- CRM inbox (contact form / mails) ----------
+
+export interface ContactMessage {
+  _id?: import("mongodb").ObjectId;
+  name: string;
+  phone?: string;
+  email?: string;
+  subject?: string;
+  body: string;
+  handled: boolean;
+  createdAt: Date;
+}
+
 // ---------- Reviews ----------
 
 export interface Review {

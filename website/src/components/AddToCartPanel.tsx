@@ -1,10 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/types";
 import { formatPKR, buildEnquiryUrl } from "@/lib/format";
 import { useCart } from "./CartProvider";
+import { track } from "@/lib/track";
+import { pushHistory } from "@/lib/track";
 
 export function ProductDetail({
   product,
@@ -51,16 +53,23 @@ export function ProductDetail({
 
   const outOfStock = p.kind === "in-stock" && p.stock <= 0;
 
+  // Analytics: product view + personalization history (once per mount)
+  useEffect(() => {
+    track({ type: "product_view", label: p.slug, meta: { name: p.name, category: p.categorySlug } });
+    pushHistory(p.slug, p.categorySlug);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [p.slug]);
+
   return (
     <div className="grid gap-10 lg:grid-cols-2">
       {/* Gallery */}
       <div>
-        <div className="card-c aspect-[4/3] overflow-hidden bg-walnut-2">
+        <div className="card-c aspect-[4/3] overflow-hidden bg-bone">
           {p.images?.[imageIdx] ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={p.images[imageIdx]} alt={p.name} className="h-full w-full object-cover" />
           ) : (
-            <div className="grid h-full place-items-center text-sand">No image yet</div>
+            <div className="grid h-full place-items-center text-ink-soft">No image yet</div>
           )}
         </div>
         {p.images.length > 1 ? (
@@ -86,17 +95,17 @@ export function ProductDetail({
       {/* Details + purchase */}
       <div>
         <p className="overline-c text-terra">
-          {p.kind === "in-stock" ? "Ready to deliver" : "Made to order"}
+          {p.kind === "in-stock" ? "Ready to deliver" : "On request"}
         </p>
         <h1 className="display-c mt-3 text-[30px] sm:text-[36px]">{p.name}</h1>
-        <p className="mt-3 text-[18px] italic text-sand">{p.tagline}</p>
+        <p className="mt-3 text-[18px] italic text-ink-soft">{p.tagline}</p>
 
         <div className="mt-5 flex items-baseline gap-3">
-          <span className="font-display text-[24px] font-semibold text-cream">
+          <span className="font-display text-[24px] font-semibold text-ink">
             {formatPKR(unitPrice)}
           </span>
           {p.comparePrice && p.comparePrice > unitPrice ? (
-            <span className="text-[17px] text-sand line-through">{formatPKR(p.comparePrice)}</span>
+            <span className="text-[17px] text-ink-soft line-through">{formatPKR(p.comparePrice)}</span>
           ) : null}
         </div>
 
@@ -119,8 +128,8 @@ export function ProductDetail({
                     aria-pressed={selected}
                     className={`min-h-[44px] rounded-btn border px-4 py-2 text-[15px] transition-colors ${
                       selected
-                        ? "border-ink bg-ink text-cream"
-                        : "border-line bg-walnut-2 text-sand hover:border-terra"
+                        ? "border-espresso bg-espresso text-cream"
+                        : "border-line bg-bone text-ink-soft hover:border-terra"
                     }`}
                   >
                     {opt}
@@ -138,11 +147,11 @@ export function ProductDetail({
 
         {/* Quantity + add */}
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <div className="flex items-center rounded-btn border border-line bg-walnut-2">
+          <div className="flex items-center rounded-btn border border-line bg-bone">
             <button
               type="button"
               onClick={() => setQty((q) => Math.max(1, q - 1))}
-              className="grid h-[46px] w-11 place-items-center text-cream hover:text-terra"
+              className="grid h-[46px] w-11 place-items-center text-ink hover:text-terra"
               aria-label="Decrease quantity"
             >
               −
@@ -153,7 +162,7 @@ export function ProductDetail({
             <button
               type="button"
               onClick={() => setQty((q) => q + 1)}
-              className="grid h-[46px] w-11 place-items-center text-cream hover:text-terra"
+              className="grid h-[46px] w-11 place-items-center text-ink hover:text-terra"
               aria-label="Increase quantity"
             >
               +
@@ -178,8 +187,8 @@ export function ProductDetail({
 
         {outOfStock ? (
           <p className="mt-3 text-[15px] text-terra">
-            This piece is between commissions — message the workshop on WhatsApp and we will make
-            another.
+            This one just left the floor — message us on WhatsApp and we&rsquo;ll tell you when the
+            next one lands, or find you something close.
           </p>
         ) : null}
 
@@ -200,15 +209,15 @@ export function ProductDetail({
           {p.materials?.length ? <Detail label="Materials" value={p.materials.join(", ")} /> : null}
           <Detail
             label="Availability"
-            value={p.kind === "in-stock" ? `${p.stock} in the workshop` : "Made to order"}
+            value={p.kind === "in-stock" ? `${p.stock} on the floor` : "On request"}
           />
         </dl>
 
         <div className="mt-8 border-t border-line pt-7">
-          <h2 className="font-display text-[20px] font-medium text-cream">
+          <h2 className="font-display text-[20px] font-medium text-ink">
             About this piece
           </h2>
-          <p className="mt-3 text-[17px] leading-relaxed text-sand/90">{p.description}</p>
+          <p className="mt-3 text-[17px] leading-relaxed text-ink-soft/90">{p.description}</p>
         </div>
       </div>
     </div>
@@ -221,7 +230,7 @@ function Detail({ label, value }: { label: string; value: string }) {
       <dt className="w-32 shrink-0 text-[12px] font-semibold uppercase tracking-[0.14em] text-mute">
         {label}
       </dt>
-      <dd className="text-sand/90">{value}</dd>
+      <dd className="text-ink-soft/90">{value}</dd>
     </div>
   );
 }

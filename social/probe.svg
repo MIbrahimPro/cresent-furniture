@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="620" viewBox="0 0 1080 620">
+  <rect width="1080" height="620" fill="#F4EFE6"/>
+  <text x="60" y="90" font-family="Fraunces" font-weight="400" font-size="44" fill="#231B14">Fraunces 400 — Harvest light</text>
+  <text x="60" y="160" font-family="Fraunces" font-weight="600" font-size="44" fill="#231B14">Fraunces 600 — Harvest light</text>
+  <text x="60" y="230" font-family="Fraunces" font-weight="340" font-style="italic" font-size="44" fill="#B4552D">Fraunces 340 italic — Harvest light</text>
+  <text x="60" y="300" font-family="Marcellus" font-weight="400" font-size="30" fill="#231B14">MARCELLUS — CRESCENT FURNITURE HOUSE</text>
+  <text x="60" y="360" font-family="Archivo" font-weight="500" font-size="24" fill="#6B6156">ARCHIVO 500 — UNDER ONE ROOF · SINCE 1998 · RAWALPINDI</text>
+  <text x="60" y="430" font-family="Merriweather" font-weight="300" font-size="24" fill="#231B14">Merriweather 300 — the body voice, patient and warm.</text>
+  <text x="60" y="490" font-family="Merriweather" font-weight="300" font-style="italic" font-size="24" fill="#231B14">Merriweather italic — the body voice, patient and warm.</text>
+  <text x="60" y="570" font-family="Fraunces" font-weight="400" font-size="64" fill="#231B14">Everything, under one roof.</text>
+</svg>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getCollection } from "@/lib/mongo";
+import { toPlainList } from "@/lib/serialize";
 import type { CustomPage } from "@/lib/types";
 import { PagesList } from "@/components/admin/PagesList";
 
@@ -23,7 +24,7 @@ export default async function AdminPages() {
           New page
         </Link>
       </header>
-      <PagesList pages={pages} />
+      <PagesList pages={toPlainList(pages)} />
     </div>
   );
 }

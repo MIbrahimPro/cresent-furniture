@@ -1,0 +1,15 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Crescent social — QA</title>
+<style>
+body{background:#111;color:#eee;font:14px system-ui;margin:24px}
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+figure{margin:0}img{width:100%;display:block;border:1px solid #333}
+figcaption{padding:6px 2px;color:#aaa;font-size:12px}
+h1{font-weight:500}
+</style></head><body>
+<h1>Crescent — 15 social posts (1080×1350)</h1>
+<div class="g" id="g"></div>
+<script>
+const names=[...Array(15)].map((_,i)=>["01-hero-under-one-roof","02-kashmir-bed","03-cut-joined-finished","04-dining-season","05-wfh-desk","06-sale-week","07-solid-sheesham","08-gulberg-quote","09-zoom-in-details","10-nine-drawers","11-bigger-sofa","12-lights-low","13-why-crescent","14-come-sit-on-it","15-jinnah-king-bed"][i]);
+document.getElementById("g").innerHTML=names.map(n=>`<figure><a href="png/${n}.png" target="_blank"><img loading="lazy" src="png/${n}.png"></a><figcaption>${n}</figcaption></figure>`).join("");
+</script></body></html>

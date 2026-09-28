@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { api } from "@/lib/api";
 
 export function ReviewForm({ productSlug }: { productSlug: string }) {
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
@@ -12,7 +13,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
     const data = new FormData(form);
     setState("loading");
     try {
-      const res = await fetch("/api/reviews", {
+      const res = await fetch(api("/api/") + "reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -32,7 +33,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
 
   if (state === "done") {
     return (
-      <p className="panel-c mt-4 p-5 text-[15px] text-sand">
+      <p className="panel-c mt-4 p-5 text-[15px] text-ink-soft">
         Shukriya — your note is with the workshop and will appear after a quick check.
       </p>
     );
@@ -55,7 +56,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
               aria-label={`${n} star${n > 1 ? "s" : ""}`}
               aria-pressed={rating === n}
               className={`text-[22px] leading-none transition-colors ${
-                n <= rating ? "text-terra" : "text-line hover:text-cream"
+                n <= rating ? "text-terra" : "text-ink/25 hover:text-ink"
               }`}
             >
               ★

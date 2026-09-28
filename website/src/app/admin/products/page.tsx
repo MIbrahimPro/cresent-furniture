@@ -1,19 +1,16 @@
 import Link from "next/link";
 import { getCollection } from "@/lib/mongo";
-import type { Category, Product } from "@/lib/types";
-import { formatPKR } from "@/lib/format";
+import type { Product } from "@/lib/types";
+import { toPlainList } from "@/lib/serialize";
 import { ProductRow } from "@/components/admin/ProductRow";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminProducts() {
   let products: Product[] = [];
-  let categories: Category[] = [];
   try {
     const col = await getCollection<Product>("products");
     products = await col.find().sort({ createdAt: -1 }).toArray();
-    const cats = await getCollection<Category>("categories");
-    categories = await cats.find().sort({ order: 1 }).toArray();
   } catch {
     // DB unreachable
   }
@@ -50,7 +47,7 @@ export default async function AdminProducts() {
               </tr>
             </thead>
             <tbody className="divide-y divide-line">
-              {products.map((p) => (
+              {toPlainList(products).map((p) => (
                 <ProductRow key={String(p._id)} product={p} />
               ))}
             </tbody>

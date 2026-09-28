@@ -1,0 +1,164 @@
+{
+  "01-sideboard": {
+    "query": "dark wood sideboard cabinet interior",
+    "pexelsId": 34558080,
+    "photographer": "HONG SON",
+    "pexelsUrl": "https://www.pexels.com/photo/modern-wooden-cabinet-with-floral-decor-34558080/",
+    "avgColor": "#A2958F",
+    "w": 3706,
+    "h": 5559
+  },
+  "02-bedroom": {
+    "query": "moody bedroom wooden bed morning light",
+    "pexelsId": 30056381,
+    "photographer": "Eugenia Remark",
+    "pexelsUrl": "https://www.pexels.com/photo/cozy-morning-with-elegant-breakfast-in-bed-30056381/",
+    "avgColor": "#4B4539",
+    "w": 3024,
+    "h": 4032
+  },
+  "03-workshop": {
+    "query": "carpenter workshop wood shavings hands",
+    "pexelsId": 6790088,
+    "photographer": "Tima Miroshnichenko",
+    "pexelsUrl": "https://www.pexels.com/photo/a-person-doing-carpentry-6790088/",
+    "avgColor": "#857162",
+    "w": 4000,
+    "h": 6000
+  },
+  "04-diningroom": {
+    "query": "elegant dining room wooden table warm",
+    "pexelsId": 14495131,
+    "photographer": "Caio Mantovani",
+    "pexelsUrl": "https://www.pexels.com/photo/green-potted-plant-on-table-14495131/",
+    "avgColor": "#705A33",
+    "w": 2993,
+    "h": 3990
+  },
+  "05-desk": {
+    "query": "wooden desk workspace lamp interior",
+    "pexelsId": 4915562,
+    "photographer": "Maria Orlova",
+    "pexelsUrl": "https://www.pexels.com/photo/table-lamp-near-white-wall-4915562/",
+    "avgColor": "#E2E1DE",
+    "w": 1856,
+    "h": 2784
+  },
+  "06-sofa": {
+    "query": "cozy living room sofa neutral tones",
+    "pexelsId": 19836798,
+    "photographer": "Lisa Anna",
+    "pexelsUrl": "https://www.pexels.com/photo/interior-of-a-modern-minimalist-living-room-19836798/",
+    "avgColor": "#BAB2A5",
+    "w": 4000,
+    "h": 5999
+  },
+  "07-material": {
+    "query": "wood grain texture close up",
+    "pexelsId": 8465910,
+    "photographer": "Davis  Vidal",
+    "pexelsUrl": "https://www.pexels.com/photo/brown-and-gray-wooden-surface-8465910/",
+    "avgColor": "#565246",
+    "w": 4000,
+    "h": 6016
+  },
+  "08-armchair": {
+    "query": "reading corner armchair window light",
+    "pexelsId": 15373143,
+    "photographer": "세훈 예",
+    "pexelsUrl": "https://www.pexels.com/photo/armchair-in-hotel-room-15373143/",
+    "avgColor": "#534C46",
+    "w": 4033,
+    "h": 5041
+  },
+  "09-details": {
+    "query": "wood carving furniture detail",
+    "pexelsId": 4611607,
+    "photographer": "Magda Ehlers",
+    "pexelsUrl": "https://www.pexels.com/photo/embossed-wood-carving-design-4611607/",
+    "avgColor": "#482619",
+    "w": 3191,
+    "h": 3598
+  },
+  "10-wardrobe": {
+    "query": "minimal bedroom wardrobe wood",
+    "pexelsId": 38697208,
+    "photographer": "McFollis",
+    "pexelsUrl": "https://www.pexels.com/photo/contemporary-minimalist-wooden-wardrobe-in-bedroom-38697208/",
+    "avgColor": "#D4B99B",
+    "w": 4480,
+    "h": 6720
+  },
+  "11-friends": {
+    "query": "friends laughing living room home",
+    "pexelsId": 6552577,
+    "photographer": "cottonbro studio",
+    "pexelsUrl": "https://www.pexels.com/photo/women-in-pajamas-sitting-on-the-sofa-6552577/",
+    "avgColor": "#A89990",
+    "w": 4160,
+    "h": 6240
+  },
+  "12-lamp": {
+    "query": "warm lamp glow dark interior",
+    "pexelsId": 5074172,
+    "photographer": "Lucas Oliveira",
+    "pexelsUrl": "https://www.pexels.com/photo/photo-of-an-illuminated-light-bulb-5074172/",
+    "avgColor": "#171410",
+    "w": 3857,
+    "h": 5785
+  },
+  "13-craft-texture": {
+    "query": "woodworking tools wood surface",
+    "pexelsId": 7480452,
+    "photographer": "cottonbro studio",
+    "pexelsUrl": "https://www.pexels.com/photo/brown-and-black-metal-tool-7480452/",
+    "avgColor": "#7A7970",
+    "w": 4000,
+    "h": 6000
+  },
+  "14-showroom": {
+    "query": "furniture store showroom interior",
+    "pexelsId": 17851733,
+    "photographer": "Shawn Nguyen",
+    "pexelsUrl": "https://www.pexels.com/photo/red-armchair-on-floor-17851733/",
+    "avgColor": "#7D5732",
+    "w": 2433,
+    "h": 3637
+  },
+  "15-bed": {
+    "query": "luxury bedroom wooden headboard",
+    "pexelsId": 39643629,
+    "photographer": "Phalgunn Maharishi",
+    "pexelsUrl": "https://www.pexels.com/photo/modern-bedroom-interior-with-golden-lamp-39643629/",
+    "avgColor": "#383719",
+    "w": 4000,
+    "h": 6000
+  },
+  "16-cushions": {
+    "query": "sofa cushions detail styling",
+    "pexelsId": 36585042,
+    "photographer": "Sami Raad",
+    "pexelsUrl": "https://www.pexels.com/photo/modern-brown-and-gray-sofa-corner-design-36585042/",
+    "avgColor": "#7D6049",
+    "w": 4000,
+    "h": 6000
+  },
+  "17-dining-detail": {
+    "query": "table setting dining plates",
+    "pexelsId": 19075629,
+    "photographer": "Filipp Romanovski",
+    "pexelsUrl": "https://www.pexels.com/photo/plate-with-truffles-next-to-a-wineglass-and-pumpkins-19075629/",
+    "avgColor": "#9D9E99",
+    "w": 3000,
+    "h": 4498
+  },
+  "18-shelf": {
+    "query": "bookshelf books interior detail",
+    "pexelsId": 12391148,
+    "photographer": "Andy Lee",
+    "pexelsUrl": "https://www.pexels.com/photo/books-on-shelves-12391148/",
+    "avgColor": "#442F14",
+    "w": 3840,
+    "h": 5760
+  }
+}

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getCollection, ObjectId } from "@/lib/mongo";
+import { toPlainDoc, toPlainList } from "@/lib/serialize";
 import type { Category, Product } from "@/lib/types";
 import { ProductForm } from "@/components/admin/ProductForm";
 
@@ -21,7 +22,7 @@ export default async function EditProductPage({
   return (
     <div>
       <h1 className="display-c text-[26px]">Edit — {product.name}</h1>
-      <ProductForm product={product} categories={categories} />
+      <ProductForm product={toPlainDoc(product)} categories={toPlainList(categories)} />
     </div>
   );
 }

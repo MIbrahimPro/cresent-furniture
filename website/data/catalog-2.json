@@ -5,7 +5,7 @@
       "name": "The Rawalpindi Sideboard",
       "categorySlug": "dining",
       "tagline": "Storage for the good china and the everyday plates.",
-      "description": "Four soft-close doors behind a fluted front, with an adjustable shelf in each bay. The flutes are cut on the router but cleaned up by hand, one at a time.",
+      "description": "Four soft-close doors behind a fluted front, with an adjustable shelf in each bay. Clean lines, honest storage.",
       "price": 132000,
       "images": ["pexels:sideboard-cabinet", "pexels:dining-room-storage"],
       "variants": [
@@ -21,7 +21,7 @@
       "name": "The Cherat Nightstand",
       "categorySlug": "bedroom",
       "tagline": "One drawer, one shelf, no clutter.",
-      "description": "A small bedside table with a dovetailed drawer that slides on waxed runners and closes with the quiet click of solid wood against solid wood.",
+      "description": "A small bedside table with a smooth-glide drawer and a open shelf below. Solid wood, quiet lines, fair price.",
       "price": 34000, "comparePrice": 39000,
       "images": ["pexels:nightstand-bedroom", "pexels:bedside-lamp"],
       "variants": [
@@ -67,7 +67,7 @@
       "name": "The Shahrah Dining Chair",
       "categorySlug": "dining",
       "tagline": "Sold in pairs, built for decades.",
-      "description": "A spindle-back chair steam-bent for a gentle recline. The joints are wedged, not glued — tighten a wedge, add a decade.",
+      "description": "A spindle-back chair with a gentle recline and solid wood joints. Sold in pairs — one for now, one for the growing family.",
       "price": 28000,
       "images": ["pexels:wooden-dining-chair", "pexels:dining-chair-detail"],
       "variants": [
@@ -94,25 +94,27 @@
       "dimensions": "Nests to 100 × 55 × 45 cm"
     },
     {
-      "slug": "commission-your-piece",
-      "name": "Commission a Bespoke Piece",
-      "categorySlug": "bespoke",
-      "tagline": "Your drawing, our workshop, one heirloom.",
-      "description": "Bring a sketch, a photograph, or just an idea. We measure the room, choose the timber with you, and draw the piece full-size before a single cut is made. Most commissions take between six and twelve weeks.",
-      "price": 150000,
-      "images": ["pexels:carpenter-workshop", "pexels:woodworking-tools"],
+      "slug": "jinnah-super-king-bed",
+      "name": "The Jinnah Super King Bed",
+      "categorySlug": "bedroom",
+      "tagline": "The whole room, anchored.",
+      "description": "A generous super-king frame with a tall panelled headboard and solid slatted base. The finish is hand-rubbed wax over stained beech — warm, matte, and hard to scratch.",
+      "price": 289000, "comparePrice": 315000,
+      "images": ["pexels:wooden-bed-bedroom", "pexels:bedroom-furniture"],
       "variants": [
-        { "name": "Scope", "options": ["Single piece", "Room set", "Whole home"], "priceDeltas": [0, 0, 0] }
+        { "name": "Size", "options": ["King", "Super King"], "priceDeltas": [0, 30000] },
+        { "name": "Finish", "options": ["Walnut", "Espresso"], "priceDeltas": [0, 0] }
       ],
-      "kind": "made-to-order", "stock": 0, "featured": true, "active": true,
-      "materials": ["Timber chosen with you"], "leadTime": "6-12 weeks"
+      "kind": "in-stock", "stock": 4, "featured": true, "active": true,
+      "materials": ["Beech frame", "Slatted base"], "leadTime": "Ready to deliver",
+      "dimensions": "200 × 210 × 130 cm"
     },
     {
       "slug": "heirloom-dresser",
       "name": "The Heirloom Dresser",
       "categorySlug": "bedroom",
       "tagline": "Nine drawers of order.",
-      "description": "A wide dresser with hand-cut dovetails in every drawer and a mirror framed in the same board that forms its top.",
+      "description": "A wide dresser with nine smooth drawers and a mirror framed in the same board that forms its top.",
       "price": 118000,
       "images": ["pexels:wooden-dresser", "pexels:bedroom-storage"],
       "variants": [

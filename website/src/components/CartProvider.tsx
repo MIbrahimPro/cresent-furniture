@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { CartItem } from "@/lib/types";
+import { trackCartAdd, trackCartRemove } from "@/lib/track";
 
 interface CartContextValue {
   items: CartItem[];
@@ -31,7 +32,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setItems(JSON.parse(raw));
+      if (raw) {
+        // One-time localStorage hydration after mount; suppressing this lint rule
+        // is intentional — the store shape is hydration-after-mount by design.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setItems(JSON.parse(raw));
+      }
     } catch {
       // corrupted storage — start fresh
     }
@@ -49,7 +55,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return {
       items,
       ready,
-      addItem: (item) =>
+      addItem: (item) => {
+        trackCartAdd({ slug: item.slug, name: item.name, price: item.unitPrice * item.qty });
         mutate((prev) => {
           const idx = prev.findIndex(
             (i) => i.productId === item.productId && sameOption(i.options, item.options),
@@ -60,9 +67,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
             return next;
           }
           return [...prev, item];
-        }),
-      removeItem: (productId, options) =>
-        mutate((prev) => prev.filter((i) => !(i.productId === productId && sameOption(i.options, options)))),
+        });
+      },
+      removeItem: (productId, options) => {
+        const removed = items.find(
+          (i) => i.productId === productId && sameOption(i.options, options),
+        );
+        if (removed) trackCartRemove(removed.slug);
+        mutate((prev) => prev.filter((i) => !(i.productId === productId && sameOption(i.options, options))));
+      },
       setQty: (productId, options, qty) =>
         mutate((prev) => {
           if (qty <= 0) {

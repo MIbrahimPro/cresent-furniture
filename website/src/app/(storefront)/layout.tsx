@@ -5,6 +5,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
 import { CartProvider } from "@/components/CartProvider";
+import { Tracker } from "@/components/Tracker";
+import { toPlainDoc } from "@/lib/serialize";
 import type { CustomPage } from "@/lib/types";
 
 export default async function StorefrontLayout({ children }: { children: React.ReactNode }) {
@@ -26,6 +28,8 @@ export default async function StorefrontLayout({ children }: { children: React.R
 
   return (
     <CartProvider>
+      <Tracker />
+      <div className="grain" aria-hidden />
       <Header
         categories={navCategories}
         pages={navPages}
@@ -34,7 +38,7 @@ export default async function StorefrontLayout({ children }: { children: React.R
         }
       />
       <main>{children}</main>
-      <Footer settings={settings} categories={categories} />
+      <Footer settings={toPlainDoc(settings)} categories={categories} />
       <WhatsAppFab number={settings.business.whatsapp} />
     </CartProvider>
   );

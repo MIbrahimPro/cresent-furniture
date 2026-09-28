@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getCollection, ObjectId } from "@/lib/mongo";
+import { toPlainDoc } from "@/lib/serialize";
 import type { CustomPage } from "@/lib/types";
 import { PageEditor } from "@/components/admin/PageEditor";
 
@@ -18,7 +19,7 @@ export default async function EditPagePage({
   return (
     <div>
       <h1 className="display-c text-[26px]">Edit — {page.title}</h1>
-      <PageEditor page={page} />
+      <PageEditor page={toPlainDoc(page)} />
     </div>
   );
 }

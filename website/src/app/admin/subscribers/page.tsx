@@ -1,5 +1,4 @@
 import { getCollection } from "@/lib/mongo";
-import { formatPKR } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
 

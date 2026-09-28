@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Category } from "@/lib/types";
+import { api } from "@/lib/api";
 
 export function CategoriesManager({ categories }: { categories: Category[] }) {
   const router = useRouter();
@@ -14,7 +15,7 @@ export function CategoriesManager({ categories }: { categories: Category[] }) {
     e.preventDefault();
     if (!name.trim()) return;
     setBusy(true);
-    await fetch("/api/admin/categories", {
+    await fetch(api("/api/") + "admin/categories", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -29,7 +30,7 @@ export function CategoriesManager({ categories }: { categories: Category[] }) {
   }
 
   async function toggle(cat: Category) {
-    await fetch(`/api/admin/categories/${cat._id}`, {
+    await fetch(api("/api/") + `admin/categories/${cat._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ active: !cat.active }),
@@ -39,7 +40,7 @@ export function CategoriesManager({ categories }: { categories: Category[] }) {
 
   async function remove(cat: Category) {
     if (!confirm(`Delete category "${cat.name}"? Products in it will need a new category.`)) return;
-    await fetch(`/api/admin/categories/${cat._id}`, { method: "DELETE" });
+    await fetch(api("/api/") + `admin/categories/${cat._id}`, { method: "DELETE" });
     router.refresh();
   }
 

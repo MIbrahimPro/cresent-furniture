@@ -1,4 +1,5 @@
 import { getSettings } from "@/lib/settings";
+import { toPlainDoc } from "@/lib/serialize";
 import { HeroManager } from "@/components/admin/HeroManager";
 
 export const dynamic = "force-dynamic";
@@ -13,7 +14,7 @@ export default async function AdminHero() {
         first. Upload your own workshop clips or search Pexels for samples. A dark maroon overlay
         is applied automatically so the heading stays readable.
       </p>
-      <HeroManager initialMedia={settings.heroMedia} pexelsConfigured={Boolean(process.env.PEXELS_API)} />
+      <HeroManager initialMedia={toPlainDoc(settings).heroMedia ?? []} pexelsConfigured={Boolean(process.env.PEXELS_API)} />
     </div>
   );
 }

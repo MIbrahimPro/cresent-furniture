@@ -1,4 +1,5 @@
 import { getCollection } from "@/lib/mongo";
+import { toPlainList } from "@/lib/serialize";
 import type { Category } from "@/lib/types";
 import { ProductForm } from "@/components/admin/ProductForm";
 
@@ -11,7 +12,7 @@ export default async function NewProductPage() {
   return (
     <div>
       <h1 className="display-c text-[26px]">Add product</h1>
-      <ProductForm categories={categories} />
+      <ProductForm categories={toPlainList(categories)} />
     </div>
   );
 }

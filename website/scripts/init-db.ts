@@ -6,6 +6,7 @@
  */
 import { MongoClient } from "mongodb";
 import crypto from "crypto";
+import type { SettingsDoc } from "../src/lib/types";
 
 function hashPassword(password: string, email: string): string {
   return crypto.scryptSync(password, email.toLowerCase().trim(), 64).toString("hex");
@@ -34,7 +35,7 @@ async function main() {
   await db.collection("reviews").createIndex({ productSlug: 1, approved: 1 });
 
   // Settings doc
-  await db.collection<any>("settings").updateOne(
+  await db.collection<SettingsDoc>("settings").updateOne(
     { _id: "site" },
     {
       $setOnInsert: {
@@ -63,7 +64,7 @@ async function main() {
   const password = process.env.CRM_ADMIN_PASSWORD || "crescent-admin";
   const name = process.env.CRM_ADMIN_NAME || "Owner";
 
-  await db.collection<any>("crm_users").updateOne(
+  await db.collection<Record<string, unknown>>("crm_users").updateOne(
     { email: email.toLowerCase() },
     {
       $setOnInsert: {

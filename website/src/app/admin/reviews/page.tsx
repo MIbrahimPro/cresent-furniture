@@ -1,4 +1,5 @@
 import { getCollection } from "@/lib/mongo";
+import { toPlainList } from "@/lib/serialize";
 import type { Review } from "@/lib/types";
 import { ReviewsModeration } from "@/components/admin/ReviewsModeration";
 
@@ -14,7 +15,7 @@ export default async function AdminReviews() {
       <p className="mt-1.5 text-[16px] text-sand">
         Owner notes submitted from product pages. Approve to publish on the storefront.
       </p>
-      <ReviewsModeration reviews={reviews} />
+      <ReviewsModeration reviews={toPlainList(reviews)} />
     </div>
   );
 }

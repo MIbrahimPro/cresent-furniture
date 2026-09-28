@@ -1,4 +1,5 @@
 import { getCollection } from "@/lib/mongo";
+import { toPlainList } from "@/lib/serialize";
 import type { Category } from "@/lib/types";
 import { CategoriesManager } from "@/components/admin/CategoriesManager";
 
@@ -14,7 +15,7 @@ export default async function AdminCategories() {
       <p className="mt-1.5 text-[16px] text-sand">
         Categories drive the storefront navigation and shop filters.
       </p>
-      <CategoriesManager categories={categories} />
+      <CategoriesManager categories={toPlainList(categories)} />
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { OfferBanner } from "@/lib/types";
+import { api } from "@/lib/api";
 
 export function OffersManager({ banner }: { banner: OfferBanner | null }) {
   const router = useRouter();
@@ -15,7 +16,7 @@ export function OffersManager({ banner }: { banner: OfferBanner | null }) {
   async function save(nextActive = active) {
     setSaving(true);
     setSaved(false);
-    const res = await fetch("/api/admin/offers", {
+    const res = await fetch(api("/api/") + "admin/offers", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

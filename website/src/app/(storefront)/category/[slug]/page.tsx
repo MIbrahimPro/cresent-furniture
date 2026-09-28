@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getActiveCategories, searchProducts } from "@/lib/catalog";
+import { toPlainList } from "@/lib/serialize";
 import { ProductCard } from "@/components/ProductCard";
 
 export const dynamic = "force-dynamic";
@@ -40,7 +41,7 @@ export default async function CategoryPage({
 
   return (
     <div className="container-c py-12">
-      <nav aria-label="Breadcrumb" className="text-[14px] text-sand">
+      <nav aria-label="Breadcrumb" className="text-[14px] text-ink-soft">
         <Link href="/" className="hover:text-terra">Home</Link>
         <span className="mx-2">/</span>
         <Link href="/shop" className="hover:text-terra">Shop</Link>
@@ -52,19 +53,19 @@ export default async function CategoryPage({
         <p className="overline-c text-terra">Category</p>
         <h1 className="display-c mt-3 text-[32px]">{cat?.name ?? slug}</h1>
         {cat?.description ? (
-          <p className="mt-3 text-[17px] text-sand">{cat.description}</p>
+          <p className="mt-3 text-[17px] text-ink-soft">{cat.description}</p>
         ) : null}
       </header>
 
       {dbError ? (
-        <p className="panel-c mt-10 p-6 text-[16px] text-sand">Database unreachable — try again shortly.</p>
+        <p className="panel-c mt-10 p-6 text-[16px] text-ink-soft">Database unreachable — try again shortly.</p>
       ) : products.length === 0 ? (
-        <div className="panel-c mt-10 p-10 text-center text-sand">
+        <div className="panel-c mt-10 p-10 text-center text-ink-soft">
           No pieces in this category yet.
         </div>
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((p) => (
+          {toPlainList(products).map((p) => (
             <ProductCard key={String(p._id)} product={p} />
           ))}
         </div>
@@ -72,7 +73,7 @@ export default async function CategoryPage({
 
       {others.length ? (
         <div className="mt-14 border-t border-line pt-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brass">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-terra">
             Keep browsing
           </p>
           <div className="mt-4 flex flex-wrap gap-3">

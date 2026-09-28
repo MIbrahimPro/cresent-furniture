@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect width="1080" height="1350" fill="#F4EFE6"/>
+  <rect width="1080" height="1350" fill="#B4552D"/>
+  <text x="72" y="128" font-family="Archivo, 'DejaVu Sans', sans-serif" font-weight="600" font-size="17" letter-spacing="8" fill="#F8F5EE" text-anchor="start">THE WEEKEND CLEAROUT</text>
+  <text x="72" y="330" font-family="Fraunces, 'DejaVu Serif', serif" font-weight="600" font-size="220" fill="#F8F5EE">10%</text>
+  <text x="72" y="424" font-family="Fraunces, 'DejaVu Serif', serif" font-weight="400" font-style="italic" font-size="64" fill="#231B14">off, flat. This week only.</text>
+  <line x1="72" y1="496" x2="1008" y2="496" stroke="rgba(35,27,20,0.35)" stroke-width="1.4"/>
+  
+    <text x="72" y="596" font-family="Fraunces, 'DejaVu Serif', serif" font-weight="500" font-size="40" fill="#F8F5EE">The Cherat Nightstand</text>
+    <text x="72" y="644" font-family="Archivo, 'DejaVu Sans', sans-serif" font-weight="600" font-size="26" fill="#231B14">NOW PKR 34,000  <tspan fill="rgba(35,27,20,0.55)" font-weight="500">was 39,000</tspan></text>
+    <line x1="72" y1="668" x2="1008" y2="668" stroke="rgba(248,245,238,0.28)" stroke-width="1.2"/>
+  
+    <text x="72" y="714" font-family="Fraunces, 'DejaVu Serif', serif" font-weight="500" font-size="40" fill="#F8F5EE">The Faizabad Centre Table</text>
+    <text x="72" y="762" font-family="Archivo, 'DejaVu Sans', sans-serif" font-weight="600" font-size="26" fill="#231B14">NOW PKR 62,000  <tspan fill="rgba(35,27,20,0.55)" font-weight="500">was 74,000</tspan></text>
+    <line x1="72" y1="786" x2="1008" y2="786" stroke="rgba(248,245,238,0.28)" stroke-width="1.2"/>
+  
+    <text x="72" y="832" font-family="Fraunces, 'DejaVu Serif', serif" font-weight="500" font-size="40" fill="#F8F5EE">The Shalimar Dining Table</text>
+    <text x="72" y="880" font-family="Archivo, 'DejaVu Sans', sans-serif" font-weight="600" font-size="26" fill="#231B14">NOW PKR 285,000  <tspan fill="rgba(35,27,20,0.55)" font-weight="500">was 320,000</tspan></text>
+    <line x1="72" y1="904" x2="1008" y2="904" stroke="rgba(248,245,238,0.28)" stroke-width="1.2"/>
+  
+  
+  <rect x="72" y="1024" width="258" height="54" rx="27" fill="#F8F5EE" stroke="#F8F5EE" stroke-width="1.2"/>
+  <text x="201" y="1056.5" font-family="Archivo, 'DejaVu Sans', sans-serif" font-weight="600" font-size="16.5" letter-spacing="1.6" fill="#B4552D" text-anchor="middle">WHATSAPP TO CLAIM</text>
+  <text x="72" y="1128" font-family="Merriweather, 'DejaVu Serif', serif" font-weight="300" font-size="21" fill="rgba(35,27,20,0.72)">Prices straight on the tags. No codes, no fine print.</text>
+  <line x1="72" y1="1240" x2="1008" y2="1240" stroke="rgba(35,27,20,0.35)" stroke-width="1.4"/>
+  <text x="72" y="1288" font-family="Marcellus, 'DejaVu Serif', serif" font-size="20" letter-spacing="7" fill="#F8F5EE">CRESCENT</text>
+  <text x="1008" y="1288" font-family="Archivo, 'DejaVu Sans', sans-serif" font-weight="500" font-size="15" letter-spacing="2.4" fill="rgba(35,27,20,0.6)" text-anchor="end">crescentfurniture.pk</text>
+</svg>

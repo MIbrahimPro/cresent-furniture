@@ -4,7 +4,7 @@
     { "slug": "dining", "name": "Dining", "description": "Tables and sideboards jointed for decades of shared meals.", "order": 2 },
     { "slug": "bedroom", "name": "Bedroom", "description": "Beds, wardrobes, and nightstands built from seasoned hardwood.", "order": 3 },
     { "slug": "office", "name": "Office & Study", "description": "Desks, chairs, and shelving for rooms where work is done well.", "order": 4 },
-    { "slug": "bespoke", "name": "Bespoke Commissions", "description": "One-of-a-kind pieces, drawn in the workshop and made to order.", "order": 5 }
+    { "slug": "lighting", "name": "Lighting", "description": "Lamps and lights to finish the room.", "order": 5 }
   ],
   "products": [
     {
@@ -12,7 +12,7 @@
       "name": "The Shalimar Dining Table",
       "categorySlug": "dining",
       "tagline": "Eight seats, one hundred years of dinners.",
-      "description": "A long table in solid sheesham, its top drawn from a single seasoned plank and finished with a hand-rubbed oil that deepens with every year. The legs are pinned with traditional mortise-and-tenon joints — no screws, no shortcuts.",
+      "description": "A long table in solid sheesham with a hand-rubbed finish that deepens with every year. Sturdy mortise-and-tenon legs — built to handle decades of dinners.",
       "price": 285000, "comparePrice": 320000,
       "images": ["pexels:dining-table-wood", "pexels:dining-room-interior", "pexels:carpenter-workshop"],
       "variants": [
@@ -28,7 +28,7 @@
       "name": "The Kashmir Bed Frame",
       "categorySlug": "bedroom",
       "tagline": "Carved headboard, quiet nights.",
-      "description": "Chinar-leaf carving runs along the headboard of this king bed, each motif cut by hand in our Rawalpindi workshop. The frame is seasoned deodar — cedar that smells faintly of the hills it came from.",
+      "description": "A king bed with a carved chinar-leaf headboard in seasoned deodar — cedar that smells faintly of the hills it came from.",
       "price": 195000,
       "images": ["pexels:wooden-bed-bedroom", "pexels:carved-wood-detail"],
       "variants": [
@@ -44,7 +44,7 @@
       "name": "The Margalla Wardrobe",
       "categorySlug": "bedroom",
       "tagline": "Doors that will outlast fashion.",
-      "description": "Three bays, a full-length mirror framed in rosewood, and hanging rails mounted on seasoned hardwood bearers. Built to be inherited, not replaced.",
+      "description": "Three bays, a full-length mirror framed in rosewood, and hanging rails mounted on seasoned hardwood bearers. Built to be used hard and keep looking good.",
       "price": 240000,
       "images": ["pexels:wooden-wardrobe", "pexels:bedroom-furniture"],
       "variants": [

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { SettingsDoc } from "@/lib/types";
+import { api } from "@/lib/api";
 
 export function SettingsForm({ settings }: { settings: SettingsDoc }) {
   const router = useRouter();
@@ -15,7 +16,7 @@ export function SettingsForm({ settings }: { settings: SettingsDoc }) {
     const f = new FormData(e.currentTarget);
     setSaving(true);
     setSaved(false);
-    const res = await fetch("/api/admin/settings", {
+    const res = await fetch(api("/api/") + "admin/settings", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

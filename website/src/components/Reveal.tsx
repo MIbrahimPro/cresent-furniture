@@ -18,7 +18,7 @@ export function Reveal({
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
+      // CSS handles reduced motion (see globals.css) — no state, no extra render.
       return;
     }
     const obs = new IntersectionObserver(
@@ -28,20 +28,14 @@ export function Reveal({
           obs.disconnect();
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.12 },
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
   return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-[18px] opacity-0"
-      } ${className}`}
-    >
+    <div ref={ref} className={`reveal ${visible ? "in" : ""} ${className}`} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
       {children}
     </div>
   );

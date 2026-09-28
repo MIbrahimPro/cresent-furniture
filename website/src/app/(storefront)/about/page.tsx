@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Our Story",
-  description: "Four decades of handcrafted furniture from Rawalpindi.",
+  description: "Crescent Furniture — a family-run furniture outlet on Murree Road, Rawalpindi.",
 };
 
 export default async function AboutPage() {
@@ -17,40 +17,37 @@ export default async function AboutPage() {
       <header className="mx-auto max-w-2xl text-center">
         <p className="overline-c text-terra">Our Story</p>
         <h1 className="display-c mt-3 text-[34px]">
-          We do not manufacture furniture. We engineer heirlooms.
+          A family furniture house on <em>Murree Road.</em>
         </h1>
         <hr className="hr-coral mx-auto mt-6" />
       </header>
 
-      <div className="mx-auto mt-12 max-w-2xl space-y-6 text-[18px] leading-relaxed text-sand/90">
+      <div className="mx-auto mt-12 max-w-2xl space-y-6 text-[18px] leading-relaxed text-ink-soft/90">
         <p>
-          Crescent began as a two-bench workshop on Murree Road with a simple stubbornness: that a
-          piece of furniture should outlive the person who bought it, and that everything needed to
-          make that happen — seasoned timber, patient joinery, honest finishes — was available right
-          here in Rawalpindi.
+          Crescent started as a single shop in the Furniture Market with one idea: buying furniture
+          should be the easy part of furnishing a home. Good pieces, clearly priced, from people who
+          actually know what they are selling.
         </p>
         <p>
-          Forty-five years later the benches are more, the stubbornness is the same. Boards still
-          rest in the shed for months before they are cut. Joints are still drawn, chiselled, and
-          fitted by hand. Nothing leaves the workshop until the maker is willing to sign the back of
-          it.
+          Today the floor carries sofas, dining sets, beds, wardrobes, and everything between —
+          picked from makers we have known for years. We check every piece before it goes on the
+          floor, and we say no to the flimsy stuff, even when it is cheap.
         </p>
         <p>
-          We do not keep stock in a warehouse. When you commission a piece, it is drawn for your
-          room, built from timber chosen for that drawing, and finished by the same hands that
-          started it. It is a slower way to work. It is also the only way we know.
+          We do not make furniture; we find the good kind and stand behind it. Walk in, sit on
+          things, ask us anything. The chai is on the house either way.
         </p>
       </div>
 
       <div className="mt-14 grid gap-6 sm:grid-cols-3">
-        <Value title="Seasoned, not rushed" body="Timber rests for months before the first cut, so your furniture never warps." />
-        <Value title="Joined, not screwed" body="Mortise, tenon, dovetail, wedge — joints chosen to be tightened, not replaced." />
-        <Value title="Finished to live with" body="Hand-rubbed oils and waxes that deepen with use instead of chipping away." />
+        <Value title="Chosen, not just stocked" body="Every piece on the floor is picked by the family that runs the shop." />
+        <Value title="Ticketed, fixed prices" body="The price on the tag is the price you pay — no haggling theatre." />
+        <Value title="Delivered, not just sold" body="Delivery across Rawalpindi & Islamabad, placed in your room." />
       </div>
 
       <div className="panel-c mt-14 p-10 text-center">
-        <h2 className="display-c text-[24px]">Visit the workshop</h2>
-        <p className="mx-auto mt-3 max-w-md text-[16px] text-sand">{business.address}</p>
+        <h2 className="display-c text-[24px]">Visit the showroom</h2>
+        <p className="mx-auto mt-3 max-w-md text-[16px] text-ink-soft">{business.address}</p>
         <Link href="/contact" className="btn btn-primary mt-6">
           Plan a visit
         </Link>
@@ -62,10 +59,10 @@ export default async function AboutPage() {
 function Value({ title, body }: { title: string; body: string }) {
   return (
     <div className="panel-c p-6">
-      <h3 className="font-display text-[18px] font-medium text-cream">
+      <h3 className="font-display text-[18px] font-medium text-ink">
         {title}
       </h3>
-      <p className="mt-3 text-[16px] leading-relaxed text-sand/85">{body}</p>
+      <p className="mt-3 text-[16px] leading-relaxed text-ink-soft/85">{body}</p>
     </div>
   );
 }

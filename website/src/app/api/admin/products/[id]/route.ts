@@ -8,7 +8,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     const { id } = await params;
     const body = (await req.json()) as Partial<Product>;
     const col = await getCollection<Product>("products");
-    const { _id, createdAt, ...rest } = body as Product;
+    const { _id: _omitId, createdAt: _omitCreated, ...rest } = body as Product;
     const res = await col.updateOne(
       { _id: new ObjectId(id) },
       { $set: { ...rest, updatedAt: new Date() } },

@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CustomPage } from "@/lib/types";
+import { api } from "@/lib/api";
 
 export function PagesList({ pages }: { pages: CustomPage[] }) {
   const router = useRouter();
 
   async function togglePublished(page: CustomPage) {
-    await fetch(`/api/admin/pages/${page._id}`, {
+    await fetch(api("/api/") + `admin/pages/${page._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ published: !page.published }),
@@ -18,7 +19,7 @@ export function PagesList({ pages }: { pages: CustomPage[] }) {
 
   async function remove(page: CustomPage) {
     if (!confirm(`Delete page "${page.title}"?`)) return;
-    await fetch(`/api/admin/pages/${page._id}`, { method: "DELETE" });
+    await fetch(api("/api/") + `admin/pages/${page._id}`, { method: "DELETE" });
     router.refresh();
   }
 

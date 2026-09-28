@@ -7,7 +7,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
   try {
     const { id } = await params;
     const body = (await req.json()) as Partial<CustomPage>;
-    const { _id, createdAt, ...rest } = body;
+    const { _id: _omitId, createdAt: _omitCreated, ...rest } = body;
     const col = await getCollection<CustomPage>("custom_pages");
     const res = await col.updateOne(
       { _id: new ObjectId(id) },
